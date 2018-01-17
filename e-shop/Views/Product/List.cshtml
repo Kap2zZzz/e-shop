@@ -1,5 +1,4 @@
-﻿@using e_shop.Entities;
-@model IEnumerable<Product>
+﻿@model e_shop.Models.ProductsListView
 
 <!DOCTYPE html>
 
@@ -9,15 +8,20 @@
     <title>List</title>
 </head>
 <body>
-    <div>
-        @foreach (var p in Model)
-        {
-            <div>
-                <h3>@p.Name</h3>
-                @p.Description
-                <h4>@p.Price.ToString("c")</h4>
-            </div>
-        }
+
+    @foreach (var p in Model.Products)
+    {
+        <div class="well">
+            <h3>
+                <strong>@p.Name</strong>
+                <span class="pull-right label label-primary">@p.Price.ToString("c")</span>
+            </h3>
+            <span class="lead">@p.Description</span>
+        </div>
+    }
+
+    <div class="btn-group pull-right">
+        @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x }))
     </div>
 </body>
 </html>
