@@ -16,3 +16,23 @@ C:\Users\Muzyka Yuriy\Documents\Visual Studio 2013\Projects\e-shop\e-shop\bin\Sy
 C:\Users\Muzyka Yuriy\Documents\Visual Studio 2013\Projects\e-shop\e-shop\obj\Debug\e-shop.dll
 C:\Users\Muzyka Yuriy\Documents\Visual Studio 2013\Projects\e-shop\e-shop\obj\Debug\e-shop.pdb
 C:\Users\Muzyka Yuriy\Documents\Visual Studio 2013\Projects\e-shop\e-shop\obj\Debug\e-shop.csprojResolveAssemblyReference.cache
+D:\GitHub\e-shop\e-shop\bin\e-shop.dll.config
+D:\GitHub\e-shop\e-shop\bin\e-shop.dll
+D:\GitHub\e-shop\e-shop\bin\e-shop.pdb
+D:\GitHub\e-shop\e-shop\bin\System.Web.Helpers.dll
+D:\GitHub\e-shop\e-shop\bin\System.Web.Mvc.dll
+D:\GitHub\e-shop\e-shop\bin\System.Web.Razor.dll
+D:\GitHub\e-shop\e-shop\bin\System.Web.Webpages.Deployment.dll
+D:\GitHub\e-shop\e-shop\bin\System.Web.Webpages.dll
+D:\GitHub\e-shop\e-shop\bin\System.Web.Webpages.Razor.dll
+D:\GitHub\e-shop\e-shop\bin\System.Web.Razor.xml
+D:\GitHub\e-shop\e-shop\bin\System.Web.Webpages.xml
+D:\GitHub\e-shop\e-shop\bin\System.Web.Webpages.Deployment.xml
+D:\GitHub\e-shop\e-shop\bin\System.Web.Webpages.Razor.xml
+D:\GitHub\e-shop\e-shop\bin\System.Web.Helpers.xml
+D:\GitHub\e-shop\e-shop\bin\System.Web.Mvc.xml
+D:\GitHub\e-shop\e-shop\obj\Debug\e-shop.csprojResolveAssemblyReference.cache
+D:\GitHub\e-shop\e-shop\obj\Debug\e-shop.dll
+D:\GitHub\e-shop\e-shop\obj\Debug\e-shop.pdb
+D:\GitHub\e-shop\e-shop\bin\System.Web.dll
+D:\GitHub\e-shop\e-shop\bin\Microsoft.Web.Infrastructure.dll

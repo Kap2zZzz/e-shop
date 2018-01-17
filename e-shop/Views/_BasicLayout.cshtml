@@ -30,15 +30,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Електро-Коник</a>
+                @Html.ActionLink("Електро Коник", "Index", "Home", null, new { @class = "navbar-brand" })
+                @*<a class="navbar-brand" href="#">Електро-Коник</a>*@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class=""><a href="#">Стартова</a></li>
+                    <li class="">@Html.ActionLink("Головна", "Index", "Home")</li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Каталог <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Тепла підлога</a></li>
+                            <li>@Html.ActionLink("Тепла підлога", "List", "Product")</li>
                             <li><a href="#">Кабель</a></li>
                             <li><a href="#">Інше</a></li>
                             @*<li class="divider"></li>
@@ -48,19 +49,19 @@
                         </ul>
                     </li>
 
-                    <li><a href="#about">Про сайт</a></li>
-                    <li><a href="#contact">Контакти</a></li>
+                    <li>@Html.ActionLink("Про нас", "About", "About")</li>
+                    <li>@Html.ActionLink("Контакти", "Contact", "Contact")</li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
     </nav>
 
     <div class="container">
-        <div class="page-header">
-            <h1>Sticky footer with fixed navbar</h1>
-        </div>
-        <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code>padding-top: 60px;</code> on the <code>body &gt; .container</code>.</p>
-        <p>Back to <a href="../sticky-footer">the default sticky footer</a> minus the navbar.</p>
+        @*<div class="page-header">
+                <h1>Sticky footer with fixed navbar</h1>
+            </div>
+            <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code>padding-top: 60px;</code> on the <code>body &gt; .container</code>.</p>
+            <p>Back to <a href="../sticky-footer">the default sticky footer</a> minus the navbar.</p>*@
         @RenderBody()
     </div>
 
