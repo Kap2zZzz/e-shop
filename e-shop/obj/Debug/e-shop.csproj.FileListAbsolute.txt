@@ -60,3 +60,7 @@ E:\GitHub\e-shop\e-shop\bin\EntityFramework.dll
 E:\GitHub\e-shop\e-shop\bin\EntityFramework.SqlServer.dll
 E:\GitHub\e-shop\e-shop\bin\EntityFramework.xml
 E:\GitHub\e-shop\e-shop\bin\EntityFramework.SqlServer.xml
+D:\GitHub\e-shop\e-shop\bin\EntityFramework.dll
+D:\GitHub\e-shop\e-shop\bin\EntityFramework.SqlServer.dll
+D:\GitHub\e-shop\e-shop\bin\EntityFramework.xml
+D:\GitHub\e-shop\e-shop\bin\EntityFramework.SqlServer.xml
