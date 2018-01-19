@@ -4,14 +4,17 @@
         <strong>@Model.Name</strong>
         <span class="pull-right label label-primary">@Model.Price.ToString("c")</span>
     </h3>
+
+    <h4>@Model.Description</h4>
+
     @using (Html.BeginForm("AddToCart", "Cart"))
     {
-        <div class="pull-right">
+        <div class="text-right">
             @Html.HiddenFor(x => x.ProductID)
             @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-            <input type="submit" class="btn btn-success" value="Додати в корзину" />
+            <input type="submit" class="btn btn-success" value="В кошик" />
         </div>
     }
-    <span class="lead">@Model.Description</span>
+
 </div>
 

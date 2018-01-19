@@ -11,6 +11,7 @@ namespace e_shop.Controllers
         // GET: Contact
         public ActionResult Contact()
         {
+            ViewBag.IsActiveContact = "active";
             return View();
         }
     }

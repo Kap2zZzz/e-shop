@@ -12,6 +12,7 @@ namespace e_shop.Controllers
         // GET: /Home/
         public ActionResult Index()
         {
+            ViewBag.IsActiveHome = "active";
             return View();
         }
 	}

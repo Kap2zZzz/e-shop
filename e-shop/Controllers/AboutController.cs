@@ -11,6 +11,7 @@ namespace e_shop.Controllers
         // GET: About
         public ActionResult About()
         {
+            ViewBag.IsActiveAbout = "active";
             return View();
         }
     }

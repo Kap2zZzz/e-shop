@@ -1,0 +1,39 @@
+﻿@model e_shop.Entities.ShippingDetails
+@{
+    ViewBag.Title = "Оформлення замовлення";
+}
+
+<div class="col-xs-3"></div>
+
+<div class="col-xs-6">
+    <h2>Оформлення замовлення</h2>
+    <p>Будь ласка, коректно заповніть Ваші дані:</p>
+    @using (Html.BeginForm())
+    {
+        <div class="form-group">
+            <label>Прізвище Ім'я По батькові:</label>
+            @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Контактний телефон:</label>
+            @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Місто:</label>
+            @Html.TextBoxFor(x => x.City, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Адреса доставки:</label>
+            @Html.TextBoxFor(x => x.Address, new { @class = "form-control" })
+        </div>
+
+        <div class="text-right">
+            <input class="btn btn-primary" type="submit" value="Оформити замовлення" />
+        </div>
+    }
+</div>
+
+<div class="col-xs-3"></div>

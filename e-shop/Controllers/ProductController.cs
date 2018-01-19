@@ -22,7 +22,7 @@ namespace e_shop.Controllers
 
         public ViewResult List(string category, int page = 1)
         {
-
+            ViewBag.IsActiveProduct = "active";
             ProductsListView model = new ProductsListView
             {
                 Products = repository.Products.Where(p => category == null || p.Category == category).OrderBy(p => p.ProductID).Skip((page - 1) * PageSize).Take(PageSize),

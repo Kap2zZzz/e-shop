@@ -14,7 +14,7 @@ namespace e_shop.Controllers
 
         public PartialViewResult Menu(string category = null)
         {
-            ViewBag.SelectedCategory = category;
+            ViewBag.SelectedCategory = category == null ? "Усі товари" : category;
             IEnumerable<string> categories = repository.Products.Select(x => x.Category).Distinct().OrderBy(x => x);
             return PartialView(categories);
         }
