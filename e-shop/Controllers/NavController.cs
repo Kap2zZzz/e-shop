@@ -12,11 +12,12 @@ namespace e_shop.Controllers
         // GET: Nav
         private EFProductRepository repository = new EFProductRepository();
 
-        public PartialViewResult Menu(string category = null)
+        public PartialViewResult Menu(string category = null, bool horizontalLayout = false)
         {
             ViewBag.SelectedCategory = category == null ? "Усі товари" : category;
             IEnumerable<string> categories = repository.Products.Select(x => x.Category).Distinct().OrderBy(x => x);
-            return PartialView(categories);
+            string viewName = horizontalLayout ? "MenuHorizontal" : "Menu";
+            return PartialView(viewName, categories);
         }
     }
 }

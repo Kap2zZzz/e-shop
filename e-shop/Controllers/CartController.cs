@@ -49,6 +49,26 @@ namespace e_shop.Controllers
             return View(new ShippingDetails());
         }
 
+        [HttpPost]
+        public ViewResult Checkout( Cart cart, ShippingDetails shippingDetails)
+        {
+            if (cart.Lines.Count() == 0)
+            {
+                ModelState.AddModelError("", "Увага!, Ваш кошик пустий");
+            }
+
+            if (ModelState.IsValid)
+            {
+                //Тут буде відправка на пошту + запис в базу
+                cart.Clear();
+                return View("Completed");
+            }
+            else 
+            {
+                return View(shippingDetails);
+            }
+        }
+
         private Cart GetCart()
         {
             Cart cart = (Cart)Session["Cart"];

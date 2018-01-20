@@ -9,7 +9,10 @@
     <h2>Оформлення замовлення</h2>
     <p>Будь ласка, коректно заповніть Ваші дані:</p>
     @using (Html.BeginForm())
-    {
+{
+    <div class="alert alert-danger">
+        @Html.ValidationSummary()
+    </div>
         <div class="form-group">
             <label>Прізвище Ім'я По батькові:</label>
             @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })

@@ -14,11 +14,6 @@ namespace e_shop.Controllers
     {
         private EFProductRepository repository = new EFProductRepository();
         public int PageSize = 4;
-        //this.repository = prod
-        //public ProductController(IProductRepository productRepository)
-        //{
-        //    this.repository = productRepository;
-        //}
 
         public ViewResult List(string category, int page = 1)
         {
@@ -34,22 +29,8 @@ namespace e_shop.Controllers
                 },
                 CurrentCategory = category
             };
-            //List<Product> l = new List<Product>()
-            //{
-            //    new Product { Name = "Товар 1", Price = 25},
-            //    new Product { Name = "Товар 2", Price = 125},
-            //    new Product { Name = "Товар 3", Price = 225}
-            //};
-
-
-            // return View(repository.Products);
             return View(model);
 
         }
-        //// GET: Product
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
     }
 }

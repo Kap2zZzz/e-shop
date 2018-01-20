@@ -1,10 +1,20 @@
 ﻿@model e_shop.Entities.Cart
 
-<div class="navbar-right">
-    @Html.ActionLink("Кошик", "Index", "Cart", new { returnUrl = Request.Url.PathAndQuery }, new { @class = "btn btn-info navbar-btn" })
+<div class="navbar-right hidden-sm hidden-xs">
+    @*@Html.ActionLink("Кошик", "Index", "Cart", new { returnUrl = Request.Url.PathAndQuery }, new { @class = "btn btn-info navbar-btn" })*@
+    <a href=@Url.Action("Index", "Cart", new { returnUrl = Request.Url.PathAndQuery })
+       class="btn btn-info navbar-btn">Кошик
+        <span class="glyphicon glyphicon-shopping-cart"></span>
+    </a>
 </div>
-<div class="navbar-text navbar-right" style="margin-right:20px">
-    <b>Ваш кошик:</b>
+<div class="navbar-right visible-sm visible-xs">
+    <a href=@Url.Action("Index", "Cart", new { returnUrl = Request.Url.PathAndQuery })
+       class="btn btn-info navbar-btn">
+        <span class="glyphicon glyphicon-shopping-cart"></span>
+    </a>
+</div>
+<div class="navbar-text navbar-right">
+    <b class="hidden-sm hidden-xs">Ваш кошик:</b>
     @Model.Lines.Sum(x => x.Quantity) товар(и),
     @Model.ComputeTotalValue().ToString("c")
 </div>
