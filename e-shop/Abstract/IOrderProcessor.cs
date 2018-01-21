@@ -9,6 +9,6 @@ namespace e_shop.Abstract
 {
     public interface IOrderProcessor
     {
-        void ProcessOrder(Cart cart, ShippingDetails shippingDetails);
+        //void ProcessOrder(Cart cart, ShippingDetails shippingDetails);
     }
 }

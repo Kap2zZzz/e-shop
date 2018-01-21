@@ -9,6 +9,6 @@ namespace e_shop.Abstract
 {
     public interface IProductRepository
     {
-        IEnumerable<Product> Products { get; } 
+        //IEnumerable<Product> Products { get; } 
     }
 }

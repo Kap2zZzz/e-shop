@@ -1,0 +1,32 @@
+﻿@model e_shop.Models.LoginViewModel
+
+@{
+    ViewBag.Title = "Адміністратор: Вхід";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-md-3 col-md-offset-5">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Вхід в систему</h3>
+        </div>
+        <div class="panel-body">
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary()
+                <div class="form-group">
+                    <label>Логін:</label>
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Пароль:</label>
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                </div>
+                <input type="submit" value="Увійти" class="btn btn-primary" />
+            }
+        </div>
+    </div>
+</div>
+
+
+@*<div class="col-sm-4"></div>*@

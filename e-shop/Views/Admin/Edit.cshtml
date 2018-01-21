@@ -1,0 +1,84 @@
+﻿@model e_shop.Entities.Product
+
+@{
+    ViewBag.Title = "Адміністратор: Редагування " + @Model.Name;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel">
+    <div class="panel-heading">
+        <h3>Редагування @Model.Name</h3>
+    </div>
+    @using (Html.BeginForm("Edit", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="panel-body">
+            @Html.HiddenFor(m => m.ProductID)
+            @foreach (var property in ViewData.ModelMetadata.Properties)
+            {
+                switch (property.PropertyName)
+                {
+                    case "ProductID":
+                    case "ImageData":
+                    case "ImageMimeType":
+                        break;
+                    default:
+                        <div class="form-group">
+                            <label>@(property.DisplayName ?? property.PropertyName)</label>
+                            @if (property.PropertyName == "Description")
+                            {
+                                @Html.TextArea(property.PropertyName, null, new { @class = "form-control", rows = 5 })
+                            }
+                            else if (property.PropertyName == "Category")
+                            {
+                                @Html.DropDownList(property.PropertyName, new SelectList(e_shop.Code.Helper.Category()), new { @class = "form-control" })
+                            }
+                            else
+                            {
+                                @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
+                            }
+                            @Html.ValidationMessage(property.PropertyName)
+                        </div>
+                            break;
+                }
+            }
+            <div class="form-group">
+                <div style="position:relative;">
+                    <label>Зображення</label>
+                    <a class='btn' href='javascript:;'>
+                        Виберіть файл ...
+                        <input type="file" name="Image" size="40"
+                               style="position:absolute; z-index:2; top:0; left:0;
+                                filter: alpha(opacity=0); opacity:0; background-color:transparent; color:transparent;"
+                               onchange='$("#upload-file-info").html($(this).val());'>
+                    </a>
+                    <span class="label label-info" id="upload-file-info"></span>
+                </div>
+                @if (Model.ImageData == null)
+                {
+                    <div class="form-control-static">No image</div>
+                }
+                else
+                {
+                    <img class="img-thumbnail" width="150" height="150" src="@Url.Action("GetImage", "Product", new {Model.ProductID})" />
+                }
+            </div>
+        </div>
+        <div class="panel-footer">
+            @Html.ActionLink("Скасувати", "Index", null, new { @class = "btn btn-warning" })
+            <input type="submit" value="Зберегти" class="btn btn-success" />
+        </div>
+    }
+</div>
+
+<script>
+    // переопределение валидации на стороне клиента
+    $.validator.methods.range = function (value, element, param) {
+        var globalizedValue = value.replace(",", ".");
+        return this.optional(element) || (globalizedValue >= param[0] && globalizedValue <= param[1]);
+    }
+
+    $.validator.methods.number = function (value, element) {
+        return this.optional(element) || /^-?(?:\d+|\d{1,3}(?:[\s\.,]\d{3})+)(?:[\.,]\d+)?$/.test(value);
+    }
+</script>
+

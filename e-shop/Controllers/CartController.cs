@@ -12,6 +12,8 @@ namespace e_shop.Controllers
     public class CartController : Controller
     {
         private EFProductRepository repository = new EFProductRepository();
+        private EFOrderRepository repositoryOrder = new EFOrderRepository();
+
 
         public ViewResult Index(Cart cart, string returnUrl)
         {
@@ -50,7 +52,7 @@ namespace e_shop.Controllers
         }
 
         [HttpPost]
-        public ViewResult Checkout( Cart cart, ShippingDetails shippingDetails)
+        public ViewResult Checkout(Cart cart, ShippingDetails shippingDetails)
         {
             if (cart.Lines.Count() == 0)
             {
@@ -60,24 +62,29 @@ namespace e_shop.Controllers
             if (ModelState.IsValid)
             {
                 //Тут буде відправка на пошту + запис в базу
+                Order order = new Order();
+                order.OrderLines = new List<OrderLine>();
+                order.UserName = shippingDetails.Name;
+                order.UserPhone = shippingDetails.Phone;
+                foreach (var c in cart.Lines)
+                {
+                    OrderLine orderLine = new OrderLine();
+                    orderLine.Name = c.Product.Name;
+                    orderLine.Price = c.Product.Price;
+                    orderLine.Quantity = c.Quantity;
+                    order.OrderLines.Add(orderLine);
+                }
+
+                repositoryOrder.SaveOrder(order);
+                
                 cart.Clear();
-                return View("Completed");
+
+                return View("Completed", order);
             }
             else 
             {
                 return View(shippingDetails);
             }
-        }
-
-        private Cart GetCart()
-        {
-            Cart cart = (Cart)Session["Cart"];
-            if (cart == null)
-            {
-                cart = new Cart();
-                Session["Cart"] = cart;
-            }
-            return cart;
         }
     }
 }

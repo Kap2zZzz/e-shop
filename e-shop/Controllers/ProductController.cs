@@ -13,6 +13,8 @@ namespace e_shop.Controllers
     public class ProductController : Controller
     {
         private EFProductRepository repository = new EFProductRepository();
+        private EFOrderRepository repositoryOrder = new EFOrderRepository();
+
         public int PageSize = 4;
 
         public ViewResult List(string category, int page = 1)
@@ -31,6 +33,16 @@ namespace e_shop.Controllers
             };
             return View(model);
 
+        }
+
+        public FileContentResult GetImage(int productId)
+        {
+            Product product = repository.Products.FirstOrDefault(p => p.ProductID == productId);
+            if (product != null)
+            {
+                return File(product.ImageData, product.ImageMimeType);
+            }
+            else return null;
         }
     }
 }
