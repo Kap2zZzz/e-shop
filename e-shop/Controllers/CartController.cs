@@ -1,4 +1,5 @@
-﻿using e_shop.Concrete;
+﻿using e_shop.Code;
+using e_shop.Concrete;
 using e_shop.Entities;
 using e_shop.Models;
 using System;
@@ -66,6 +67,7 @@ namespace e_shop.Controllers
                 order.OrderLines = new List<OrderLine>();
                 order.UserName = shippingDetails.Name;
                 order.UserPhone = shippingDetails.Phone;
+                order.Status = Helper.StatusOrder()[0].ToString();
                 foreach (var c in cart.Lines)
                 {
                     OrderLine orderLine = new OrderLine();

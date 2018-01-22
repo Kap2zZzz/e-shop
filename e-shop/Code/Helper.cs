@@ -12,5 +12,11 @@ namespace e_shop.Code
             List<string> c = new List<string> { "Тепла підлога", "Кабель" };
             return c;
         }
+
+        public static List<string> StatusOrder()
+        {
+            List<string> so = new List<string> { "Нове замовлення", "В роботі", "Виконано", "Відмовлено" };
+            return so;
+        }
     }
 }

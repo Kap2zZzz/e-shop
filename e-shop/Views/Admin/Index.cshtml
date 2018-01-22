@@ -1,4 +1,5 @@
-﻿@model IEnumerable<e_shop.Entities.Product>
+﻿@*@model IEnumerable<e_shop.Entities.Product>*@
+@model e_shop.Models.AdminViewModel
 
 @{
     ViewBag.Title = "Адміністратор: Усі товари";
@@ -6,53 +7,31 @@
 }
 
 @*<ul class="nav nav-tabs">
-    <li role="presentation" class="active">
-        <a href="#">Усі товари</a>
-    </li>
-    <li role="presentation"><a href="#">Активні замовлення</a></li>
-    <li role="presentation"><a href="#">Інше ...</a></li>
-</ul>*@
+        <li role="presentation" class="active">
+            <a href="#">Усі товари</a>
+        </li>
+        <li role="presentation"><a href="#">Активні замовлення</a></li>
+        <li role="presentation"><a href="#">Інше ...</a></li>
+    </ul>*@
 
-<div class="col-md-12 col-md-offset-0" style="margin-top:20px">
-    <div class="panel panel-default">
-        <div class="panel-heading"><h4>Усі товари</h4></div>
-        <div class="panel-body">
-            <table class="table table-striped table-condensed table-bordered">
-                <tr>
-                    <th class="text-right">ID</th>
-                    <th>Назва</th>
-                    <th>Опис</th>
-                    <th class="text-right">Ціна</th>
-                    <th class="text-center">Категорія</th>
-                    <th class="text-center">Операція</th>
-                </tr>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td class="text-right">@item.ProductID</td>
-                        <td>@Html.ActionLink(item.Name, "Edit", new { item.ProductID })</td>
-                        <td>@item.Description</td>
-                        <td class="text-right">@item.Price.ToString("c")</td>
-                        <td class="text-center">@item.Category</td>
-                        <td class="text-center">
-                            @using (Html.BeginForm("Delete", "Admin"))
-                            {
-                                @Html.Hidden("ProductID", item.ProductID)
-                                <input type="submit" class="btn btn-danger btn-xs" value="Видалити" />
-                            }
-                        </td>
-                    </tr>
-                }
-            </table>
-        </div>
-        <div class="panel-footer">
-            @Html.ActionLink("Додати новий товар", "Create", null, new { @class = "btn btn-primary text-right" })
-        </div>
-    </div>
+<div id="categories" class="col-sm-2" style="margin-top:20px">
+    @*<a href="#" class="list-group-item active">Замовлення<span class="badge">15</span></a>
+        @Html.ActionLink("Замовлення", "List", "Product", null, new { @class = "list-group-item" + ("Замовлення" == ViewBag.SelectedCategory ? " active" : "") })*@
+    <a href="@Url.Action("Index", "Admin", new {category = "Замовлення" })" class="list-group-item @("Замовлення" == ViewBag.SelectedCategory ? " active" : "")">Замовлення<span class="badge">@Model.Orders.Count()</span></a>
+    @*@Html.RouteLink("Замовлення", new { controller = "Admin", action = "Index", category = "Замовлення" }, new { @class = "list-group-item" + ("Замовлення" == ViewBag.SelectedCategory ? " active" : "") })*@
+    @Html.ActionLink("Усі товари", "Index", "Admin", new { category = "Усі товари" }, new { @class = "list-group-item" + ("Усі товари" == ViewBag.SelectedCategory ? " active" : "") })
 </div>
 
+<div class="col-xs-12 col-sm-10" style="margin-top:20px">
+    @switch (Model.CurrentCategory)
+    {
+        case "Усі товари": @Html.Partial("Products", Model.Products)
+            break;
+        default:
+            {
+                @Html.Partial("Orders", Model.Orders)
+            }
+            break;
+    }
 
-
-
-
-
+</div>

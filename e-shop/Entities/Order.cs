@@ -19,7 +19,12 @@ namespace e_shop.Entities
 
         public string UserPhone { get; set; }
 
+        public string Status { get; set; }
+
+        public decimal Suma { get; set; }
+
         public virtual List<OrderLine> OrderLines { get; set; }
+
     }
 
     public class OrderLine

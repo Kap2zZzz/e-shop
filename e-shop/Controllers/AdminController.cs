@@ -1,5 +1,6 @@
 ﻿using e_shop.Concrete;
 using e_shop.Entities;
+using e_shop.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,41 @@ namespace e_shop.Controllers
     public class AdminController : Controller
     {
         private EFProductRepository repository = new EFProductRepository();
+        private EFOrderRepository repositoryOrders = new EFOrderRepository();
 
-        public ActionResult Index()
+
+        //public ActionResult Index()
+        //{
+        //    return View(repository.Products);
+        //}
+
+        public ViewResult Index(string category)
         {
-            return View(repository.Products);
+            ViewBag.SelectedCategory = category == null ? "Замовлення" : category;
+            AdminViewModel model = new AdminViewModel
+            {
+                Products = repository.Products,
+                Orders = repositoryOrders.Orders,
+                CurrentCategory = category
+            };
+
+            return View(model);
+        }
+
+        public ViewResult Order(int OrderId)
+        {
+            Order order = repositoryOrders.Orders.FirstOrDefault(o => o.OrderID == OrderId);
+            return View(order);
+        }
+
+        [HttpPost]
+        public ActionResult Order(Order order)
+        {
+            if (ModelState.IsValid)
+            {
+                repositoryOrders.SaveOrder(order);
+            }
+            return RedirectToAction("Index");
         }
 
         public ViewResult Edit(int productId)

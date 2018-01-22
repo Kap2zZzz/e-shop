@@ -1,0 +1,51 @@
+﻿@model IEnumerable<e_shop.Entities.Order>
+
+<div class="panel panel-default">
+    <div class="panel-heading"><h4>Усі замовлення</h4></div>
+    <div class="panel-body">
+        <table class="table table-striped table-condensed table-bordered">
+            <tr>
+                <th class="text-right">ID</th>
+                <th class="text-center">Дата створення</th>
+                <th class="text-left">Клієнт</th>
+                <th class="text-center">Телефон</th>
+                <th class="text-center">Сума</th>
+                <th class="text-center">Статус</th>
+                <th class="text-center">Операція</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                string class_status = "";
+                switch (item.Status)
+                {
+                    //"Нове замовлення", "В роботі", "Виконано", "Відмовлено"
+                    case "Нове замовлення":
+                        class_status = "label-primary";
+                        break;
+                    case "В роботі":
+                        class_status = "label-warning";
+                        break;
+                    case "Виконано":
+                        class_status = "label-success";
+                        break;
+                    case "Відмовлено":
+                        class_status = "label-danger";
+                        break;
+                    default:
+                        break;
+                }
+                <tr>
+                    <td class="text-right">@item.OrderID</td>
+                    <td class="text-center">@item.DateCreateOrder</td>
+                    <td class="text-left">@item.UserName</td>
+                    <td class="text-center">@item.UserPhone</td>
+                    <td class="text-center">@item.Suma</td>
+                    <td class="text-center text-primary"><span class="label @class_status">@item.Status</span></td>
+                    <td class="text-center">
+                        @Html.ActionLink("Переглянути", "Order", new { item.OrderID }, new { @class = "btn btn-default btn-xs" })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

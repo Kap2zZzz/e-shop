@@ -17,6 +17,7 @@ namespace e_shop.Concrete
             if (order.OrderID == 0)
             {
                 order.DateCreateOrder = System.DateTime.Now;
+                order.Suma = order.OrderLines.Sum(x => x.ComputeTotalValue);
                 context.Orders.Add(order);
             }
             else
@@ -24,9 +25,7 @@ namespace e_shop.Concrete
                 Order dbOrder = context.Orders.Find(order.OrderID);
                 if (dbOrder != null)
                 {
-                    dbOrder.DateCreateOrder = order.DateCreateOrder;
-                    dbOrder.UserName = order.UserName;
-                    dbOrder.UserPhone = order.UserPhone;
+                    dbOrder.Status = order.Status;
                 }
             }
             context.SaveChanges();
