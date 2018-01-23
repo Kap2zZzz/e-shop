@@ -11,6 +11,7 @@ namespace e_shop
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+            //routes.MapMvcAttributeRoutes();
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
@@ -19,15 +20,20 @@ namespace e_shop
                 defaults: new { controller = "Admin", action = "Index" }
             );
 
-            routes.MapRoute(null, "", new
-            {
-                controller = "Product",
-                action = "List",
-                category = (string)null,
-                page = 1
-            });
+            routes.MapRoute(
+                name: "Home",
+                url: "Home",
+                defaults: new { controller = "Home", action = "Index" }
+            );
 
-            routes.MapRoute(null, "Page{page}", new
+            routes.MapRoute(
+                name: "About",
+                url: "About",
+                defaults: new { controller = "About", action = "About" }
+            );
+
+
+            routes.MapRoute(null, "{controller}/{action}/Page{page}", new
             {
                 controller = "Product",
                 action = "List",
@@ -36,14 +42,14 @@ namespace e_shop
               new { page = @"\d+" }
             );
 
-            routes.MapRoute(null, "{category}", new
+            routes.MapRoute(null, "{controller}/{action}/{category}", new
             {
                 controller = "Product",
                 action = "List",
                 page = 1
             });
 
-            routes.MapRoute(null, "{category}/Page{page}", new
+            routes.MapRoute(null, "{controller}/{action}/{category}/Page{page}", new
             {
                 controller = "Product",
                 action = "List",
@@ -52,18 +58,26 @@ namespace e_shop
             );
 
             routes.MapRoute(
-name: "AdminOrders",
-url: "Admin/{category}",
-defaults: new { controller = "Admin", action = "Index", category = UrlParameter.Optional }
-);
+                name: "AdminOrders",
+                url: "Admin/{category}",
+                defaults: new { controller = "Admin", action = "Index", category = UrlParameter.Optional }
+            );
 
             routes.MapRoute(null, "{controller}/{action}");
 
-            routes.MapRoute(
-                name: null,
-                url: "{controller}/Page{page}",
-                defaults: new { controller = "Product", action = "List" }
-            );
+            //routes.MapRoute(null, "{controller}/{action}/{category}", new
+            //{
+            //    controller = "Product",
+            //    action = "List",
+            //    category = (string)null,
+            //    page = 1
+            //});
+
+            //routes.MapRoute(
+            //    name: null,
+            //    url: "{controller}/Page{page}",
+            //    defaults: new { controller = "Product", action = "List" }
+            //);
 
             //            routes.MapRoute(
             //name: "About",

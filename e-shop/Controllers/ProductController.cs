@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace e_shop.Controllers
 {
+    //[RoutePrefix("Catalog")]
     public class ProductController : Controller
     {
         private EFProductRepository repository = new EFProductRepository();
