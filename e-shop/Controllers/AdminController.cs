@@ -50,7 +50,8 @@ namespace e_shop.Controllers
             return RedirectToAction("Index");
         }
 
-        public ViewResult Edit(int productId)
+        //[Route("Edit/{productId}")]
+        public ViewResult Edit(int? productId)
         {
             Product product = repository.Products.FirstOrDefault(p => p.ProductID == productId);
             return View(product);

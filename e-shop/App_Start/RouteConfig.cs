@@ -13,6 +13,12 @@ namespace e_shop
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute(
+                name: "Admin",
+                url: "Admin",
+                defaults: new { controller = "Admin", action = "Index" }
+            );
+
             routes.MapRoute(null, "", new
             {
                 controller = "Product",
@@ -45,8 +51,13 @@ namespace e_shop
                 new { page = @"\d+" }
             );
 
-            routes.MapRoute(null, "{controller}/{action}");
+            routes.MapRoute(
+name: "AdminOrders",
+url: "Admin/{category}",
+defaults: new { controller = "Admin", action = "Index", category = UrlParameter.Optional }
+);
 
+            routes.MapRoute(null, "{controller}/{action}");
 
             routes.MapRoute(
                 name: null,
@@ -54,12 +65,27 @@ namespace e_shop
                 defaults: new { controller = "Product", action = "List" }
             );
 
+            //            routes.MapRoute(
+            //name: "About",
+            //url: "About",
+            //defaults: new { controller = "About", action = "About" }
+            //);
+
+            routes.MapRoute(
+                name: "edit",
+                url: "{controller}/{action}/Product/{productId}"
+                );
+
+            routes.MapRoute(
+                name: "order",
+                url: "{controller}/{action}/{orderId}"
+                );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
-
         }
     }
 }
