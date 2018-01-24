@@ -3,8 +3,7 @@
 <div class="navbar-right hidden-sm hidden-xs">
     @*@Html.ActionLink("Кошик", "Index", "Cart", new { returnUrl = Request.Url.PathAndQuery }, new { @class = "btn btn-info navbar-btn" })*@
     <a href=@Url.Action("Index", "Cart", new { returnUrl = Request.Url.PathAndQuery })
-       class="btn btn-info navbar-btn">Кошик
-        <span class="glyphicon glyphicon-shopping-cart"></span>
+       class="btn btn-info navbar-btn"><span class="glyphicon glyphicon-shopping-cart"></span> Кошик
     </a>
 </div>
 <div class="navbar-right visible-sm visible-xs">

@@ -8,7 +8,7 @@
         vertical-align: middle;
     }*/
 </style>
-<h2>Ваш кошик</h2>
+<h2>Ваш кошик <span class="glyphicon glyphicon-shopping-cart"></span></h2>
 <table id="cartTable" class="table  table-striped ">
     <thead>
         <tr>
@@ -26,12 +26,14 @@
                 <td class="text-left">@line.Product.Name</td>
                 <td class="text-right">@line.Product.Price.ToString("c")</td>
                 <td class="text-right">@((line.Quantity * line.Product.Price).ToString("c"))</td>
-                <td>
+                <td class="text-center">
                     @using (Html.BeginForm("RemoveFromCart", "Cart"))
                     {
                         @Html.Hidden("ProductId", line.Product.ProductID)
                         @Html.HiddenFor(x => x.ReturnUrl)
-                        <input class="btn btn-sm btn-warning" type="submit" value="Видалити" />
+                        <button class="btn btn-sm btn-warning" type="submit">
+                            <span class="glyphicon glyphicon-trash"></span> Видалити
+                        </button>
                     }
                 </td>
             </tr>
@@ -46,6 +48,14 @@
 </table>
 
 <div class="text-right">
-    <a class="btn btn-primary" href="@Model.ReturnUrl">Продовжити покупки <span class="glyphicon glyphicon-shopping-cart"></span></a>
-    @Html.ActionLink("Оформити замовлення", "Checkout", null, new { @class = "btn btn-success" })
+    <a class="btn btn-primary" href="@Model.ReturnUrl"><span class="glyphicon glyphicon-share-alt"></span> Продовжити покупки</a>
+    @if (Model.Cart.Lines.Count() > 0)
+    {
+        <a class="btn btn-success" href="@Url.Action("Checkout")"><span class="glyphicon glyphicon-shopping-cart"></span> Оформити замовлення</a>
+    }
+    else
+    {
+        <a class="btn btn-success disabled" href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Оформити замовлення</a>
+    }
+    @*@Html.ActionLink("Оформити замовлення", "Checkout", null, new { @class = "btn btn-success" })*@
 </div>

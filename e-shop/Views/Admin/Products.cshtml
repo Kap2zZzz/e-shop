@@ -14,9 +14,13 @@
 <div class="panel panel-default">
     <div class="panel-heading"><h4>Усі товари</h4></div>
     <div class="panel-body">
-        <p>Пошук товару:</p>
-        <input class="form-control" id="ProductShearch" type="search" placeholder="Пошук відбувається по будь якому параметру ..." />
-        <br />
+        @*<p>Пошук товару:</p>
+        <input class="form-control" id="ProductShearch" type="search" placeholder="Пошук відбувається по будь якому параметру ..." />*@
+        <form role="search">
+            <div class="form-group">
+                <input class="form-control" id="ProductShearch" type="text" placeholder="Пошук відбувається по будь якому параметру ..." />
+            </div> 
+        </form>
         <table class="table table-striped table-condensed table-bordered">
             <thead>
                 <tr>

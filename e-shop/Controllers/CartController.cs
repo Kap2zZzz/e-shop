@@ -47,8 +47,21 @@ namespace e_shop.Controllers
             return PartialView(cart);
         }
 
-        public ViewResult Checkout()
+        //[NonAction]
+        public ActionResult Checkout()
         {
+            Cart cart = new Cart();
+
+            if (HttpContext.Session != null)
+            {
+                cart = (Cart)HttpContext.Session["Cart"];
+            }
+
+            if (cart.Lines.Count() == 0)
+            {
+                return RedirectToAction("Index");
+            }
+
             return View(new ShippingDetails());
         }
 
