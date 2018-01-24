@@ -9,11 +9,15 @@
     <h2>ЕЛЕКТРОКОНИК</h2>
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">Вхід в систему</h3>
+            <h3 class="panel-title"><strong>Вхід в систему</strong></h3>
         </div>
         <div class="panel-body">
             @using (Html.BeginForm())
             {
+                if (TempData["message"] != null)
+                {
+                    <div class="alert alert-danger">@TempData["message"]</div>
+                }
                 @Html.ValidationSummary()
                 <div class="form-group">
                     <label>Логін:</label>
@@ -24,7 +28,9 @@
                     @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
                 </div>
                 <div class="text-right">
-                    <input type="submit" value="Увійти" class="btn btn-success text-right" />
+                    <button type="submit" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-log-in"></span>  Увійти
+                    </button>
                 </div>
             }
         </div>

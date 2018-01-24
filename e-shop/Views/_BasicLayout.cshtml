@@ -15,10 +15,6 @@
             margin-left: 15px;
         }
 
-        html {
-            overflow-y: scroll;
-        }
-
         body {
             padding-top: 70px;
         }
@@ -26,9 +22,11 @@
         .container {
             /*width: 850px;*/
         }
+
         .modal-open[style="padding-right: 17px;"] .navbar-fixed-top,
         .modal-open[style="padding-right: 17px;"] .navbar-fixed-bottom {
             padding-right: 17px;
+            overflow-y: no-display;
         }
     </style>
 </head>
@@ -51,10 +49,10 @@
                     <li class="dropdown @ViewBag.IsActiveProduct">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Каталог <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                                @*@Html.ActionLink("Усі товари", "List", "Product", new { category = "Усі_Товари" }, new { @class = "list-group-item" + ("Усі_Товари" == ViewBag.SelectedCategory ? " active" : "") })*@
+                            @*@Html.ActionLink("Усі товари", "List", "Product", new { category = "Усі_Товари" }, new { @class = "list-group-item" + ("Усі_Товари" == ViewBag.SelectedCategory ? " active" : "") })*@
                             <li>@Html.ActionLink("Усі товари", "List", "Product")</li>
                             <li>@Html.ActionLink("Кабель", "List", "Product", new { category = "Кабель", page = 1 }, null)</li>
-                            <li>@Html.ActionLink("Тепла підлога", "List", "Product",  new { category = "Тепла підлога", page = 1 }, null)</li>
+                            <li>@Html.ActionLink("Тепла підлога", "List", "Product", new { category = "Тепла підлога", page = 1 }, null)</li>
                         </ul>
                     </li>
                     <li class="@ViewBag.IsActiveAbout">@Html.ActionLink("Про нас", "About", "About")</li>

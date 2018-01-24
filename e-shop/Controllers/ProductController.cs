@@ -16,7 +16,7 @@ namespace e_shop.Controllers
         private EFProductRepository repository = new EFProductRepository();
         private EFOrderRepository repositoryOrder = new EFOrderRepository();
 
-        public int PageSize = 4;
+        public int PageSize = 5;
 
         public ViewResult List(string category, int page = 1)
         {

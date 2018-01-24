@@ -17,5 +17,10 @@ namespace e_shop.Infrastructure
             }
             return result;
         }
+
+        public void Logout()
+        {
+            FormsAuthentication.SignOut();
+        }
     }
 }

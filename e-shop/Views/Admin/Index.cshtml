@@ -6,34 +6,36 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-@*<ul class="nav nav-tabs">
-        <li role="presentation" class="active">
-            <a href="#">Усі товари</a>
-        </li>
-        <li role="presentation"><a href="#">Активні замовлення</a></li>
-        <li role="presentation"><a href="#">Інше ...</a></li>
-    </ul>*@
-
-<div id="categories" class="col-sm-2" style="margin-top:20px">
-    @*<a href="#" class="list-group-item active">Замовлення<span class="badge">15</span></a>
-        @Html.ActionLink("Замовлення", "List", "Product", null, new { @class = "list-group-item" + ("Замовлення" == ViewBag.SelectedCategory ? " active" : "") })*@
-    @*<a href="@Url.Action("Index", "Admin", new {category = "Замовлення"})" class="list-group-item @("Замовлення" == ViewBag.SelectedCategory ? " active" : "")">Замовлення<span class="badge">@Model.Orders.Count()</span></a>*@
-    @*@Html.RouteLink("Замовлення", new { controller = "Admin", action = "Index", category = "Замовлення" }, new { @class = "list-group-item" + ("Замовлення" == ViewBag.SelectedCategory ? " active" : "") })*@
-    @*@Html.ActionLink("Продукція", "Index", "Admin", new { category = "Продукція" }, new { @class = "list-group-item" + ("Продукція" == ViewBag.SelectedCategory ? " active" : "") })*@
-    <a href="@Url.RouteUrl("AdminOrders", new {category = "Замовлення"})" class="list-group-item @("Замовлення" == ViewBag.SelectedCategory ? " active" : "")">Замовлення<span class="badge">@Model.Orders.Count()</span></a>
-    @Html.RouteLink("Продукція", "AdminOrders", new {category = "Продукція" }, new { @class = "list-group-item" + ("Продукція" == ViewBag.SelectedCategory ? " active" : "") })
+<div class="panel-heading text-right">
+    <a href="@Url.Action("Logout", "Account")" class="btn btn-warning"><span class="glyphicon glyphicon-log-out"></span> Вихід</a>
 </div>
 
-<div class="col-xs-12 col-sm-10" style="margin-top:20px">
-    @switch (Model.CurrentCategory)
-    {
-        case "Продукція": @Html.Partial("Products", Model.Products)
-            break;
-        default:
-            {
-                @Html.Partial("Orders", Model.Orders)
-            }
-            break;
-    }
+<div style="margin-top:0px">
+    <div id="categories" class="col-sm-2">
+        @*<a href="#" class="list-group-item active">Замовлення<span class="badge">15</span></a>
+            @Html.ActionLink("Замовлення", "List", "Product", null, new { @class = "list-group-item" + ("Замовлення" == ViewBag.SelectedCategory ? " active" : "") })*@
+        @*<a href="@Url.Action("Index", "Admin", new {category = "Замовлення"})" class="list-group-item @("Замовлення" == ViewBag.SelectedCategory ? " active" : "")">Замовлення<span class="badge">@Model.Orders.Count()</span></a>*@
+        @*@Html.RouteLink("Замовлення", new { controller = "Admin", action = "Index", category = "Замовлення" }, new { @class = "list-group-item" + ("Замовлення" == ViewBag.SelectedCategory ? " active" : "") })*@
+        @*@Html.ActionLink("Продукція", "Index", "Admin", new { category = "Продукція" }, new { @class = "list-group-item" + ("Продукція" == ViewBag.SelectedCategory ? " active" : "") })*@
+        <a href="@Url.RouteUrl("", new {category = "Замовлення"})" class="list-group-item @("Замовлення" == ViewBag.SelectedCategory ? " active" : "")">Замовлення<span class="badge">@Model.Orders.Count()</span></a>
+        @Html.RouteLink("Продукція", "", new { category = "Продукція" }, new { @class = "list-group-item" + ("Продукція" == ViewBag.SelectedCategory ? " active" : "") })
+        <a href="#" class="list-group-item">Статистика</a>
+
+    </div>
+
+    <div class="col-xs-12 col-sm-10">
+        @switch (Model.CurrentCategory)
+        {
+            case "Продукція": @Html.Partial("Products", Model.Products)
+                break;
+            default:
+                {
+                    @Html.Partial("Orders", Model.Orders)
+                }
+                break;
+        }
+
+    </div>
 
 </div>
+

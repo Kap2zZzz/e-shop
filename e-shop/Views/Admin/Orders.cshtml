@@ -4,7 +4,6 @@
     <div class="panel-heading"><h4>Усі замовлення</h4></div>
     <div class="panel-body">
         <table class="table">
-
             <tr>
                 <td>
                     <input class="form-control" type="number" placeholder="Замовлення № ..." />
@@ -18,28 +17,29 @@
                 <td>
                     <input class="form-control" type="date" />
                 </td>
-                <td>
-                    <a href="#" class="btn btn-info">
+                <td class="text-right">
+                    <a href="#" class="btn btn-info" style="width:100%">
                         <span class="glyphicon glyphicon-filter"></span>
-
                         Пошук
                     </a>
                 </td>
             </tr>
-
         </table>
 
         <table class="table table-striped table-condensed table-bordered">
-            <tr>
-                <th class="text-right">ID</th>
-                <th class="text-center">Дата створення</th>
-                <th class="text-left">Клієнт</th>
-                <th class="text-center">Телефон</th>
-                <th class="text-center">Сума</th>
-                <th class="text-center">Статус</th>
-                <th class="text-center">Операція</th>
-            </tr>
-            @foreach (var item in Model)
+            <thead>
+                <tr>
+                    <th class="text-right">ID</th>
+                    <th class="text-center">Дата створення</th>
+                    <th class="text-left">Клієнт</th>
+                    <th class="text-center">Телефон</th>
+                    <th class="text-center">Сума</th>
+                    <th class="text-center">Статус</th>
+                    <th class="text-center">Операція</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
             {
                 string class_status = "";
                 switch (item.Status)
@@ -60,18 +60,19 @@
                     default:
                         break;
                 }
-                <tr>
-                    <td class="text-right">@item.OrderID</td>
-                    <td class="text-center">@item.DateCreateOrder</td>
-                    <td class="text-left">@item.UserName</td>
-                    <td class="text-center">@item.UserPhone</td>
-                    <td class="text-center">@item.Suma</td>
-                    <td class="text-center text-primary"><span class="label @class_status">@item.Status</span></td>
-                    <td class="text-center">
-                        @Html.RouteLink("Переглянути", "order", new { controller = "Admin", action = "Order", orderId = item.OrderID }, new { @class = "btn btn-default btn-xs" })
-                    </td>
-                </tr>
-            }
+                    <tr>
+                        <td class="text-right">@item.OrderID</td>
+                        <td class="text-center">@item.DateCreateOrder</td>
+                        <td class="text-left">@item.UserName</td>
+                        <td class="text-center">@item.UserPhone</td>
+                        <td class="text-center">@item.Suma</td>
+                        <td class="text-center text-primary"><span class="label @class_status">@item.Status</span></td>
+                        <td class="text-center">
+                            @Html.RouteLink("Переглянути", new { controller = "Admin", action = "Order", orderId = item.OrderID }, new { @class = "btn btn-default btn-xs" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
         </table>
     </div>
 </div>

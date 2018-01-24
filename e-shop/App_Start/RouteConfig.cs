@@ -32,6 +32,11 @@ namespace e_shop
                 defaults: new { controller = "About", action = "About" }
             );
 
+            routes.MapRoute(
+                name: "Contact",
+                url: "Contact",
+                defaults: new { controller = "Contact", action = "Contact" }
+            );
 
             routes.MapRoute(null, "{controller}/{action}/Page{page}", new
             {
@@ -57,13 +62,18 @@ namespace e_shop
                 new { page = @"\d+" }
             );
 
-            routes.MapRoute(
-                name: "AdminOrders",
-                url: "Admin/{category}",
-                defaults: new { controller = "Admin", action = "Index", category = UrlParameter.Optional }
-            );
+            //        routes.MapRoute(
+            //name: "",
+            //url: "Admin/{action}"
+            //);
 
-            routes.MapRoute(null, "{controller}/{action}");
+            //        routes.MapRoute(
+            //            name: "AdminOrders",
+            //            url: "Admin/{category}",
+            //            defaults: new { controller = "Admin", action = "Index", category = UrlParameter.Optional }
+            //        );
+
+            //routes.MapRoute(null, "{controller}/{action}");
 
             //routes.MapRoute(null, "{controller}/{action}/{category}", new
             //{
@@ -84,16 +94,17 @@ namespace e_shop
             //url: "About",
             //defaults: new { controller = "About", action = "About" }
             //);
+            routes.MapRoute(
+                name: "order",
+                url: "{controller}/{action}/Order/{orderId}"
+            );
 
             routes.MapRoute(
                 name: "edit",
                 url: "{controller}/{action}/Product/{productId}"
                 );
 
-            routes.MapRoute(
-                name: "order",
-                url: "{controller}/{action}/{orderId}"
-                );
+            routes.MapRoute(null, "{controller}/{action}");
 
             routes.MapRoute(
                 name: "Default",

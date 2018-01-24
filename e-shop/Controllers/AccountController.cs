@@ -29,11 +29,19 @@ namespace e_shop.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Увага!, Логін або пароль не вірний");
+                    TempData["message"] = "Увага!, Логін або пароль не вірний";
+                    //ModelState.AddModelError("", "Увага!, Логін або пароль не вірний");
                     return View();
                 }
             }
             else { return View(); }
+        }
+
+        public ActionResult Logout()
+        {
+            authProvider.Logout();
+            return View("Login");
+
         }
     }
 }
