@@ -1,12 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@model e_shop.Entities.AskClient
+<!DOCTYPE html>
 
 <html>
 <head>
-    <style>
+    @*<style>
         .navbar-fixed-top {
             margin-left: -17px;
         }
-    </style>
+    </style>*@
     <meta name="viewport" content="width=device-width" />
     <title>Контакти</title>
 </head>
@@ -14,36 +15,69 @@
     <div class="page-header" style="margin-top:5px; margin-bottom:5px">
         <h3>Наші контакти:</h3>
     </div>
-    <div>
-        <div class="page-header col-sm-4" style="margin-top:5px;">
-            <h3>Адреса <span class=" glyphicon glyphicon-map-marker">
-            </span></h3>
-            <address>
-                79000, м. Львів, вул. Щирецька 36 <br />
-                (<strong class="text-info">ТВК ПІВДЕННИЙ, ТЦ ЕКСПО БУД № 35</strong>)<br />
-                Детальне місце розташування зазначено на карті
-            </address>
-        </div>
-        <div class="page-header col-sm-3 col-sm-offset-1" style="margin-top:5px;">
-            <h3>Графік роботи <span class="glyphicon glyphicon-time"></span></h3>
-            <address>
-                Вівторок - Неділя, з 9:00 до 18:00<br />
-                Понеділок - <span class="label label-danger">Вихідний!</span><br />
-                Святкові дні - <span class="label label-success">Робочі!</span>
-            </address>
-        </div>
-        <div class="page-header col-sm-3 col-sm-offset-1" style="margin-top:5px;">
-            <h3>Телефони <span class="glyphicon glyphicon-earphone"></span></h3>
-            <address>
-                (0ХХ)-ХХХ-ХХ-ХХ - Олександр<br />
-                (0ХХ)-ХХХ-ХХ-ХХ - Ігор<br />
-                e-mail: ekonyk@com.ua
-            </address>
-        </div>
+    <div class="page-header col-md-4" style="margin-top:5px;">
+        <h3>
+            Адреса <span class=" glyphicon glyphicon-map-marker">
+            </span>
+        </h3>
+        <address>
+            79000, м. Львів, вул. Щирецька 36 <br />
+            (<strong class="text-info">ТВК ПІВДЕННИЙ, ТЦ ЕКСПО БУД № 35</strong>)<br />
+            Детальне місце розташування зазначено на карті
+        </address>
     </div>
-    <div class="container col-sm-12" style="margin-bottom:20px">
+    <div class="page-header col-md-3 col-md-offset-1" style="margin-top:5px;">
+        <h3>Графік роботи <span class="glyphicon glyphicon-time"></span></h3>
+        <address>
+            Вівторок - Неділя, з 9:00 до 18:00<br />
+            Понеділок - <span class="label label-danger">Вихідний!</span><br />
+            Святкові дні - <span class="label label-success">Робочі!</span>
+        </address>
+    </div>
+    <div class="page-header col-md-3 col-md-offset-1" style="margin-top:5px;">
+        <h3>Телефони <span class="glyphicon glyphicon-earphone"></span></h3>
+        <address>
+            (0ХХ)-ХХХ-ХХ-ХХ - Олександр<br />
+            (0ХХ)-ХХХ-ХХ-ХХ - Ігор<br />
+            e-mail: ekonyk@com.ua
+        </address>
+    </div>
+
+    <div class="col-sm-12" style="margin-top:0px">
         <h3>Місце розташування на карті</h3>
         <div id="map" style="width:100%; height:400px;"></div>
+    </div>
+
+    <div class="page-header col-sm-12" style="margin-top:0px;">
+        <h3>
+            Форма для контакту
+            @*Якщо Вас щось цікавить, скористайтесь формою, щоб задати питання. Ми з радістю Вам надамо відповідь.*@
+        </h3>
+        <div class="form-group">
+            @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Ваше Ім’я" })
+        </div>
+
+        <div class="form-group">
+            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "Ваш E-mail" })
+        </div>
+
+        <div class="form-group">
+            @Html.TextBoxFor(x => x.Phone, new { @class = "form-control", placeholder = "Ваш телефон" })
+        </div>
+
+        <div class="form-group">
+            @Html.TextBoxFor(x => x.Theme, new { @class = "form-control", placeholder = "Тема" })
+        </div>
+
+        <div class="form-group">
+            @Html.TextAreaFor(x => x.Ask, new { @class = "form-control", rows = 5, placeholder = "Ваше запитання ... ?" })
+        </div>
+
+        <div class="footer text-right">
+            <button type="submit" class="btn btn-success">
+                <span class="glyphicon glyphicon-comment"></span> Відправити
+            </button>
+        </div>
     </div>
 </body>
 </html>

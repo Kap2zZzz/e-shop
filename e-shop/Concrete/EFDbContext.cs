@@ -15,5 +15,7 @@ namespace e_shop.Concrete
 
         public DbSet<OrderLine> OrderLines { get; set; }
 
+        public DbSet<AskClient> AskClients { get; set; }
+
     }
 }

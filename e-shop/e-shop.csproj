@@ -140,6 +140,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NavController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Entities\AskClient.cs" />
     <Compile Include="Entities\Cart.cs" />
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\Product.cs" />
