@@ -9,9 +9,9 @@
         <div class="panel-heading">
             @switch (Request.Url.Segments[2])
             {
-                case "Create": <h3>Новий товар</h3>
+                case "Create": <h4>Новий товар</h4>
                     break;
-                default: <h3>Редагування @Model.Name</h3>
+                default: <h4>Редагування @Model.Name</h4>
                     break;
             }
 

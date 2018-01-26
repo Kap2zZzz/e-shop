@@ -42,7 +42,8 @@
     <tfoot>
         <tr>
             <td colspan="3" class="text-right">Разом:</td>
-            <td class="text-right">@Model.Cart.ComputeTotalValue().ToString("c")</td>
+            <td class="text-right"><strong>@Model.Cart.ComputeTotalValue().ToString("c")</strong></td>
+            <td></td>
         </tr>
     </tfoot>
 </table>
@@ -51,11 +52,11 @@
     <a class="btn btn-primary" href="@Model.ReturnUrl"><span class="glyphicon glyphicon-share-alt"></span> Продовжити покупки</a>
     @if (Model.Cart.Lines.Count() > 0)
     {
-        <a class="btn btn-success" href="@Url.Action("Checkout")"><span class="glyphicon glyphicon-shopping-cart"></span> Оформити замовлення</a>
+        <a class="btn btn-success" href="@Url.Action("Checkout")"><span class="glyphicon glyphicon-credit-card"></span> Оформити замовлення</a>
     }
     else
     {
-        <a class="btn btn-success disabled" href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Оформити замовлення</a>
+        <a class="btn btn-success disabled" href="#"><span class="glyphicon glyphicon-credit-card"></span> Оформити замовлення</a>
     }
     @*@Html.ActionLink("Оформити замовлення", "Checkout", null, new { @class = "btn btn-success" })*@
 </div>
