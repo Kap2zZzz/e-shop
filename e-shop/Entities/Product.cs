@@ -13,6 +13,10 @@ namespace e_shop.Entities
         [HiddenInput(DisplayValue = false)]
         public int ProductID { get; set; }
 
+        [Display(Name = "Назва бренду")]
+        [Required(ErrorMessage = "Увага!, поле [Бренд] не заповнено!")]
+        public string Brand {get; set;}
+
         [Display(Name = "Назва товару")]
         [Required(ErrorMessage = "Увага!, поле [Назва товару] не заповнено!")]
         public string Name { get; set; }
