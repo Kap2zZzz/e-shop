@@ -9,7 +9,15 @@ namespace e_shop.Code
     {
         public static List<string> Category()
         {
-            List<string> c = new List<string> { "Тепла підлога", "Терморегулятори", "Кабель", "Світлодіодна стрічка", "Інше 1", "Інше 2", "Інше 3" };
+            List<string> c = new List<string> 
+            { "Тепла підлога", 
+              "Терморегулятори", 
+              "Кабель", 
+              "Щитки, бокси (метал, пластик)", 
+              "LED освітлення", 
+              "Інше 1", 
+              "Інше 2" 
+            };
             c.Sort();
             return c;
         }

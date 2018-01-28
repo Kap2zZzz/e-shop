@@ -17,12 +17,12 @@
 }
 
 
-<div class="panel-group" id="accordion">
+<div class="panel-group" id="accordion" style="margin-bottom:5px;">
     <div class="panel panel-default">
         <div class="panel-heading">
             <h4 class="panel-title">
                 <a data-toggle="collapse" data-parent="#accordion" href="#">
-                    <span class="glyphicon glyphicon-list-alt">
+                    <span class="glyphicon glyphicon-folder-close">
                     </span>@Html.ActionLink("Усі товари", "List", "Product")
                 </a>
             </h4>
@@ -34,21 +34,23 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">
-
                     <a data-toggle="collapse" data-parent="#accordion" href="#@i">
-                        <span class="glyphicon glyphicon-th">
+                        <span class="glyphicon glyphicon-folder-open">
                         </span>@link
                     </a>
                 </h4>
             </div>
-            <div id="@i" class="panel-collapse collapse">
+            <div id="@i" class="panel-collapse collapse @(link == TempData["category"].ToString() ? " in" : "")">
                 <div class="panel-body">
                     <table class="table">
-                        @foreach (var p in _product.Products.Where(p => p.Category == link))
+                        @{
+        var groupBrand = _product.Products.Where(p => p.Category == link).GroupBy(x => x.Brand);
+                        }
+                        @foreach (var p in groupBrand)
                         {
                             <tr>
                                 <td>
-                                    <a href="@Url.Action("List", "Product", new { category = p.Category, page = 1 })">@p.Brand</a>
+                                    <a href="@Url.Action("List", "Product", new {filter = @p.Key,  category = link, page = 1 })">@p.Key</a>
                                     @*<span class="badge">@p.c</span>*@
                                 </td>
                             </tr>

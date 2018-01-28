@@ -11,7 +11,7 @@ namespace e_shop.Entities
     {
         [Key]
         [HiddenInput(DisplayValue = false)]
-        public Int32 Id { get; set; }
+        public int AskClientID { get; set; }
 
         [Required]
         public DateTime CreateDateTime { get; set; }
@@ -28,6 +28,6 @@ namespace e_shop.Entities
 
         [Required]
         [DataType(DataType.MultilineText)]
-        public string Ask { get; set; }
+        public string Question { get; set; }
     }
 }

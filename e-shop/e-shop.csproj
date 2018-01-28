@@ -111,11 +111,14 @@
     <Content Include="Content\bootstrap.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Images\image_94.300x300.jpg" />
+    <Content Include="Images\Volterm.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.maskedinput.js" />
+    <Content Include="Scripts\jquery.maskedinput.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -129,6 +132,7 @@
     <Compile Include="Abstract\IProductRepository.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Code\Helper.cs" />
+    <Compile Include="Concrete\EFAskClientRepository.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Concrete\EFOrderRepository.cs" />
     <Compile Include="Concrete\EFProductRepository.cs" />
@@ -182,6 +186,7 @@
     <Content Include="Views\Admin\Products.cshtml" />
     <Content Include="Views\Admin\Orders.cshtml" />
     <Content Include="Views\Admin\Order.cshtml" />
+    <Content Include="Views\Admin\AskClients.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

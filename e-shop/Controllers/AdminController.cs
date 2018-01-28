@@ -14,6 +14,7 @@ namespace e_shop.Controllers
     {
         private EFProductRepository repository = new EFProductRepository();
         private EFOrderRepository repositoryOrders = new EFOrderRepository();
+        private EFAskClientRepository repositoryAskClients = new EFAskClientRepository();
 
 
         //public ActionResult Index()
@@ -23,15 +24,17 @@ namespace e_shop.Controllers
 
         public ViewResult Index(string category)
         {
-            ViewBag.SelectedCategory = category == null ? "Замовлення" : category;
-            AdminViewModel model = new AdminViewModel
-            {
-                Products = repository.Products,
-                Orders = repositoryOrders.Orders,
-                CurrentCategory = category
-            };
+            //ViewBag.SelectedCategory = category == null ? "Замовлення" : category;
+            ViewBag.SelectedCategory = category == null ? "Orders" : category;
+            ViewBag.OrderCounts = repositoryOrders.Orders.Count();
+            //AdminViewModel model = new AdminViewModel
+            //{
+            //    Products = repository.Products,
+            //    Orders = repositoryOrders.Orders,
+            //    CurrentCategory = category
+            //};
 
-            return View(model);
+            return View();
         }
 
         public ViewResult Order(int OrderId)
@@ -51,8 +54,9 @@ namespace e_shop.Controllers
         }
 
         //[Route("Edit/{productId}")]
-        public ViewResult Edit(int? productId)
+        public ViewResult Edit(int? productId, string returnUrl)
         {
+            ViewBag.returnUrl = returnUrl;
             Product product = repository.Products.FirstOrDefault(p => p.ProductID == productId);
             return View(product);
         }
@@ -78,8 +82,9 @@ namespace e_shop.Controllers
             }
         }
 
-        public ViewResult Create()
+        public ViewResult Create(string returnUrl)
         {
+            ViewBag.returnUrl = returnUrl;
             return View("Edit", new Product());
         }
 
@@ -93,6 +98,17 @@ namespace e_shop.Controllers
             }
             return RedirectToAction("Index");
 
+        }
+
+        public PartialViewResult SelectCategory(string category)
+        {
+            switch (category)
+            {
+                case "Products": return PartialView("Products", repository.Products);
+                case "Orders": return PartialView("Orders", repositoryOrders.Orders);
+                case "AskClients": return PartialView("AskClients", repositoryAskClients.AskClients);
+                default: return PartialView("Index");
+            }
         }
     }
 }

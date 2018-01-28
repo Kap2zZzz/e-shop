@@ -7,13 +7,22 @@
     <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
     <link href="~/Content/ErrorStyles.css" rel="stylesheet" />
     <!-- Custom styles for this template -->
-    @*<link href="~/Content/sticky-footer.css" rel="stylesheet" />*@
+    <link href="~/Content/sticky-footer.css" rel="stylesheet" />
     <style>
         .navbar-right {
             float: right !important;
             margin-right: 15px;
             margin-left: 15px;
         }
+
+        #div_footer a {
+            color: #9d9d9d;
+        }
+
+            #div_footer a:hover {
+                color: white;
+                text-decoration: none;
+            }
 
         body {
             padding-top: 70px;
@@ -49,10 +58,18 @@
                     <li class="dropdown @ViewBag.IsActiveProduct">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Каталог <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
+                            @{
+                                e_shop.Concrete.EFProductRepository _contex = new e_shop.Concrete.EFProductRepository();
+                                var category = e_shop.Code.Helper.Category();
+                            }
                             @*@Html.ActionLink("Усі товари", "List", "Product", new { category = "Усі_Товари" }, new { @class = "list-group-item" + ("Усі_Товари" == ViewBag.SelectedCategory ? " active" : "") })*@
                             <li>@Html.ActionLink("Усі товари", "List", "Product")</li>
-                            <li>@Html.ActionLink("Кабель", "List", "Product", new { category = "Кабель", page = 1 }, null)</li>
-                            <li>@Html.ActionLink("Тепла підлога", "List", "Product", new { category = "Тепла підлога", page = 1 }, null)</li>
+                            @foreach (var m in category)
+                            {
+                                <li>@Html.ActionLink(m, "List", "Product", new { category = m, page = 1 }, null)</li>
+                            }
+                            @*<li>@Html.ActionLink("Кабель", "List", "Product", new { category = "Кабель", page = 1 }, null)</li>
+                                <li>@Html.ActionLink("Тепла підлога", "List", "Product", new { category = "Тепла підлога", page = 1 }, null)</li>*@
                         </ul>
                     </li>
                     <li class="@ViewBag.IsActiveAbout">@Html.ActionLink("Про нас", "About", "About")</li>
@@ -68,12 +85,40 @@
         @RenderBody()
     </div>
 
+    <footer class="footer">
+        <div class="container">
+            @*<div class="row text-center">
+                    <ul class="">
+                        @foreach (var m in category)
+                        {
+                            <li style="float:left;">
+                                <h3 style="padding: 10px;"><span class="label label-success"> @Html.ActionLink(m, "List", "Product", new { category = m, page = 1 }, null) </span></h3>
+                            </li>
+                        }
+                    </ul>
+                </div>*@
+            <div id="div_footer">
+                <div class="col-md-8 col-md-offset-2" style="border-bottom: 1px solid #eee;">
+                    <p class="text-muted text-center">Інтернет-магазин <a href="#"><strong>Електро Коник</strong></a> Copyright © 2018</p>
+                    @*<h5 class="text-muted text-right">Розробка: <a href="#">Музика Юрій</a></h5>*@
+                </div>
+                <div class="col-md-8 col-md-offset-2">
+                    <p class="text-muted text-center">
+                        <a href="#" style="padding: 20px;">Головна</a> |
+                        <a href="#" style="padding: 20px;">Каталог</a> |
+                        <a href="#" style="padding: 20px;">Про нас</a> |
+                        <a href="#" style="padding: 20px;">Доставка та оплата</a> |
+                        <a href="#" style="padding: 20px;">Контакти</a>
+                    </p>
+                </div>
+                <div class="col-md-8 col-md-offset-2" style="padding-right:0;">
+                    <h5 class="text-muted text-right" style="margin:0px; margin-bottom: 8px;">Розробка: <a href="#"><span class="label label-primary">Muzyka Yuriy</span></a></h5>
+                    <h5 class="text-muted text-right" style="margin:0px; margin-bottom: 8px;">E-mail: <a href="mailto:#"><span class="label label-primary">yurij.muzyka@gmail.com</span></a></h5>
 
-    @*<footer class="footer">
-            <div class="container">
-                <p class="text-muted">Place sticky footer content here.</p>
+                </div>
+
             </div>
-        </footer>*@
+    </footer>
 
     <!-- JavaScript-ядро Bootstrap
     ================================================== -->
@@ -82,6 +127,8 @@
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/jquery-1.10.2.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.maskedinput.js"></script>
+
 </body>
 </html>
 <script>
@@ -91,4 +138,18 @@
             $('#imagemodal').modal('show');
         });
     });
+
+    $(document).ready(function () {
+        var input = $('.input-validation-error:first');
+
+        if (input) {
+            input.focus();
+        }
+    });
+
+    jQuery(function ($) {
+        $("#Phone").mask("+380(99)-999-99-99");
+    });
+
+
 </script>

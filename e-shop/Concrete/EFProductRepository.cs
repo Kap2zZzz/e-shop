@@ -24,6 +24,7 @@ namespace e_shop.Concrete
                 Product dbProduct = context.Products.Find(product.ProductID);
                 if (dbProduct != null)
                 {
+                    dbProduct.Brand = product.Brand;
                     dbProduct.Name = product.Name;
                     dbProduct.Description = product.Description;
                     dbProduct.Price = product.Price;

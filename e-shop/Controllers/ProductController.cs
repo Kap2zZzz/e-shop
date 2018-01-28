@@ -18,19 +18,21 @@ namespace e_shop.Controllers
 
         public int PageSize = 5;
 
-        public ViewResult List(string category, int page = 1)
+        public ViewResult List(string filter, string category, int page = 1)
         {
             ViewBag.IsActiveProduct = "active";
+            TempData["category"] = category == null ? "" : category;
             ProductsListView model = new ProductsListView
             {
-                Products = repository.Products.Where(p => category == null || p.Category == category).OrderBy(p => p.ProductID).Skip((page - 1) * PageSize).Take(PageSize),
+                Products = category == null ? repository.Products.OrderBy(p => p.ProductID).Skip((page - 1) * PageSize).Take(PageSize) : repository.Products.Where(p => p.Category == category).Where(p => filter == null ? p.Brand != null : p.Brand == filter).OrderBy(p => p.ProductID).Skip((page - 1) * PageSize).Take(PageSize),
                 PagingInfo = new PagingInfo
                 {
                     CurrentPage = page,
                     ItemsPerPage = PageSize,
-                    TotalItems = category == null ? repository.Products.Count() : repository.Products.Where(p => p.Category == category).Count()
+                    TotalItems = category == null ? repository.Products.Count() : repository.Products.Where(p => p.Category == category).Where(p => filter == null ? p.Brand != null : p.Brand == filter).Count()
                 },
-                CurrentCategory = category
+                CurrentCategory = category,
+                CurrentFilter = filter
             };
             return View(model);
 

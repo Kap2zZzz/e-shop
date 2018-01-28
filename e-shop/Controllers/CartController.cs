@@ -55,6 +55,7 @@ namespace e_shop.Controllers
             if (HttpContext.Session != null)
             {
                 cart = (Cart)HttpContext.Session["Cart"];
+                if (cart == null) { cart = new Cart(); }
             }
 
             if (cart.Lines.Count() == 0)
@@ -70,7 +71,7 @@ namespace e_shop.Controllers
         {
             if (cart.Lines.Count() == 0)
             {
-                ModelState.AddModelError("", "Увага!, Ваш кошик пустий");
+                TempData["message"] = "Увага!, Ваш кошик порожній.";
             }
 
             if (ModelState.IsValid)
@@ -98,6 +99,7 @@ namespace e_shop.Controllers
             }
             else 
             {
+                TempData["message"] = "Увага!, Для оформлення замовлення, будь-ласка заповніть усі необхідні поля.";
                 return View(shippingDetails);
             }
         }

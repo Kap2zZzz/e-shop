@@ -1,5 +1,5 @@
 ﻿@*@model IEnumerable<e_shop.Entities.Product>*@
-@model e_shop.Models.AdminViewModel
+@*@model e_shop.Models.AdminViewModel*@
 
 @{
     ViewBag.Title = "Адміністратор: Усі товари";
@@ -17,23 +17,31 @@
         @*<a href="@Url.Action("Index", "Admin", new {category = "Замовлення"})" class="list-group-item @("Замовлення" == ViewBag.SelectedCategory ? " active" : "")">Замовлення<span class="badge">@Model.Orders.Count()</span></a>*@
         @*@Html.RouteLink("Замовлення", new { controller = "Admin", action = "Index", category = "Замовлення" }, new { @class = "list-group-item" + ("Замовлення" == ViewBag.SelectedCategory ? " active" : "") })*@
         @*@Html.ActionLink("Продукція", "Index", "Admin", new { category = "Продукція" }, new { @class = "list-group-item" + ("Продукція" == ViewBag.SelectedCategory ? " active" : "") })*@
-        <a href="@Url.RouteUrl("", new {category = "Замовлення"})" class="list-group-item @("Замовлення" == ViewBag.SelectedCategory ? " active" : "")">Замовлення<span class="badge">@Model.Orders.Count()</span></a>
-        @Html.RouteLink("Продукція", "", new { category = "Продукція" }, new { @class = "list-group-item" + ("Продукція" == ViewBag.SelectedCategory ? " active" : "") })
-        <a href="#" class="list-group-item">Статистика</a>
+        @*<a href="@Url.RouteUrl("", new {category = "Замовлення"})" class="list-group-item @("Замовлення" == ViewBag.SelectedCategory ? " active" : "")">Замовлення<span class="badge">@Model.Orders.Count()</span></a>
+            @Html.RouteLink("Продукція", "", new { category = "Продукція" }, new { @class = "list-group-item" + ("Продукція" == ViewBag.SelectedCategory ? " active" : "") })*@
+        <a href="@Url.Action("Index", new { category = "Orders" })" class="list-group-item @("Orders" == ViewBag.SelectedCategory ? " active" : "")"><span class="glyphicon glyphicon-shopping-cart" style="margin-right:10px;"></span> Замовлення<span class="badge">@ViewBag.OrderCounts</span></a>
+        <a href="@Url.Action("Index", new { category = "Products" })" class="list-group-item @("Products" == ViewBag.SelectedCategory ? " active" : "")"><span class="glyphicon glyphicon-folder-open" style="margin-right:10px;"></span> Продукція</a>
+        <a href="@Url.Action("Index", new { category = "AskClients" })" class="list-group-item @("AskClients" == ViewBag.SelectedCategory ? " active" : "")"><span class="glyphicon glyphicon-comment" style="margin-right:10px;"></span> Запитання клієнтів</a>
+        <a href="#" class="list-group-item"><span class="glyphicon glyphicon-stats" style="margin-right:10px;"></span> Статистика</a>
+
 
     </div>
 
     <div class="col-xs-12 col-sm-10">
-        @switch (Model.CurrentCategory)
+        @if (ViewBag.SelectedCategory != null)
         {
-            case "Продукція": @Html.Partial("Products", Model.Products)
-                break;
-            default:
-                {
-                    @Html.Partial("Orders", Model.Orders)
-                }
-                break;
+            @Html.Action("SelectCategory", "Admin", new { category = ViewBag.SelectedCategory })
         }
+        @*@switch (Model.CurrentCategory)
+            {
+                case "Продукція": @Html.Partial("Products", Model.Products)
+                    break;
+                default:
+                    {
+                        @Html.Partial("Orders", Model.Orders)
+                    }
+                    break;
+            }*@
 
     </div>
 

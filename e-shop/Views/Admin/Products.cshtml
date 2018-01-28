@@ -37,7 +37,7 @@
                 {
                     <tr>
                         <td class="text-right">@item.ProductID</td>
-                        <td>@Html.RouteLink(item.Name, "edit", new { controller = "Admin", action = "Edit", productId = item.ProductID })</td>
+                        <td>@Html.RouteLink(item.Name, "edit", new { controller = "Admin", action = "Edit", productId = item.ProductID, returnUrl = Request.Url.PathAndQuery })</td>
                         <td>@item.Description</td>
                         <td class="text-right">@item.Price.ToString("c")</td>
                         <td class="text-center">@item.Category</td>
@@ -58,7 +58,7 @@
         </table>
     </div>
     <div class="panel-footer text-right">
-        <a href="@Url.Action("Create")" class="btn btn-primary">
+        <a href="@Url.Action("Create", new {returnUrl = Request.Url.PathAndQuery})" class="btn btn-primary">
             <span class="glyphicon glyphicon-plus"></span>
             Додати новий товар
         </a>
