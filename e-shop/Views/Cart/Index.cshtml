@@ -19,25 +19,32 @@
         </tr>
     </thead>
     <tbody>
+
         @foreach (var line in Model.Cart.Lines)
         {
-            <tr>
-                <td class="text-center">@line.Quantity</td>
-                <td class="text-left">@line.Product.Name</td>
-                <td class="text-right">@line.Product.Price.ToString("c")</td>
-                <td class="text-right">@((line.Quantity * line.Product.Price).ToString("c"))</td>
-                <td class="text-center">
-                    @using (Html.BeginForm("RemoveFromCart", "Cart"))
-                    {
-                        @Html.Hidden("ProductId", line.Product.ProductID)
-                        @Html.HiddenFor(x => x.ReturnUrl)
-                        <button class="btn btn-sm btn-warning" type="submit">
-                            <span class="glyphicon glyphicon-trash"></span> Видалити
-                        </button>
-                    }
-                </td>
-            </tr>
+            using (Html.BeginForm("Index", "Cart", FormMethod.Post, new { id = "CartLineForm"+@line.Product.ProductID}))
+            {
+                <tr>
+                    @*<td><input type="submit" value="update" /></td>*@
+                    @*<td class="text-center">@line.Quantity</td>*@
+                    <td class="text-center" style="text-align: -webkit-center;"> <input type="number" name="quantity" value="@line.Quantity" min="1" class="form-control center-block" style="width:60px;" onmouseup="recalc(@line.Product.ProductID)"></td>
+                    <td class="text-left" style="vertical-align: middle;">@line.Product.Name</td>
+                    <td class="text-right" style="vertical-align: middle;">@line.Product.Price.ToString("c")</td>
+                    <td class="text-right" style="vertical-align: middle;">@((line.Quantity * line.Product.Price).ToString("c"))</td>
+                    <td class="text-center" style="vertical-align: middle;">
+                        @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                        {
+                            @Html.Hidden("ProductId", line.Product.ProductID)
+                            @Html.HiddenFor(x => x.ReturnUrl)
+                            <button class="btn btn-sm btn-warning" type="submit">
+                                <span class="glyphicon glyphicon-trash"></span> Видалити
+                            </button>
+                        }
+                    </td>
+                </tr>
+            }
         }
+
     </tbody>
     <tfoot>
         <tr>

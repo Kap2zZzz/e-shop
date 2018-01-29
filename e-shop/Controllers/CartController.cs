@@ -21,6 +21,21 @@ namespace e_shop.Controllers
             return View(new CartIndexViewModel { Cart = cart, ReturnUrl = returnUrl });
         }
 
+        [HttpPost]
+        public ViewResult Index(Cart cart, FormCollection fm, string returnUrl)
+        {
+            string[] prodId = fm.GetValues("ProductId");
+            string[] q = fm.GetValues("Quantity");
+            int i=0;
+
+            foreach (var a in cart.Lines.Where(l=>l.Product.ProductID == Convert.ToInt32(prodId[0])))
+            {
+                a.Quantity = Convert.ToInt32(q[0]);
+                i++;
+            }
+            return View(new CartIndexViewModel { Cart = cart, ReturnUrl = returnUrl });
+        }
+
         public RedirectToRouteResult AddToCart(Cart cart, int productId, string returnUrl)
         {
             Product product = repository.Products.FirstOrDefault(p => p.ProductID == productId);
