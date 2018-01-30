@@ -18,7 +18,7 @@
 
 
 <div class="panel-group" id="accordion" style="margin-bottom:5px;">
-    <div class="panel panel-default">
+    <div class="panel panel-default @("" == TempData["category"].ToString() ? " panel-primary" : " panel-default")" id="firsElementMenu">
         <div class="panel-heading">
             <h4 class="panel-title">
                 <a data-toggle="collapse" data-parent="#accordion" href="#">
@@ -31,11 +31,11 @@
     @foreach (var link in Model)
     {
         i++;
-        <div class="panel @(link == TempData["category"].ToString() ? " panel-primary" : " panel-default")">
+        <div class="panel panel-default @(link == TempData["category"].ToString() ? " panel-primary" : " panel-default")">
             <div class="panel-heading">
                 <h4 class="panel-title">
                     <a data-toggle="collapse" data-parent="#accordion" href="#@i">
-                        <span class="glyphicon glyphicon-folder-open">
+                        <span class="glyphicon glyphicon-folder-close @(link == TempData["category"].ToString() ? " glyphicon-folder-open" : " glyphicon-folder-close")">
                         </span>@link
                     </a>
                 </h4>

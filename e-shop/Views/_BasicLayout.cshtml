@@ -148,12 +148,33 @@
     });
 
     jQuery(function ($) {
-        $("#Phone").mask("+380(99)-999-99-99");
+        $("#Phone").mask("+38(999)-999-99-99");
     });
 
     function recalc(Id) {
-        $("#CartLineForm"+Id).submit();
+        $("#CartLineForm" + Id).submit();
     }
+
+    $('.panel').on('show.bs.collapse', function () {
+        $(this).toggleClass("panel-primary");
+        //$('span').parent().toggleClass('glyphicon-folder-close glyphicon-folder-open');
+        $(this).find('span').toggleClass('glyphicon-folder-open');
+        //$('.panel span').toggleClass('glyphicon-folder-close glyphicon-folder-open');
+        $('#firsElementMenu').removeClass("panel-primary")
+    })
+
+    $('.panel').on('hide.bs.collapse', function () {
+        $(this).toggleClass("panel-primary");
+        $('#firsElementMenu').removeClass("panel-primary")
+        $(this).find('span').toggleClass('glyphicon-folder-open');
+
+    })
+
+    //$('.panel').click(function()
+    //{
+    //    $(this).removeClass("panel-primary");
+    //    //alert('klick');
+    //})
 
     //$(function () {
     //    $('#Quantity').change(function () {

@@ -107,7 +107,7 @@ namespace e_shop.Controllers
                 case "Products": return PartialView("Products", repository.Products);
                 case "Orders": return PartialView("Orders", repositoryOrders.Orders);
                 case "AskClients": return PartialView("AskClients", repositoryAskClients.AskClients);
-                default: return PartialView("Index");
+                default: return PartialView("NotFound");
             }
         }
     }

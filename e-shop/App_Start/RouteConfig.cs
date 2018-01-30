@@ -38,6 +38,12 @@ namespace e_shop
                 defaults: new { controller = "Contact", action = "Contact" }
             );
 
+            routes.MapRoute(
+                name: "Delivery",
+                url: "Delivery",
+                defaults: new { controller = "Delivery", action = "Delivery" }
+);
+
             routes.MapRoute(null, "{controller}/{action}/Page{page}", new
             {
                 controller = "Product",
