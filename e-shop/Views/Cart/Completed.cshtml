@@ -1,8 +1,15 @@
 ﻿@model e_shop.Entities.Order
 
+@{
+    ViewBag.Title = "Дякуємо за покупку | Електро Коник";
+}
+
 <div class="jumbotron">
     <h1><span class="label label-success">Дякуємо Вам за покупку!</span></h1>
     <h2>Ваше замовлення №: <strong>@Model.OrderID</strong></h2>
     <h4>Дякуємо що скористались нашим магазином. Продавець зконтактується з Вами протягом декілька хвилин.</h4>
+    <p>
+        @Html.ActionLink("Повернутися на головну", "Index", "Home", null, new { @class = "btn btn-primary" })
+    </p>
 </div>
 

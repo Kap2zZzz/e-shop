@@ -1,14 +1,11 @@
 ﻿@model e_shop.Models.CartIndexViewModel
 
 @{
-    ViewBag.Title = "ЕлектроКоник: Ваша корзина";
+    ViewBag.Title = "Кошик | Електро Коник";
 }
-<style>
-    /*#cartTable td {
-        vertical-align: middle;
-    }*/
-</style>
+
 <h2>Ваш кошик <span class="glyphicon glyphicon-shopping-cart"></span></h2>
+
 <table id="cartTable" class="table  table-striped ">
     <thead>
         <tr>
@@ -19,15 +16,13 @@
         </tr>
     </thead>
     <tbody>
-
         @foreach (var line in Model.Cart.Lines)
         {
             <tr>
-                @*<td><input type="submit" value="update" /></td>*@
-                @*<td class="text-center">@line.Quantity</td>*@
                 @using (Html.BeginForm("Index", "Cart", FormMethod.Post, new { id = "CartLineForm" + @line.Product.ProductID }))
                 {
                     @Html.Hidden("ProductId", line.Product.ProductID)
+                    @Html.HiddenFor(x => x.ReturnUrl)
                     <td class="text-center"> <input type="number" name="quantity" value="@line.Quantity" min="1" class="form-control center-block" style="width:60px;" onchange="recalc(@line.Product.ProductID)"></td>
                     <td class="text-left" style="vertical-align: middle;">@line.Product.Name</td>
                     <td class="text-right" style="vertical-align: middle;">@line.Product.Price.ToString("c")</td>
@@ -48,7 +43,6 @@
                 </td>
             </tr>
         }
-
     </tbody>
     <tfoot>
         <tr>
@@ -69,7 +63,6 @@
     {
         <a class="btn btn-success disabled" href="#"><span class="glyphicon glyphicon-credit-card"></span> Оформити замовлення</a>
     }
-    @*@Html.ActionLink("Оформити замовлення", "Checkout", null, new { @class = "btn btn-success" })*@
 </div>
 
 <div class="col-md-12 visible-xs">
@@ -82,5 +75,4 @@
     {
         <a class="btn btn-success btn-block disabled" href="#"><span class="glyphicon glyphicon-credit-card"></span> Оформити замовлення</a>
     }
-    @*@Html.ActionLink("Оформити замовлення", "Checkout", null, new { @class = "btn btn-success" })*@
 </div>

@@ -2,12 +2,12 @@
 
 <html>
 <head>
+    <title>@ViewBag.Title</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113314059-1"></script>
+    <script src="~/Scripts/google.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    @*<link href="~/Content/bootstrap.css" rel="stylesheet" />*@
-    @*<link href="~/Content/bootstrap-theme.css" rel="stylesheet" />*@
-    @*<link href="~/Content/ErrorStyles.css" rel="stylesheet" />*@
-    <!-- Custom styles for this template -->
-    @*<link href="~/Content/sticky-footer.css" rel="stylesheet" />*@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         .navbar-right {
             float: right !important;
@@ -26,10 +26,6 @@
 
         body {
             padding-top: 70px;
-        }
-
-        .container {
-            /*width: 850px;*/
         }
 
         .modal-open[style="padding-right: 17px;"] .navbar-fixed-top,
@@ -53,7 +49,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("ЕЛЕКТРОКОНИК", "Index", "Home", null, new { @class = "navbar-brand" })
+                <a class="navbar-brand" style="color:white" href="@Url.Action("Index","Home")">Електро <span class="fa fa-bolt"></span> Коник</a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
@@ -65,14 +61,11 @@
                                 e_shop.Concrete.EFProductRepository _contex = new e_shop.Concrete.EFProductRepository();
                                 var category = e_shop.Code.Helper.Category();
                             }
-                            @*@Html.ActionLink("Усі товари", "List", "Product", new { category = "Усі_Товари" }, new { @class = "list-group-item" + ("Усі_Товари" == ViewBag.SelectedCategory ? " active" : "") })*@
                             <li>@Html.ActionLink("Усі товари", "List", "Product")</li>
                             @foreach (var m in category)
                             {
                                 <li>@Html.ActionLink(m, "List", "Product", new { category = m, page = 1 }, null)</li>
                             }
-                            @*<li>@Html.ActionLink("Кабель", "List", "Product", new { category = "Кабель", page = 1 }, null)</li>
-                                <li>@Html.ActionLink("Тепла підлога", "List", "Product", new { category = "Тепла підлога", page = 1 }, null)</li>*@
                         </ul>
                     </li>
                     <li class="@ViewBag.IsActiveAbout">@Html.ActionLink("Про нас", "About", "About")</li>
@@ -90,83 +83,24 @@
 
     <footer class="footer">
         <div class="container">
-            @*<div class="row text-center">
-                    <ul class="">
-                        @foreach (var m in category)
-                        {
-                            <li style="float:left;">
-                                <h3 style="padding: 10px;"><span class="label label-success"> @Html.ActionLink(m, "List", "Product", new { category = m, page = 1 }, null) </span></h3>
-                            </li>
-                        }
-                    </ul>
-                </div>*@
             <div id="div_footer">
                 <div class="col-md-8 col-md-offset-2" style="border-bottom: 1px solid #eee;">
-                    <p class="text-muted text-center">Інтернет-магазин <a href="#"><strong>Електро Коник</strong></a> Copyright © 2018</p>
-                    @*<h5 class="text-muted text-right">Розробка: <a href="#">Музика Юрій</a></h5>*@
+                    <p class="text-muted text-center">Інтернет-магазин <a href="@Url.Action("Index","Home")"><strong>Електро Коник</strong></a> Copyright © 2018</p>
                 </div>
                 <div class="col-md-8 col-md-offset-2">
                     <p class="text-muted text-center">
-                        <a href="#" style="padding: 20px;">Головна</a> |
-                        <a href="#" style="padding: 20px;">Каталог</a> |
-                        <a href="#" style="padding: 20px;">Про нас</a> |
-                        <a href="#" style="padding: 20px;">Доставка та оплата</a> |
-                        <a href="#" style="padding: 20px;">Контакти</a>
+                        <a href="@Url.Action("Index","Home")" style="padding: 20px;">Головна</a> |
+                        <a href="@Url.Action("List","Product")" style="padding: 20px;">Каталог</a> |
+                        <a href="@Url.Action("About","About")" style="padding: 20px;">Про нас</a> |
+                        <a href="@Url.Action("Delivery", "Delivery")" style="padding: 20px;">Доставка та оплата</a> |
+                        <a href="@Url.Action("Contact","Contact")" style="padding: 20px;">Контакти</a>
                     </p>
                 </div>
                 <div class="col-md-8 col-md-offset-2" style="padding-right:0;">
-                    <h5 class="text-muted text-right" style="margin:0px; margin-bottom: 8px;">Розробка: <a href="#"><span class="label label-primary">Muzyka Yuriy</span></a></h5>
-                    <h5 class="text-muted text-right" style="margin:0px; margin-bottom: 8px;">E-mail: <a href="mailto:#"><span class="label label-primary">yurij.muzyka@gmail.com</span></a></h5>
-
+                    <h5 class="text-muted text-center" style="margin:0px; margin-bottom: 8px;">Розробка: <a href="http://www.linkedin.com/in/yuriy-muzyka"><span class="fa fa-linkedin" style="color: white; margin-left: 2px; margin-right: 2px; font-size: 20px;"></span> <span>Музика Юрій</span></a></h5>
                 </div>
-
             </div>
+        </div>
     </footer>
-
-    @*<script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/jquery-1.10.2.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/jquery.maskedinput.js"></script>
-    <script src="~/Scripts/main.js"></script>*@
 </body>
 </html>
-<script>
-    //$(function () {
-    //    $('.pop').on('click', function () {
-    //        $('.imagepreview').attr('src', $(this).find('img').attr('src'));
-    //        $('#imagemodal').modal('show');
-    //    });
-    //});
-
-    //$(document).ready(function () {
-    //    var input = $('.input-validation-error:first');
-
-    //    if (input) {
-    //        input.focus();
-    //    }
-    //});
-
-    //jQuery(function ($) {
-    //    $("#Phone").mask("+38(999)-999-99-99");
-    //});
-
-    //function recalc(Id) {
-    //    $("#CartLineForm" + Id).submit();
-    //}
-
-    //$('.panel').on('show.bs.collapse', function () {
-    //    $(this).toggleClass("panel-primary");
-    //    //$('span').parent().toggleClass('glyphicon-folder-close glyphicon-folder-open');
-    //    $(this).find('span').toggleClass('glyphicon-folder-open');
-    //    //$('.panel span').toggleClass('glyphicon-folder-close glyphicon-folder-open');
-    //    $('#firsElementMenu').removeClass("panel-primary")
-    //})
-
-    //$('.panel').on('hide.bs.collapse', function () {
-    //    $(this).toggleClass("panel-primary");
-    //    $('#firsElementMenu').removeClass("panel-primary")
-    //    $(this).find('span').toggleClass('glyphicon-folder-open');
-
-    //})
-
-</script>

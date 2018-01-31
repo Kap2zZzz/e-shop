@@ -26,7 +26,7 @@ namespace e_shop.Code
             };
 
             var message = new MailMessage(fromAddress, toAddress);
-            message.To.Add(new MailAddress("oleksandrkonyk @ukr.net", "Олександр Коник"));
+            //message.To.Add(new MailAddress("oleksandrkonyk@ukr.net", "Олександр Коник"));
 
             message.Subject = subject;
             message.IsBodyHtml = true;
@@ -55,7 +55,7 @@ namespace e_shop.Code
             string b = string.Format
             (
                 @"<body>
-                    <table border='1' cellpadding='5' cellspacing='5'>
+                    <table>
                         <tr>
                             <td>Клієнт:</td>
                             <td>" + o.UserName + @"</td>
@@ -65,14 +65,15 @@ namespace e_shop.Code
                             <td>" + o.UserPhone + @"</td>
                         </tr>
                         <tr>
-                            <table>
+                            <table border='1' cellpadding='5' cellspacing='5'>
                                 <th>Товар</th>
                                 <th>Кількість</th>
                                 <th>Ціна</th>" + s +
-                            @"</table>
-                        </tr>
-                        <tr>
-                            <td colspan='2'>" + o.Suma + @"<td>
+                              @"<tr>
+                                   <td colspan='2'>Разом:</td>
+                                   <td>" + o.Suma + @"</td>
+                                </tr>
+                            </table>
                         </tr>
                     </table>
                 </body>"

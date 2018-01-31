@@ -1,6 +1,6 @@
 ﻿@model e_shop.Entities.ShippingDetails
 @{
-    ViewBag.Title = "Оформлення замовлення";
+    ViewBag.Title = "Оформлення замовлення | Електро Коник";
 }
 <div class="container col-sm-8 col-sm-offset-2">
     <div class="panel panel-default">
@@ -10,14 +10,12 @@
         @using (Html.BeginForm())
         {
             <div class="panel-body">
-
                 @if (TempData["valid"] != null)
                 {
                     <div id="valid" class="alert alert-danger">@TempData["message"]</div>
                 }
                 @if (ViewData.ModelState.Any(x => x.Value.Errors.Any()))
                 {
-                    // Bootstrap 2 = "alert-error", Bootstrap 3 and 4 = "alert-danger"
                     <div class="alert alert-danger alert-error">
                         <a class="close" data-dismiss="alert">&times;</a>
                         @Html.ValidationSummary()

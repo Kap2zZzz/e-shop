@@ -1,8 +1,9 @@
 ﻿@model e_shop.Entities.AskClient
 
 @{
-    ViewBag.Title = "Контакти";
+    ViewBag.Title = "Контакти | Електро Коник";
 }
+
 @if (TempData["valid"] != null)
 {
     if (TempData["valid"] == "1")
@@ -10,6 +11,7 @@
         <div id="valid" class="alert alert-success">@TempData["message"]</div>
     }
 }
+
 <div class="page-header" style="margin-top:5px; margin-bottom:5px">
     <h3>Наші контакти:</h3>
 </div>
@@ -50,12 +52,9 @@
 <div class="row">
     @using (Html.BeginForm())
     {
-        @*@Html.HiddenFor(m => m.AskClientID)*@
-        @*@Html.ValidationSummary()*@
         <div class="page-header col-sm-12" style="margin-top:0px;">
             <h3>
                 Форма для контакту
-                @*Якщо Вас щось цікавить, скористайтесь формою, щоб задати питання. Ми з радістю Вам надамо відповідь.*@
             </h3>
             @if (TempData["valid"] != null)
             {

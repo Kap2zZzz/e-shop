@@ -1,84 +1,77 @@
-﻿<!DOCTYPE html>
-
-<html>
-<head>
-    <style>
-        /*.navbar-fixed-top {
-            margin-left: -17px;
-        }*/
-    </style>
-    <meta name="viewport" content="width=device-width" />
-    <title>Про нас</title>
-</head>
-<body>
-    <div class="page-header jumbotron">
-        <h2><strong>Інтернет-магазин електротоварів "Електро Коник" </strong></h2><br />
-        <p class="lead">    Реалізовує оптовому та роздрібному торгівлю електротоварами у Львові та по всій Україні за вигідними цінами. 
+﻿@{
+    ViewBag.Title = "Про нас | Електро Коник";
+}
+<div class="page-header jumbotron">
+    <h2><strong>Інтернет-магазин електротоварів "Електро Коник" </strong></h2><br />
+    <p class="lead">
+        Реалізовує оптовому та роздрібному торгівлю електротоварами у Львові та по всій Україні за вигідними цінами.
         У нас Ви зможете придбати усі необхідні електротовари з доставкою на об'єкт:<br />
-        <span class="label label-info">кабель</span> <span class="label label-warning">тепла підлога</span> <span class="label label-primary">ПЗВ</span> <span class="label label-danger">автоматичні вимикачі</span> <span class="label label-success">реле напруги (відсікачі)</span> <span class="label label-warning">електричні щитки</span> <span class="label label-danger">розетки</span> <span class="label label-primary">вимикачі</span> тощо.</p>
-    </div>
-    <div class="page-header">
-        <h4>В інтернет-магазині "Електро Коник" представлено продукцію таких провідних світових та українських брендів як:</h4>
-        <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-3" style="margin-bottom:10px">
-                <img style="width:100%; height:150px" src="~/Images/Volterm.jpg" alt="test" class="img-thumbnail" />
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3" style="margin-bottom:10px">
-                <img style=" width:100%; height:150px" src="~/Images/Nexans.jpg" alt="test" class="img-thumbnail" />
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3" style="margin-bottom:10px">
-                <img style="width:100%; height:150px" src="~/Images/Fenix.png" alt="test" class="img-thumbnail" />
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3" style="margin-bottom:10px">
-                <img style="width:100%; height:150px" src="~/Images/Arnold_Rak.jpg" alt="test" class="img-thumbnail" />
-            </div>
+        <span class="label label-info">кабель</span> <span class="label label-warning">тепла підлога</span> <span class="label label-primary">ПЗВ</span> <span class="label label-danger">автоматичні вимикачі</span> <span class="label label-success">реле напруги (відсікачі)</span> <span class="label label-warning">електричні щитки</span> <span class="label label-danger">розетки</span> <span class="label label-primary">вимикачі</span> тощо.
+    </p>
+</div>
+
+<div class="page-header">
+    <h4>В інтернет-магазині "Електро Коник" представлено продукцію таких провідних світових та українських брендів як:</h4>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3" style="margin-bottom:10px">
+            <img style="width:100%; height:150px" src="~/Images/Volterm.jpg" alt="test" class="img-thumbnail" />
         </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-3" style="margin-bottom:10px">
-                <img style="width:100%; height:150px" src="~/Images/Devi.png" alt="test" class="img-thumbnail" />
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3" style="margin-bottom:10px">
-                <img style="width:100%; height:150px" src="~/Images/VipKabel.jpg" alt="test" class="img-thumbnail" />
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3" style="margin-bottom:10px">
-                <img style="width:100%; height:150px" src="~/Images/Schneider.jpg" alt="test" class="img-thumbnail" />
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3" style="margin-bottom:10px">
-                <img style="width:100%; height:150px" src="~/Images/Horoz.jpg" alt="test" class="img-thumbnail" />
-            </div>
+        <div class="col-xs-12 col-sm-6 col-md-3" style="margin-bottom:10px">
+            <img style=" width:100%; height:150px" src="~/Images/Nexans.jpg" alt="test" class="img-thumbnail" />
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3" style="margin-bottom:10px">
+            <img style="width:100%; height:150px" src="~/Images/Fenix.png" alt="test" class="img-thumbnail" />
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3" style="margin-bottom:10px">
+            <img style="width:100%; height:150px" src="~/Images/Arnold_Rak.jpg" alt="test" class="img-thumbnail" />
         </div>
     </div>
-    <div class="page-header">
-        <h2>Також ми надаємо послуги:</h2>
-        <div class="row">
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img style="width:100%; height:220px" src="~/Images/Montag_tp.jpg" alt="test" class="img-rounded" />
-                    <div class="caption">
-                        <h3>Монтаж теплої підлоги</h3>
-                        <p>Опис послуги, опис послуги, опис послуги, опис послуги, опис послуги, опис послуги ...</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img style="width:100%; height:220px" src="~/Images/Montag_el.jpg" alt="test" class="img-rounded" />
-                    <div class="caption">
-                        <h3>Монтаж електропроводки</h3>
-                        <p>Опис послуги, опис послуги, опис послуги, опис послуги, опис послуги, опис послуги ...</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img style="width:100%; height:220px" src="~/Images/Rozrachunok.jpg" alt="test" class="img-rounded" />
-                    <div class="caption">
-                        <h3>Розрахунок та консультація</h3>
-                        <p>Опис послуги, опис послуги, опис послуги, опис послуги, опис послуги, опис послуги ...</p>
-                    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3" style="margin-bottom:10px">
+            <img style="width:100%; height:150px" src="~/Images/Devi.png" alt="test" class="img-thumbnail" />
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3" style="margin-bottom:10px">
+            <img style="width:100%; height:150px" src="~/Images/VipKabel.jpg" alt="test" class="img-thumbnail" />
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3" style="margin-bottom:10px">
+            <img style="width:100%; height:150px" src="~/Images/Schneider.jpg" alt="test" class="img-thumbnail" />
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3" style="margin-bottom:10px">
+            <img style="width:100%; height:150px" src="~/Images/Horoz.jpg" alt="test" class="img-thumbnail" />
+        </div>
+    </div>
+</div>
+
+<div class="page-header">
+    <h2>Також ми надаємо послуги:</h2>
+    <div class="row">
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <img style="width:100%; height:220px" src="~/Images/Montag_tp.jpg" alt="test" class="img-rounded" />
+                <div class="caption">
+                    <h3>Монтаж теплої підлоги</h3>
+                    <p>Опис послуги, опис послуги, опис послуги, опис послуги, опис послуги, опис послуги ...</p>
                 </div>
             </div>
         </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <img style="width:100%; height:220px" src="~/Images/Montag_el.jpg" alt="test" class="img-rounded" />
+                <div class="caption">
+                    <h3>Монтаж електропроводки</h3>
+                    <p>Опис послуги, опис послуги, опис послуги, опис послуги, опис послуги, опис послуги ...</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <img style="width:100%; height:220px" src="~/Images/Rozrachunok.jpg" alt="test" class="img-rounded" />
+                <div class="caption">
+                    <h3>Розрахунок та консультація</h3>
+                    <p>Опис послуги, опис послуги, опис послуги, опис послуги, опис послуги, опис послуги ...</p>
+                </div>
+            </div>
+        </div>
     </div>
-</body>
-</html>
+</div>
+

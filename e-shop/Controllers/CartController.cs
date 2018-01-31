@@ -87,6 +87,9 @@ namespace e_shop.Controllers
             if (cart.Lines.Count() == 0)
             {
                 TempData["message"] = "Увага!, Ваш кошик порожній.";
+                Response.StatusCode = 404;
+                Response.TrySkipIisCustomErrors = true;
+                return View("PageNotFound");
             }
 
             if (ModelState.IsValid)
