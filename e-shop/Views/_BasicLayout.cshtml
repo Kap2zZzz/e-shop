@@ -3,11 +3,11 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="~/Content/bootstrap.css" rel="stylesheet" />
-    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
-    <link href="~/Content/ErrorStyles.css" rel="stylesheet" />
+    @*<link href="~/Content/bootstrap.css" rel="stylesheet" />*@
+    @*<link href="~/Content/bootstrap-theme.css" rel="stylesheet" />*@
+    @*<link href="~/Content/ErrorStyles.css" rel="stylesheet" />*@
     <!-- Custom styles for this template -->
-    <link href="~/Content/sticky-footer.css" rel="stylesheet" />
+    @*<link href="~/Content/sticky-footer.css" rel="stylesheet" />*@
     <style>
         .navbar-right {
             float: right !important;
@@ -38,6 +38,9 @@
             overflow-y: no-display;
         }
     </style>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/clientfeaturesscripts")
+    @RenderSection("Scripts", false)
 </head>
 <body>
     <!-- Фіксована навігаційна панель -->
@@ -120,67 +123,50 @@
             </div>
     </footer>
 
-    <!-- JavaScript-ядро Bootstrap
-    ================================================== -->
-    <!-- Розміщуйте підключення JavaScript в кінці документа щоб сторінки завантажувались швидше -->
-    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>*@
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    @*<script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/jquery-1.10.2.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery.maskedinput.js"></script>
-
+    <script src="~/Scripts/main.js"></script>*@
 </body>
 </html>
 <script>
-    $(function () {
-        $('.pop').on('click', function () {
-            $('.imagepreview').attr('src', $(this).find('img').attr('src'));
-            $('#imagemodal').modal('show');
-        });
-    });
-
-    $(document).ready(function () {
-        var input = $('.input-validation-error:first');
-
-        if (input) {
-            input.focus();
-        }
-    });
-
-    jQuery(function ($) {
-        $("#Phone").mask("+38(999)-999-99-99");
-    });
-
-    function recalc(Id) {
-        $("#CartLineForm" + Id).submit();
-    }
-
-    $('.panel').on('show.bs.collapse', function () {
-        $(this).toggleClass("panel-primary");
-        //$('span').parent().toggleClass('glyphicon-folder-close glyphicon-folder-open');
-        $(this).find('span').toggleClass('glyphicon-folder-open');
-        //$('.panel span').toggleClass('glyphicon-folder-close glyphicon-folder-open');
-        $('#firsElementMenu').removeClass("panel-primary")
-    })
-
-    $('.panel').on('hide.bs.collapse', function () {
-        $(this).toggleClass("panel-primary");
-        $('#firsElementMenu').removeClass("panel-primary")
-        $(this).find('span').toggleClass('glyphicon-folder-open');
-
-    })
-
-    //$('.panel').click(function()
-    //{
-    //    $(this).removeClass("panel-primary");
-    //    //alert('klick');
-    //})
-
     //$(function () {
-    //    $('#Quantity').change(function () {
-    //        var selectedVal = $(this).val();
-    //        alert(selectedVal);
+    //    $('.pop').on('click', function () {
+    //        $('.imagepreview').attr('src', $(this).find('img').attr('src'));
+    //        $('#imagemodal').modal('show');
     //    });
     //});
+
+    //$(document).ready(function () {
+    //    var input = $('.input-validation-error:first');
+
+    //    if (input) {
+    //        input.focus();
+    //    }
+    //});
+
+    //jQuery(function ($) {
+    //    $("#Phone").mask("+38(999)-999-99-99");
+    //});
+
+    //function recalc(Id) {
+    //    $("#CartLineForm" + Id).submit();
+    //}
+
+    //$('.panel').on('show.bs.collapse', function () {
+    //    $(this).toggleClass("panel-primary");
+    //    //$('span').parent().toggleClass('glyphicon-folder-close glyphicon-folder-open');
+    //    $(this).find('span').toggleClass('glyphicon-folder-open');
+    //    //$('.panel span').toggleClass('glyphicon-folder-close glyphicon-folder-open');
+    //    $('#firsElementMenu').removeClass("panel-primary")
+    //})
+
+    //$('.panel').on('hide.bs.collapse', function () {
+    //    $(this).toggleClass("panel-primary");
+    //    $('#firsElementMenu').removeClass("panel-primary")
+    //    $(this).find('span').toggleClass('glyphicon-folder-open');
+
+    //})
 
 </script>

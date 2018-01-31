@@ -4,9 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Web.Optimization;
 using e_shop.Entities;
 using e_shop.Infrastructure.Binders;
 using e_shop.Controllers;
+using e_shop.App_Start;
 
 namespace e_shop
 {
@@ -17,6 +19,7 @@ namespace e_shop
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             ModelBinders.Binders.Add(typeof(Cart), new CartModelBinder());
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
         protected void Application_Error(object sender, EventArgs e)

@@ -38,6 +38,7 @@ namespace e_shop.Controllers
 
         }
 
+        [OutputCache(Duration = 1200, Location = System.Web.UI.OutputCacheLocation.Downstream)]
         public FileContentResult GetImage(int productId)
         {
             Product product = repository.Products.FirstOrDefault(p => p.ProductID == productId);

@@ -106,7 +106,8 @@ namespace e_shop.Controllers
                     order.OrderLines.Add(orderLine);
                 }
 
-                repositoryOrder.SaveOrder(order);
+                repositoryOrder.SaveOrder(order); //Збереження до БД
+                Mail.Send(order); //Відправка на пошту
                 
                 cart.Clear();
 

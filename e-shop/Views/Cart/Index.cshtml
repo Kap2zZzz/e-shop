@@ -22,27 +22,31 @@
 
         @foreach (var line in Model.Cart.Lines)
         {
-            using (Html.BeginForm("Index", "Cart", FormMethod.Post, new { id = "CartLineForm"+@line.Product.ProductID}))
-            {
-                <tr>
-                    @*<td><input type="submit" value="update" /></td>*@
-                    @*<td class="text-center">@line.Quantity</td>*@
+            <tr>
+                @*<td><input type="submit" value="update" /></td>*@
+                @*<td class="text-center">@line.Quantity</td>*@
+                @using (Html.BeginForm("Index", "Cart", FormMethod.Post, new { id = "CartLineForm" + @line.Product.ProductID }))
+                {
+                    @Html.Hidden("ProductId", line.Product.ProductID)
                     <td class="text-center"> <input type="number" name="quantity" value="@line.Quantity" min="1" class="form-control center-block" style="width:60px;" onchange="recalc(@line.Product.ProductID)"></td>
                     <td class="text-left" style="vertical-align: middle;">@line.Product.Name</td>
                     <td class="text-right" style="vertical-align: middle;">@line.Product.Price.ToString("c")</td>
                     <td class="text-right" style="vertical-align: middle;">@((line.Quantity * line.Product.Price).ToString("c"))</td>
-                    <td class="text-center" style="vertical-align: middle;">
-                        @using (Html.BeginForm("RemoveFromCart", "Cart"))
-                        {
-                            @Html.Hidden("ProductId", line.Product.ProductID)
-                            @Html.HiddenFor(x => x.ReturnUrl)
-                            <button class="btn btn-sm btn-warning" type="submit">
-                                <span class="glyphicon glyphicon-trash"></span> Видалити
-                            </button>
-                        }
-                    </td>
-                </tr>
-            }
+                }
+                <td class="text-center" style="vertical-align: middle;">
+                    @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                    {
+                        @Html.Hidden("ProductId", line.Product.ProductID)
+                        @Html.HiddenFor(x => x.ReturnUrl)
+                        <button class="btn btn-sm btn-warning hidden-xs" type="submit">
+                            <span class="glyphicon glyphicon-trash"></span> Видалити
+                        </button>
+                        <button class="btn btn-sm btn-warning visible-xs" type="submit">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    }
+                </td>
+            </tr>
         }
 
     </tbody>
@@ -55,7 +59,7 @@
     </tfoot>
 </table>
 
-<div class="text-right">
+<div class="text-right col-md-12 hidden-xs">
     <a class="btn btn-primary" href="@Model.ReturnUrl"><span class="glyphicon glyphicon-share-alt"></span> Продовжити покупки</a>
     @if (Model.Cart.Lines.Count() > 0)
     {
@@ -64,6 +68,19 @@
     else
     {
         <a class="btn btn-success disabled" href="#"><span class="glyphicon glyphicon-credit-card"></span> Оформити замовлення</a>
+    }
+    @*@Html.ActionLink("Оформити замовлення", "Checkout", null, new { @class = "btn btn-success" })*@
+</div>
+
+<div class="col-md-12 visible-xs">
+    <a class="btn btn-primary btn-block" href="@Model.ReturnUrl"><span class="glyphicon glyphicon-share-alt"></span> Продовжити покупки</a>
+    @if (Model.Cart.Lines.Count() > 0)
+    {
+        <a class="btn btn-success btn-block" href="@Url.Action("Checkout")"><span class="glyphicon glyphicon-credit-card"></span> Оформити замовлення</a>
+    }
+    else
+    {
+        <a class="btn btn-success btn-block disabled" href="#"><span class="glyphicon glyphicon-credit-card"></span> Оформити замовлення</a>
     }
     @*@Html.ActionLink("Оформити замовлення", "Checkout", null, new { @class = "btn btn-success" })*@
 </div>
