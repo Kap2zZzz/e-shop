@@ -16,12 +16,15 @@ namespace e_shop.Controllers
         private EFProductRepository repository = new EFProductRepository();
         private EFOrderRepository repositoryOrder = new EFOrderRepository();
 
-        public int PageSize = 5;
+        public int PageSize = 6;
 
         public ViewResult List(string filter, string category, int page = 1)
         {
             ViewBag.IsActiveProduct = "active";
             TempData["category"] = category == null ? "" : category;
+
+            PageSize = category == null ? 10 : 6;
+
             ProductsListView model = new ProductsListView
             {
                 //Products = category == null ? repository.Products.OrderBy(p => p.ProductID).Skip((page - 1) * PageSize).Take(PageSize) : repository.Products.Where(p => p.Category == category).Where(p => filter == null ? p.Brand != null : p.Brand == filter).OrderBy(p => p.ProductID).Skip((page - 1) * PageSize).Take(PageSize),

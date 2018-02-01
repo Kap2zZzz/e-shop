@@ -43,11 +43,17 @@
 
             </div>
             <div class="panel-footer">
-                <div class="text-right">
+                <div class="text-right hidden-xs">
                     <a href="@Url.Action("Index")" class="btn btn-warning"><span class="glyphicon glyphicon-chevron-left"></span> Назад</a>
                     <button type="submit" class="btn btn-success">
                         <span class="glyphicon glyphicon-ok"></span> Оформити замовлення
                     </button>
+                </div>
+                <div class="visible-xs">
+                    <button type="submit" class="btn btn-success btn-block">
+                        <span class="glyphicon glyphicon-ok"></span> Оформити замовлення
+                    </button>
+                    <a href="@Url.Action("Index")" class="btn btn-warning btn-block"><span class="glyphicon glyphicon-chevron-left"></span> Назад</a>
                 </div>
             </div>
         }

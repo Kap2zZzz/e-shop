@@ -1,9 +1,6 @@
 ﻿@{
     ViewBag.Title = "Головна | Електро Коник";
 }
-<div class="page-header">
-    <h1>Тут буде про нас ...</h1>
-</div>
 <div id="text-carousel" class="carousel slide" data-ride="carousel" style="height:500px; background:#333">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -14,31 +11,32 @@
 
     <!-- Wrapper for slides -->
     <div class="row">
-        <div class="col-xs-offset-3 col-xs-6">
+        <div class="col-xs-offset-0 col-xs-12">
             <div class="carousel-inner">
                 <div class="item active">
-                    <div class="carousel-content">
-                        <div>
-                            <h3>Sapiente, ducimus, voluptas, mollitia voluptatibus nemo explicabo sit blanditiis laborum dolore illum fuga veniam quae expedita libero accusamus quas harum ex numquam necessitatibus provident deleniti tenetur iusto officiis recusandae corporis culpa quaerat?</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="~/Images/image_94.300x300.jpg" />
+                    <img src="~/Images/33.jpg" style="margin:auto" />
                     <div class="carousel-caption">
                         <div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, sint fuga temporibus nam saepe delectus expedita vitae magnam necessitatibus dolores tempore consequatur dicta cumque repellendus eligendi ducimus placeat! </p>
+                            <p class="lead">Повідомлення 2</p>
                         </div>
                     </div>
                 </div>
                 <div class="item">
+                    <img src="~/Images/34.jpg" style="margin:auto"/>
+                    <div class="carousel-caption">
+                        <div>
+                            <p class="lead">Повідомлення 2</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="~/Images/33.jpg" style="margin:auto" />
                     <div class="carousel-content">
                         <div>
                             <p>Sapiente, ducimus, voluptas, mollitia voluptatibus nemo explicabo sit blanditiis laborum dolore illum fuga veniam quae expedita libero accusamus quas harum ex numquam necessitatibus provident deleniti tenetur iusto officiis recusandae corporis culpa quaerat?</p>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -52,10 +50,24 @@
 </div>
 
 <hr class="featurette-divider">
+<div class="page-header">
+    <h1>Електро <span class="fa fa-bolt"></span> Коник - <span class="text-muted">Інтернет магазин електротоварів.</span> </h1>
+</div>
 <div class="row featurette">
     <div class="col-md-7">
-        <h2 class="featurette-heading">Перший заголовок слайдів. <span class="text-muted">Тут щось ще.</span></h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        <h2 class="featurette-heading">В цьому ми найкращі</h2>
+        <p class="lead">Ми реалізовуємо оптову та роздрібну торгівлю електротоварами. У нас Ви зможете знайти:</p>
+            <p class="lead">
+                <span class="label label-warning">Тепла підлога</span>
+                <span class="label label-info">Терморегулятори</span>
+                <span class="label label-success">Кабель</span>
+                <span class="label label-danger">Електричні щитки</span>
+                <span class="label label-primary">Реле напруги (відсікач)</span>
+                <span class="label label-warning">Розетки</span>
+                <span class="label label-warning">Вимикачі</span>
+                <span class="label label-warning">ПЗВ</span>
+                <span class="label label-warning">Автоматичні вимикачі</span>
+            </p>
     </div>
     <div class="col-md-5">
         <img class="featurette-image img-responsive" alt="500x500" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTAwIDUwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSBtZWV0IiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCI+PGRlZnMgLz48cmVjdCBmaWxsPSIjZWVlZWVlIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgLz48Zz48dGV4dCBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjIzcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCIgeD0iMTkwLjMyNSIgeT0iMjUwIj41MDB4NTAwPC90ZXh0PjwvZz48L3N2Zz4=" data-src="holder.js/500x500/auto" data-holder-rendered="true">
@@ -63,13 +75,17 @@
 </div>
 
 <hr class="featurette-divider">
-<div class="row featurette">
+
+@*<div class="row featurette">
     <div class="col-md-5">
         <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="500x500" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDUwMCA1MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjE5MC4zMjAzMTI1IiB5PSIyNTAiIHN0eWxlPSJmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MjNwdDtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj41MDB4NTAwPC90ZXh0PjwvZz48L3N2Zz4=" data-holder-rendered="true">
     </div>
     <div class="col-md-7">
-        <h2 class="featurette-heading">О так! Це добре. <span class="text-muted">Дивіться самі.</span></h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        <h2 class="featurette-heading">Послуги <span class="text-muted">Дивіться самі.</span></h2>
+        <p class="lead"></p>
     </div>
 </div>
+
+<hr class="featurette-divider">*@
+
 

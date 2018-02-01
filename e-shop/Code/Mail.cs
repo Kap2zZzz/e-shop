@@ -13,11 +13,11 @@ namespace e_shop.Code
     {
         public static void Send(Order order)
         {
-            var fromAddress = new MailAddress("shop@elektrokonyk.com.ua", "ELEKTROKONYK"); //mail, Опис відправника
+            var fromAddress = new MailAddress("shop@elektrokonyk.com.ua", "Електро Коник"); //mail, Опис відправника
             var toAddress = new MailAddress("yurij.muzyka@gmail.com", "Юрій Музика");
-            string Login = "u86073";
-            string Password = "3c88aa0d";
-            string subject = "[ЕЛЕКТРОКОНИК] - Новe замовлення № " + order.OrderID.ToString(); //Тема листа
+            string Login = "u86090";
+            string Password = "ba78b12d";
+            string subject = "Новe замовлення № " + order.OrderID.ToString() + " [Електро Коник]"; //Тема листа
             string body = Body(order); //Тіло листа
             var smtp = new SmtpClient
             {
@@ -26,7 +26,7 @@ namespace e_shop.Code
             };
 
             var message = new MailMessage(fromAddress, toAddress);
-            //message.To.Add(new MailAddress("oleksandrkonyk@ukr.net", "Олександр Коник"));
+            message.To.Add(new MailAddress("oleksandrkonyk@ukr.net", "Олександр Коник"));
 
             message.Subject = subject;
             message.IsBodyHtml = true;
@@ -65,6 +65,7 @@ namespace e_shop.Code
                             <td>" + o.UserPhone + @"</td>
                         </tr>
                         <tr>
+                          <td colspan='2'>
                             <table border='1' cellpadding='5' cellspacing='5'>
                                 <th>Товар</th>
                                 <th>Кількість</th>
@@ -74,6 +75,7 @@ namespace e_shop.Code
                                    <td>" + o.Suma + @"</td>
                                 </tr>
                             </table>
+                          </td>
                         </tr>
                     </table>
                 </body>"
