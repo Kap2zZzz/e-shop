@@ -1,22 +1,8 @@
 ﻿@model IEnumerable<string>
-
-@*@Html.ActionLink("Home", "List", "Product", null, new { @class = "btn btn-block btn-default btn-lg" })*@
-@*@Html.ActionLink("Усі товари", "List", "Product", null, new { @class = "list-group-item" + ("Усі товари" == ViewBag.SelectedCategory ? " active" : "") })*@
-
-@*@foreach (var link in Model)
-    {*@
-@*@Html.RouteLink(link, new { controller = "Product", action = "List", category = link, page = 1 }, new { @class = "list-group-item" + (link == ViewBag.SelectedCategory ? " active" : "") })*@
-@*Html.ActionLink(link, "List", "Product", new { category = link, page = 1 }, new { class = "list-group-item" + (link == ViewBag.SelectedCategory ? " active" : "") })*@
-
-@*}*@
-
-
 @{
     int i = 0;
     e_shop.Concrete.EFProductRepository _product = new e_shop.Concrete.EFProductRepository();
 }
-
-
 <div class="panel-group" id="accordion" style="margin-bottom:5px;">
     <div class="panel panel-default @("" == TempData["category"].ToString() ? " panel-primary" : " panel-default")" id="firsElementMenu">
         <div class="panel-heading">
@@ -51,7 +37,6 @@
                             <tr>
                                 <td>
                                     <a href="@Url.Action("List", "Product", new {filter = @p.Key,  category = link, page = 1 })">@p.Key</a>
-                                    @*<span class="badge">@p.c</span>*@
                                 </td>
                             </tr>
                         }
@@ -60,113 +45,4 @@
             </div>
         </div>
     }
-
-    @*<div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                        <span class="glyphicon glyphicon-th">
-                        </span>Терморегулятори
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseTwo" class="panel-collapse collapse">
-                <div class="panel-body">
-                    <table class="table">
-                        <tr>
-                            <td>
-                                <a href="#">OJ electronics</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#">Devi</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#">Terneo</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#">Termo Control</a>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                        <span class="glyphicon glyphicon-user">
-                        </span>Кабель
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseThree" class="panel-collapse collapse">
-                <div class="panel-body">
-                    <table class="table">
-                        <tr>
-                            <td>
-                                <a href="#">VIP кабель 1</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#">VIP кабель 2</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#">VIP кабель 3</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#">VIP кабель 4</a>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-                        <span class="glyphicon glyphicon-file">
-                        </span>Reports
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseFour" class="panel-collapse collapse">
-                <div class="panel-body">
-                    <table class="table">
-                        <tr>
-                            <td>
-                                <span class="glyphicon glyphicon-usd"></span><a href="http://www.jquery2dotnet.com">Sales</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="glyphicon glyphicon-user"></span><a href="http://www.jquery2dotnet.com">Customers</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="glyphicon glyphicon-tasks"></span><a href="http://www.jquery2dotnet.com">Products</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span class="glyphicon glyphicon-shopping-cart"></span><a href="http://www.jquery2dotnet.com">Shopping Cart</a>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>*@
 </div>

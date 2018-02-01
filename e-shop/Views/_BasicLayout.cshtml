@@ -1,13 +1,10 @@
 ﻿<!DOCTYPE html>
-
 <html>
 <head>
     <title>@ViewBag.Title</title>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113314059-1"></script>
-    <script src="~/Scripts/google.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         .navbar-right {
             float: right !important;
@@ -35,8 +32,6 @@
         }
     </style>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/clientfeaturesscripts")
-    @RenderSection("Scripts", false)
 </head>
 <body>
     <!-- Фіксована навігаційна панель -->
@@ -76,11 +71,9 @@
             </div>
         </div>
     </nav>
-
     <div class="container">
         @RenderBody()
     </div>
-
     <footer class="footer">
         <div class="container">
             <div id="div_footer">
@@ -99,9 +92,12 @@
                 <div class="col-md-8 col-md-offset-2" style="padding-right:0;">
                     <h5 class="text-muted text-center" style="margin:0px; margin-bottom: 8px;">Розробка: <a href="http://www.linkedin.com/in/yuriy-muzyka"><span class="fa fa-linkedin" style="color: white; margin-left: 2px; margin-right: 2px; font-size: 20px;"></span> <span>Музика Юрій</span></a></h5>
                 </div>
-
             </div>
         </div>
     </footer>
 </body>
 </html>
+@Scripts.Render("~/bundles/clientfeaturesscripts")
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113314059-1"></script>
+<script src="~/Scripts/google.js"></script>
+@RenderSection("Scripts", false)
