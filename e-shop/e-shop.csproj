@@ -153,8 +153,10 @@
     <Compile Include="Abstract\IProductRepository.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Code\CachedProductsRepository.cs" />
     <Compile Include="Code\Helper.cs" />
     <Compile Include="Code\Mail.cs" />
+    <Compile Include="Code\SqlProductsRepository.cs" />
     <Compile Include="Concrete\EFAskClientRepository.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Concrete\EFOrderRepository.cs" />

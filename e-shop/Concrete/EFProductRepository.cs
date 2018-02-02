@@ -46,5 +46,19 @@ namespace e_shop.Concrete
             }
             return dbProduct;
         }
+
+        public virtual IEnumerable<Product> GetFiltersProducts(int page, int pageSize, string category, string filter)
+        {
+            return category == null ? Products.Skip((page - 1) * pageSize).Take(pageSize) : 
+                Products.Where(p => p.Category == category)
+                .Where(p => filter == null ? p.Brand != null : p.Brand == filter)
+                .Skip((page - 1) * pageSize).Take(pageSize);
+        }
+
+        public virtual int GetTotalPages(string category, string filter)
+        {
+            return category == null ? Products.Count() : Products.Where(p => p.Category == category).Where(p => filter == null ? p.Brand != null : p.Brand == filter).Count();
+        }
+
     }
 }

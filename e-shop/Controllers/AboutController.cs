@@ -12,6 +12,7 @@ namespace e_shop.Controllers
     {
 
         // GET: About
+        [OutputCache(Duration = 86400, Location = System.Web.UI.OutputCacheLocation.Any)]
         public ActionResult About()
         {
             ViewBag.IsActiveAbout = "active";

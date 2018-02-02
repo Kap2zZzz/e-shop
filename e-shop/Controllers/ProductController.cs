@@ -1,4 +1,5 @@
 ﻿using e_shop.Abstract;
+using e_shop.Code;
 using e_shop.Concrete;
 using e_shop.Entities;
 using e_shop.Models;
@@ -23,21 +24,30 @@ namespace e_shop.Controllers
             ViewBag.IsActiveProduct = "active";
             TempData["category"] = category == null ? "" : category;
 
-            PageSize = category == null ? 10 : 6;
+            PageSize = category == null ? 12 : 8;
 
-            ProductsListView model = new ProductsListView
-            {
-                //Products = category == null ? repository.Products.OrderBy(p => p.ProductID).Skip((page - 1) * PageSize).Take(PageSize) : repository.Products.Where(p => p.Category == category).Where(p => filter == null ? p.Brand != null : p.Brand == filter).OrderBy(p => p.ProductID).Skip((page - 1) * PageSize).Take(PageSize),
-                Products = category == null ? repository.Products.Skip((page - 1) * PageSize).Take(PageSize) : repository.Products.Where(p => p.Category == category).Where(p => filter == null ? p.Brand != null : p.Brand == filter).Skip((page - 1) * PageSize).Take(PageSize),
-                PagingInfo = new PagingInfo
-                {
-                    CurrentPage = page,
-                    ItemsPerPage = PageSize,
-                    TotalItems = category == null ? repository.Products.Count() : repository.Products.Where(p => p.Category == category).Where(p => filter == null ? p.Brand != null : p.Brand == filter).Count()
-                },
-                CurrentCategory = category,
-                CurrentFilter = filter
-            };
+            //ProductsListView model = new ProductsListView
+            //{
+            //    //Products = category == null ? repository.Products.OrderBy(p => p.ProductID).Skip((page - 1) * PageSize).Take(PageSize) : repository.Products.Where(p => p.Category == category).Where(p => filter == null ? p.Brand != null : p.Brand == filter).OrderBy(p => p.ProductID).Skip((page - 1) * PageSize).Take(PageSize),
+            //    //Products = category == null ? repository.Products.Skip((page - 1) * PageSize).Take(PageSize) : repository.Products.Where(p => p.Category == category).Where(p => filter == null ? p.Brand != null : p.Brand == filter).Skip((page - 1) * PageSize).Take(PageSize),
+            //    Products = new CachedProductsRepository().GetFiltersProducts(page, PageSize, category, filter),
+            //    PagingInfo = new PagingInfo
+            //    {
+            //        CurrentPage = page,
+            //        ItemsPerPage = PageSize,
+            //        TotalItems = new CachedProductsRepository().GetTotalPages(category, filter)
+            //        //TotalItems = category == null ? repository.Products.Count() : repository.Products.Where(p => p.Category == category).Where(p => filter == null ? p.Brand != null : p.Brand == filter).Count()
+            //    },
+            //    CurrentCategory = category,
+            //    CurrentFilter = filter
+            //};
+
+            ProductsListView model = new ProductsListView();
+            model.Products = new CachedProductsRepository().GetFiltersProducts(page, PageSize, category, filter);
+            model.PagingInfo = new PagingInfo { CurrentPage = page, ItemsPerPage = PageSize, TotalItems = new CachedProductsRepository().GetTotalPages(category, filter) };
+            model.CurrentCategory = category;
+            model.CurrentFilter = filter;
+
             return View(model);
 
         }

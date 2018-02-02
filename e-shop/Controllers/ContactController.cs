@@ -13,6 +13,7 @@ namespace e_shop.Controllers
         private EFAskClientRepository repositoryAsk = new EFAskClientRepository();
 
         // GET: Contact
+        [OutputCache(Duration = 86400, Location = System.Web.UI.OutputCacheLocation.Any)]
         public ActionResult Contact()
         {
             ViewBag.IsActiveContact = "active";
