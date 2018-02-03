@@ -1,7 +1,8 @@
-﻿@model IEnumerable<string>
+﻿@model List<e_shop.Models.MenuView>
 @{
     int i = 0;
-    e_shop.Concrete.EFProductRepository _product = new e_shop.Concrete.EFProductRepository();
+    //e_shop.Concrete.EFProductRepository _product = new e_shop.Concrete.EFProductRepository();
+    //e_shop.Code.CachedProductsRepository _cache = new e_shop.Code.CachedProductsRepository();
 }
 <div class="panel-group" id="accordion" style="margin-bottom:5px;">
     <div class="panel panel-default @("" == TempData["category"].ToString() ? " panel-primary" : " panel-default")" id="firsElementMenu">
@@ -9,7 +10,8 @@
             <h4 class="panel-title">
                 <a data-toggle="collapse" data-parent="#accordion" href="#">
                     <span class="glyphicon glyphicon-folder-close">
-                    </span>@Html.ActionLink("Усі товари", "List", "Product")
+                    </span>@*@Html.ActionLink("Усі товари", "List", "Product")*@
+                    @Ajax.ActionLink("Усі товари", "AllProductSummary", "Product", new AjaxOptions { UpdateTargetId = "AllProducts" })
                 </a>
             </h4>
         </div>
@@ -17,26 +19,28 @@
     @foreach (var link in Model)
     {
         i++;
-        <div class="panel panel-default @(link == TempData["category"].ToString() ? " panel-primary" : " panel-default")">
+        <div class="panel panel-default @(link.Category == TempData["category"].ToString() ? " panel-primary" : " panel-default")">
             <div class="panel-heading">
                 <h4 class="panel-title">
                     <a data-toggle="collapse" data-parent="#accordion" href="#@i">
-                        <span class="glyphicon glyphicon-folder-close @(link == TempData["category"].ToString() ? " glyphicon-folder-open" : " glyphicon-folder-close")">
-                        </span>@link
+                        <span class="glyphicon glyphicon-folder-close @(link.Category == TempData["category"].ToString() ? " glyphicon-folder-open" : " glyphicon-folder-close")">
+                        </span>@link.Category
                     </a>
                 </h4>
             </div>
-            <div id="@i" class="panel-collapse collapse @(link == TempData["category"].ToString() ? " in" : "")">
+            <div id="@i" class="panel-collapse collapse @(link.Category == TempData["category"].ToString() ? " in" : "")">
                 <div class="panel-body">
                     <table class="table">
-                        @{
-        var groupBrand = _product.Products.Where(p => p.Category == link).GroupBy(x => x.Brand);
-                        }
-                        @foreach (var p in groupBrand)
+                        @*@{
+                            //var groupBrand = _product.Products.Where(p => p.Category == link).GroupBy(x => x.Brand);
+                            var groupBrand = _cache.GetProductsBrand(link);
+                        }*@
+                        @foreach (var p in link.Brand)
                         {
                             <tr>
                                 <td>
-                                    <a href="@Url.Action("List", "Product", new {filter = @p.Key,  category = link, page = 1 })">@p.Key</a>
+                                    @Ajax.ActionLink(@p, "AllProductSummary", "Product", new { filter = @p, category = link.Category, page = 1 }, new AjaxOptions { UpdateTargetId = "AllProducts", LoadingElementId = "loading", LoadingElementDuration = 1000 } )
+                                    @*<a href="@Url.Action("List", "Product", new {filter = @p,  category = link, page = 1 })">@p</a>*@
                                 </td>
                             </tr>
                         }

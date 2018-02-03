@@ -101,3 +101,20 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113314059-1"></script>
 <script src="~/Scripts/google.js"></script>
 @RenderSection("Scripts", false)
+<script>
+    $(function () {
+        $('#pager a').click(function () {
+            $.ajax({
+                url: this.href,
+                type: 'GET',
+                cache: false,
+                success: function (products) {
+                    $('#AllProducts').html(products);
+                }
+            });
+
+            // prevent the default redirect
+            return false;
+        });
+    });
+</script>

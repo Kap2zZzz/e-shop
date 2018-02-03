@@ -19,12 +19,28 @@ namespace e_shop.Controllers
 
         public int PageSize = 6;
 
-        public ViewResult List(string filter, string category, int page = 1)
+        public ActionResult List(string filter, string category, int page = 1)
         {
+            ListView model = new ListView { CurrentCategory = category, CurrentFilter = filter };
             ViewBag.IsActiveProduct = "active";
+            //ProductsListView model = new ProductsListView { 
+            //    Products = new CachedProductsRepository().GetFiltersProducts(page, PageSize, category, filter),
+            //    CurrentCategory = category, 
+            //    CurrentFilter = filter, 
+            //    PagingInfo = new PagingInfo { CurrentPage = page, ItemsPerPage = PageSize, TotalItems = new CachedProductsRepository().GetTotalPages(category, filter) }};
+            //ViewBag.category = category;
+            //ViewBag.filter = filter;
+            //ViewBag.page = page;
+
             TempData["category"] = category == null ? "" : category;
 
-            PageSize = category == null ? 12 : 8;
+
+            //if (Request.IsAjaxRequest())
+            //{
+            //    return PartialView("AllProductSummary", new { model.CurrentCategory, model.CurrentFilter, model.PagingInfo.CurrentPage });
+            //}
+
+            //PageSize = category == null ? 12 : 8;
 
             //ProductsListView model = new ProductsListView
             //{
@@ -42,15 +58,37 @@ namespace e_shop.Controllers
             //    CurrentFilter = filter
             //};
 
+            //ProductsListView model = new ProductsListView();
+            //model.Products = new CachedProductsRepository().GetFiltersProducts(page, PageSize, category, filter);
+            //model.PagingInfo = new PagingInfo { CurrentPage = page, ItemsPerPage = PageSize, TotalItems = new CachedProductsRepository().GetTotalPages(category, filter) };
+            //model.CurrentCategory = category;
+            //model.CurrentFilter = filter;
+
+            return View(model);
+
+        }
+
+        public PartialViewResult AllProductSummary(string category, string filter, int page = 1)
+        {
+            //if (plv == null)
+            //{
+            //    plv = new ProductsListView();
+            //}
+            ////ViewBag.IsActiveProduct = "active";
+            //TempData["category"] = category == null ? "" : category;
+
+            PageSize = category == null ? 12 : 8;
+
             ProductsListView model = new ProductsListView();
             model.Products = new CachedProductsRepository().GetFiltersProducts(page, PageSize, category, filter);
             model.PagingInfo = new PagingInfo { CurrentPage = page, ItemsPerPage = PageSize, TotalItems = new CachedProductsRepository().GetTotalPages(category, filter) };
             model.CurrentCategory = category;
             model.CurrentFilter = filter;
 
-            return View(model);
+            return PartialView(model);
 
         }
+
 
         [OutputCache(Duration = 1200, Location = System.Web.UI.OutputCacheLocation.Any)]
         public FileContentResult GetImage(int productId)

@@ -139,6 +139,8 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.maskedinput.js" />
     <Content Include="Scripts\jquery.maskedinput.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -184,7 +186,9 @@
     <Compile Include="Infrastructure\FormAuthProvider.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
     <Compile Include="Models\CartIndexViewModel.cs" />
+    <Compile Include="Models\ListView.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
+    <Compile Include="Models\MenuView.cs" />
     <Compile Include="Models\PagingInfo.cs" />
     <Compile Include="Models\ProductsListView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -217,6 +221,7 @@
     <Content Include="Views\Delivery\Delivery.cshtml" />
     <Content Include="Views\Error\PageNotFound.cshtml" />
     <Content Include="Views\Admin\NotFound.cshtml" />
+    <Content Include="Views\Shared\AllProductSummary.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

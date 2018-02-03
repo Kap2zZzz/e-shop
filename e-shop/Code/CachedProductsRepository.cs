@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using e_shop.Entities;
+using e_shop.Models;
 
 namespace e_shop.Code
 {
@@ -49,5 +50,49 @@ namespace e_shop.Code
             return Convert.ToInt16(result);
         }
 
+        public List<string> GetProductsBrand(string category)
+        {
+            string cacheKey = "ProductsBrand-" + category;
+            var result = HttpRuntime.Cache[cacheKey] as List<string>;
+            if (result == null)
+            {
+                lock (CacheLockObject)
+                {
+                    result = HttpRuntime.Cache[cacheKey] as List<string>;
+                    if (result == null)
+                    {
+                        result = new List<string>();
+                        var _tempProducts = Products.Where(p => p.Category == category).GroupBy(x => x.Brand);
+
+                        foreach (var a in _tempProducts)
+                        {
+                            result.Add(a.Key);
+                        }
+
+                        HttpRuntime.Cache.Insert(cacheKey, result, null, DateTime.Now.AddHours(12), TimeSpan.Zero);
+                    }
+                }
+            }
+            return result;
+        }
+
+        public List<MenuView> GetMenu()
+        {
+            string cacheKey = "Menu";
+            var result = HttpRuntime.Cache[cacheKey] as List<MenuView>;
+            if (result == null)
+            {
+                lock (CacheLockObject)
+                {
+                    result = HttpRuntime.Cache[cacheKey] as List<MenuView>;
+                    if (result == null)
+                    {
+                        result = Helper.GetMenu();
+                        HttpRuntime.Cache.Insert(cacheKey, result, null, DateTime.Now.AddHours(12), TimeSpan.Zero);
+                    }
+                }
+            }
+            return result;          
+        }
     }
 }

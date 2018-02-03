@@ -1,4 +1,5 @@
 ﻿using e_shop.Entities;
+using e_shop.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace e_shop.Code
               "Щитки, бокси (метал, пластик)", 
               "LED освітлення", 
               "Автоматика", 
-              "Інше 2" 
+              "Кабеленесучі системи" 
             };
             c.Sort();
             return c;
@@ -66,6 +67,20 @@ namespace e_shop.Code
                 countProduct = products.Where(p => p.Category == category && p.Brand == filter).Skip((page - 1) * pageSize).Take(pageSize);
             }
             return countProduct;
+        }
+
+        public static List<MenuView> GetMenu()
+        {
+            List<MenuView> _menu = new List<MenuView> { 
+                new MenuView{Category = "Тепла підлога", Brand = new List<string> {"IN-TERM (Нагрівальний кабель)", "IN-TERM (Нагрівальний мат)", "GRAYHOT двожильний мат", "GRAYHOT двожильний кабель"}},
+                new MenuView{Category = "Терморегулятори", Brand = new List<string> {"IN-TERM", "TERNEO"}},
+                new MenuView{Category = "Кабель", Brand = new List<string> {"VIP Кабель (ВВГ-П)", "ТВ кабель телевізійний", "VIP Кабель (ШВВП)", "VIP Кабель (ПВС)", "Одеса кабель ГОСТ (ШВВП)", "Одеса кабель ГОСТ (ПВС)"}},
+                new MenuView{Category = "Щитки, бокси (метал, пластик)", Brand = new List<string> {"Бренд 1"}},
+                new MenuView{Category = "LED освітлення", Brand = new List<string> {"LED Original"}},
+                new MenuView{Category = "Автоматика", Brand = new List<string> {"Бренд 1"}},
+                new MenuView{Category = "Кабеленесучі системи", Brand = new List<string> {"Бренд1"}},
+            };
+            return _menu.OrderBy(x => x.Category).ToList();
         }
     }
 }

@@ -1,8 +1,8 @@
-﻿@model e_shop.Models.ProductsListView
+﻿@model e_shop.Models.ListView
 
 @{
     ViewBag.Title = "Продукція | Електро Коник";
-    int counter = 0;
+    //int counter = 0;
 }
 <style>
     #menu .glyphicon {
@@ -13,31 +13,24 @@
     <div class="col-sm-4 col-md-3" id="menu">
         @Html.Action("Menu", "Nav")
     </div>
-    <div class="col-sm-8 col-md-9">
+    <div id="loading" class="load" style="display:none">
+        <p>Loading data ...</p>
+    </div>
+
+
+    <div class="col-sm-8 col-md-9" id="AllProducts">
         <div class="row">
-            @foreach (var p in Model.Products)
-            {
-                @*<div class="visible-xs visible-sm">
-                    @Html.Action("Menu", "Nav", new { horizontalLayout = true })
-                </div>*@
-                if (counter != 0 && counter % 2 == 0)
-                {
-                    @:</div>
-                    @:<div class="row">
-                }
-                <div class="col-sm-12 col-md-6">
-                    @Html.Partial("ProductSummary", p)
-                </div>
-                counter++;
-            }
-        </div>
-    </div> 
-    <div class="col-sm-12">
-        <div class="btn-group pull-right">
-            @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", "Product", new { page = x, category = Model.CurrentCategory, filter = Model.CurrentFilter }))
+            @Html.Action("AllProductSummary", new { category = Model.CurrentCategory, filter = Model.CurrentFilter })
+            @*@Html.Action("AllProductSummary", new { filter = Model.CurrentFilter, category = Model.CurrentCategory, page = 1 })*@
         </div>
     </div>
-    </div>
+
+    @*<div class="col-sm-12" id="pager">
+            <div class="btn-group pull-right">
+                @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", "Product", new { page = x, category = Model.CurrentCategory, filter = Model.CurrentFilter }))
+            </div>
+        </div>*@
+</div>
 <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm" data-dismiss="modal">
         <div class="modal-content">
@@ -48,4 +41,6 @@
         </div>
     </div>
 </div>
+
+
 

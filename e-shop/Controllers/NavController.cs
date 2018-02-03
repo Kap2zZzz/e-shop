@@ -17,9 +17,9 @@ namespace e_shop.Controllers
         {
             ViewBag.SelectedCategory = category == null ? "Усі товари" : category;
             //IEnumerable<string> categories = repository.Products.Select(x => x.Category).Distinct().OrderBy(x => x);
-            IEnumerable<string> categories = Helper.Category();
+            //IEnumerable<string> categories = Helper.Category();
             string viewName = horizontalLayout ? "MenuHorizontal" : "Menu";
-            return PartialView(viewName, categories);
+            return PartialView(viewName, new CachedProductsRepository().GetMenu());
         }
     }
 }
