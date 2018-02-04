@@ -21,7 +21,7 @@ namespace e_shop.Controllers
 
         public ActionResult List(string filter, string category, int page = 1)
         {
-            ListView model = new ListView { CurrentCategory = category, CurrentFilter = filter };
+            ListView model = new ListView { CurrentCategory = category, CurrentFilter = filter, Page = page };
             ViewBag.IsActiveProduct = "active";
             //ProductsListView model = new ProductsListView { 
             //    Products = new CachedProductsRepository().GetFiltersProducts(page, PageSize, category, filter),
@@ -35,10 +35,10 @@ namespace e_shop.Controllers
             TempData["category"] = category == null ? "" : category;
 
 
-            //if (Request.IsAjaxRequest())
-            //{
-            //    return PartialView("AllProductSummary", new { model.CurrentCategory, model.CurrentFilter, model.PagingInfo.CurrentPage });
-            //}
+            if (Request.IsAjaxRequest())
+            {
+                return RedirectToAction("AllProductSummary", new {category = model.CurrentCategory, filter = model.CurrentFilter, page = model.Page });
+            }
 
             //PageSize = category == null ? 12 : 8;
 

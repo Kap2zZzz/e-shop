@@ -39,7 +39,7 @@
                         {
                             <tr>
                                 <td>
-                                    @Ajax.ActionLink(@p, "AllProductSummary", "Product", new { filter = @p, category = link.Category, page = 1 }, new AjaxOptions { UpdateTargetId = "AllProducts", LoadingElementId = "loading", LoadingElementDuration = 1000 } )
+                                    @Ajax.ActionLink(@p, "AllProductSummary", "Product", new { filter = @p, category = link.Category, page = 1 }, new AjaxOptions { UpdateTargetId = "AllProducts"@*, LoadingElementId = "loading", LoadingElementDuration = 500*@ } )
                                     @*<a href="@Url.Action("List", "Product", new {filter = @p,  category = link, page = 1 })">@p</a>*@
                                 </td>
                             </tr>

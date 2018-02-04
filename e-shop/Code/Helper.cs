@@ -76,7 +76,7 @@ namespace e_shop.Code
                 new MenuView{Category = "Терморегулятори", Brand = new List<string> {"IN-TERM", "TERNEO"}},
                 new MenuView{Category = "Кабель", Brand = new List<string> {"VIP Кабель (ВВГ-П)", "ТВ кабель телевізійний", "VIP Кабель (ШВВП)", "VIP Кабель (ПВС)", "Одеса кабель ГОСТ (ШВВП)", "Одеса кабель ГОСТ (ПВС)"}},
                 new MenuView{Category = "Щитки, бокси (метал, пластик)", Brand = new List<string> {"Бренд 1"}},
-                new MenuView{Category = "LED освітлення", Brand = new List<string> {"LED Original"}},
+                new MenuView{Category = "LED освітлення", Brand = new List<string> {"LED Original "}},
                 new MenuView{Category = "Автоматика", Brand = new List<string> {"Бренд 1"}},
                 new MenuView{Category = "Кабеленесучі системи", Brand = new List<string> {"Бренд1"}},
             };

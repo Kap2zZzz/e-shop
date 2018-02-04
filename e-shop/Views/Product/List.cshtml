@@ -13,16 +13,19 @@
     <div class="col-sm-4 col-md-3" id="menu">
         @Html.Action("Menu", "Nav")
     </div>
-    <div id="loading" class="load" style="display:none">
-        <p>Loading data ...</p>
-    </div>
-
+    @*<div id="loading" class="col-xs-3 col-lg-offset-3" style="">
+        <p class="text-muted">Завантаження даних ...</p>
+    </div>*@
 
     <div class="col-sm-8 col-md-9" id="AllProducts">
         <div class="row">
-            @Html.Action("AllProductSummary", new { category = Model.CurrentCategory, filter = Model.CurrentFilter })
-            @*@Html.Action("AllProductSummary", new { filter = Model.CurrentFilter, category = Model.CurrentCategory, page = 1 })*@
+            @Html.Action("AllProductSummary", new { category = Model.CurrentCategory, filter = Model.CurrentFilter, page = Model.Page})
         </div>
+        @*<div class="col-sm-12" id="pager">
+            <div class="btn-group pull-right">
+                @Html.PageLinks(Model.PagingInfo, x => Url.Action("AllProductSummary", "Product", new { page = x, category = Model.CurrentCategory, filter = Model.CurrentFilter }))
+            </div>
+        </div>*@
     </div>
 
     @*<div class="col-sm-12" id="pager">
