@@ -15,16 +15,13 @@
         #div_footer a {
             color: #9d9d9d;
         }
-
             #div_footer a:hover {
                 color: white;
                 text-decoration: none;
             }
-
         body {
             padding-top: 70px;
         }
-
         .modal-open[style="padding-right: 17px;"] .navbar-fixed-top,
         .modal-open[style="padding-right: 17px;"] .navbar-fixed-bottom {
             padding-right: 17px;
@@ -101,20 +98,3 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113314059-1"></script>
 <script src="~/Scripts/google.js"></script>
 @RenderSection("Scripts", false)
-<script>
-    $(function () {
-        $('#pager a').click(function () {
-            $.ajax({
-                url: this.href,
-                type: 'GET',
-                cache: false,
-                success: function (products) {
-                    $('#AllProducts').html(products);
-                }
-            });
-
-            // prevent the default redirect
-            return false;
-        });
-    });
-</script>

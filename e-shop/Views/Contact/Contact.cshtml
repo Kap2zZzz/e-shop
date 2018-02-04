@@ -1,9 +1,7 @@
 ﻿@model e_shop.Entities.AskClient
-
 @{
     ViewBag.Title = "Контакти | Електро Коник";
 }
-
 @if (TempData["valid"] != null)
 {
     if (TempData["valid"] == "1")
@@ -14,8 +12,6 @@
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5bAYAuo4DS4QrMy-dBlu99e-MDuT9AlA&callback=initMap">
 </script>
-
-
 <div class="page-header" style="margin-top:5px; margin-bottom:5px">
     <h3>Наші контакти:</h3>
 </div>
@@ -41,7 +37,7 @@
 <div class="page-header col-md-3 col-md-offset-1" style="margin-top:5px;">
     <h3>Телефони <span class="glyphicon glyphicon-phone"></span></h3>
     <address>
-        (0ХХ)-ХХХ-ХХ-ХХ - Олександр<br />
+        (093)-677-93-35 - Олександр<br />
         (0ХХ)-ХХХ-ХХ-ХХ - Ігор<br />
         e-mail: ekonyk@com.ua
     </address>
@@ -52,7 +48,6 @@
         <div id="map" style="width:100%; height:400px;"></div>
     </div>
 </div>
-
 <div class="row">
     @using (Html.BeginForm())
     {
@@ -67,27 +62,21 @@
                     <div id="valid" class="alert alert-danger">@TempData["message"]</div>
                 }
             }
-
             <div class="form-group">
                 @Html.TextBoxFor(x => x.Name, new { @class = "form-control", placeholder = "Ваше Ім’я" })
             </div>
-
             <div class="form-group">
                 @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "Ваш E-mail" })
             </div>
-
             <div class="form-group">
                 @Html.TextBoxFor(x => x.Phone, new { @class = "form-control", placeholder = "Ваш телефон"})
             </div>
-
             <div class="form-group">
                 @Html.TextBoxFor(x => x.Theme, new { @class = "form-control", placeholder = "Тема" })
             </div>
-
             <div class="form-group">
                 @Html.TextAreaFor(x => x.Question, new { @class = "form-control", rows = 5, placeholder = "Ваше запитання ... ?" })
             </div>
-
             <div class="text-right">
                 <button type="submit" class="btn btn-success">
                     <span class="glyphicon glyphicon-comment"></span> Відправити

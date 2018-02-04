@@ -14,7 +14,7 @@ namespace e_shop.App_Start
 
             bundles.Add(new ScriptBundle("~/bundles/clientfeaturesscripts").Include(
                 "~/Scripts/jquery-{version}.js",
-                "~/Scripts/jquery.unobtrusive-ajax.min.js",
+                "~/Scripts/jquery.unobtrusive-ajax.js",
                 "~/Scripts/bootstrap.js",
                 "~/Scripts/jquery.maskedinput.js",
                 "~/Scripts/main.js"));

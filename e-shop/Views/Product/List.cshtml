@@ -1,8 +1,6 @@
 ﻿@model e_shop.Models.ListView
-
 @{
     ViewBag.Title = "Продукція | Електро Коник";
-    //int counter = 0;
 }
 <style>
     #menu .glyphicon {
@@ -13,26 +11,9 @@
     <div class="col-sm-4 col-md-3" id="menu">
         @Html.Action("Menu", "Nav")
     </div>
-    @*<div id="loading" class="col-xs-3 col-lg-offset-3" style="">
-        <p class="text-muted">Завантаження даних ...</p>
-    </div>*@
-
     <div class="col-sm-8 col-md-9" id="AllProducts">
-        <div class="row">
             @Html.Action("AllProductSummary", new { category = Model.CurrentCategory, filter = Model.CurrentFilter, page = Model.Page})
-        </div>
-        @*<div class="col-sm-12" id="pager">
-            <div class="btn-group pull-right">
-                @Html.PageLinks(Model.PagingInfo, x => Url.Action("AllProductSummary", "Product", new { page = x, category = Model.CurrentCategory, filter = Model.CurrentFilter }))
-            </div>
-        </div>*@
     </div>
-
-    @*<div class="col-sm-12" id="pager">
-            <div class="btn-group pull-right">
-                @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", "Product", new { page = x, category = Model.CurrentCategory, filter = Model.CurrentFilter }))
-            </div>
-        </div>*@
 </div>
 <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm" data-dismiss="modal">

@@ -1,91 +1,91 @@
 ﻿@{
-    ViewBag.Title = "Електро Коник: Електротовари | Інтернет магазин";
+    ViewBag.Title = "Інтернет-магазин електротоварів: Електро Коник | У нас завжди дешевше!";
 }
-<div id="text-carousel" class="carousel slide" data-ride="carousel" style="height:500px; background:#333">
+<div class="page-header" style="margin-top: 0;">
+    <h1>Електро <span class="fa fa-bolt"></span> Коник - <span class="text-muted">Інтернет магазин електротоварів.</span> </h1>
+</div>
+<div id="text-carousel" class="carousel slide" data-ride="carousel" style="background:#333">
     <!-- Indicators -->
     <ol class="carousel-indicators">
         <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
         <li data-target="#carousel-example-generic" data-slide-to="1"></li>
         <li data-target="#carousel-example-generic" data-slide-to="2"></li>
     </ol>
-
     <!-- Wrapper for slides -->
     <div class="row">
         <div class="col-xs-offset-0 col-xs-12">
             <div class="carousel-inner">
                 <div class="item active">
-                    <img src="~/Images/33.jpg" style="margin:auto" />
-                    <div class="carousel-caption">
-                        <div>
-                            <p class="lead">Повідомлення 2</p>
-                        </div>
-                    </div>
+                    <img src="~/Images/1.jpg" />
                 </div>
                 <div class="item">
-                    <img src="~/Images/34.jpg" style="margin:auto"/>
-                    <div class="carousel-caption">
-                        <div>
-                            <p class="lead">Повідомлення 2</p>
-                        </div>
-                    </div>
+                    <img src="~/Images/2.jpg" />
                 </div>
                 <div class="item">
-                    <img src="~/Images/33.jpg" style="margin:auto" />
-                    <div class="carousel-content">
-                        <div>
-                            <p>Sapiente, ducimus, voluptas, mollitia voluptatibus nemo explicabo sit blanditiis laborum dolore illum fuga veniam quae expedita libero accusamus quas harum ex numquam necessitatibus provident deleniti tenetur iusto officiis recusandae corporis culpa quaerat?</p>
-                        </div>
-                    </div>
+                    <img src="~/Images/3.jpg" />
+                    @*<div class="carousel-caption">
+                            <div>
+                                <p>Sapiente, ducimus, voluptas, mollitia voluptatibus nemo explicabo sit blanditiis laborum dolore illum fuga veniam quae expedita libero accusamus quas harum ex numquam necessitatibus provident deleniti tenetur iusto officiis recusandae corporis culpa quaerat?</p>
+                            </div>
+                        </div>*@
                 </div>
             </div>
         </div>
     </div>
-    <!-- Controls --> <a class="left carousel-control" href="#text-carousel" data-slide="prev">
+    <a class="left carousel-control" href="#text-carousel" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left"></span>
     </a>
     <a class="right carousel-control" href="#text-carousel" data-slide="next">
         <span class="glyphicon glyphicon-chevron-right"></span>
     </a>
-
 </div>
-
 <hr class="featurette-divider">
-<div class="page-header">
-    <h1>Електро <span class="fa fa-bolt"></span> Коник - <span class="text-muted">Інтернет магазин електротоварів.</span> </h1>
-</div>
 <div class="row featurette">
     <div class="col-md-7">
-        <h2 class="featurette-heading">В цьому ми найкращі</h2>
-        <p class="lead">Ми реалізовуємо оптову та роздрібну торгівлю електротоварами. У нас Ви зможете знайти та купити:</p>
-            <p class="lead" style="font-size:25px;">
-                <span class="label label-warning">Теплу підлогу</span>
-                <span class="label label-info">Терморегулятори</span>
-                <span class="label label-success">Кабель</span>
-                <span class="label label-danger">Електричні щитки</span>
-                <span class="label label-primary">Реле напруги (відсікач)</span>
-                <span class="label label-warning">Розетки</span>
-                <span class="label label-danger">Вимикачі</span>
-                <span class="label label-info">ПЗВ</span>
-                <span class="label label-success">Автоматичні вимикачі</span>
-            </p>
+        <h2 class="featurette-heading">У нас завжди дешевше! <span class="fa fa-thumbs-o-up"></span> </h2>
+        <p class="lead">Ми реалізовуємо оптову та роздрібну торгівлю електротоварами. У нас Ви зможете знайти та придбати усі необхідні електротовари з доставкою на об'єкт:</p>
+        <p class="lead" style="font-size:25px;">
+            <span class="label label-warning">Теплу підлогу</span>
+            <span class="label label-info">Терморегулятори</span>
+            <span class="label label-success">Кабель</span>
+            <span class="label label-danger">Електричні щитки</span>
+            <span class="label label-primary">Бокси</span>
+            <span class="label label-default">Реле напруги (відсікач)</span>
+            <span class="label label-primary">Розетки</span>
+            <span class="label label-info">Вимикачі</span>
+            <span class="label label-success">ПЗВ</span>
+            <span class="label label-danger">Автоматичні вимикачі</span>
+            <span class="label label-success">LED освітлення</span>
+            <span class="label label-warning">Автоматика</span>
+            <span class="label label-primary">Гофра</span>
+            <span class="label label-default">Металорукав</span>
+            <span class="label label-primary">Короб</span>
+            <span class="label label-warning">Труба</span>
+            <span class="label label-info">Бокси</span>
+            <span class="label label-danger">Діодні стрічки</span>
+            <span class="label label-info">Прожектори</span>
+        </p>
+        <p class="lead">
+            Переглянути увесь каталог товарів можна <a href="@Url.Action("List","Product")">тут</a>
+        </p>
+        <p class="lead">
+            Якщо Вас щось зацікавило, або виникло запитання ? - зателефонуйте нам, і ми надамо Вам вичерпну відповідь.<br />
+        </p>
+        <div style="margin-top:5px;">
+            <h3>Телефони <span class="glyphicon glyphicon-phone"></span></h3>
+            <address>
+                (093)-677-93-35 - Олександр<br />
+                (0ХХ)-ХХХ-ХХ-ХХ - Ігор<br />
+            </address>
+        </div>
+        <p class="lead">
+            Також запитання можна задати заповнивши відповідну <a href="@Url.Action("About","About")">форму</a>
+        </p>
     </div>
-    <div class="col-md-5">
+    <div class="col-md-5 hidden-xs hidden-sm">
         <img class="featurette-image img-responsive" alt="500x500" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTAwIDUwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSBtZWV0IiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCI+PGRlZnMgLz48cmVjdCBmaWxsPSIjZWVlZWVlIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgLz48Zz48dGV4dCBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjIzcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCIgeD0iMTkwLjMyNSIgeT0iMjUwIj41MDB4NTAwPC90ZXh0PjwvZz48L3N2Zz4=" data-src="holder.js/500x500/auto" data-holder-rendered="true">
     </div>
 </div>
-
 <hr class="featurette-divider">
-
-@*<div class="row featurette">
-    <div class="col-md-5">
-        <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="500x500" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDUwMCA1MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjE5MC4zMjAzMTI1IiB5PSIyNTAiIHN0eWxlPSJmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MjNwdDtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj41MDB4NTAwPC90ZXh0PjwvZz48L3N2Zz4=" data-holder-rendered="true">
-    </div>
-    <div class="col-md-7">
-        <h2 class="featurette-heading">Послуги <span class="text-muted">Дивіться самі.</span></h2>
-        <p class="lead"></p>
-    </div>
-</div>
-
-<hr class="featurette-divider">*@
 
 

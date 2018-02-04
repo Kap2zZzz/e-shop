@@ -1,5 +1,5 @@
 ﻿//Підсвітка меню--------------------------------------------
-$(function(){
+$(function () {
     $('.panel').on('show.bs.collapse', function () {
         $(this).toggleClass("panel-primary");
         $(this).find('span').toggleClass('glyphicon-folder-open');
@@ -43,7 +43,7 @@ jQuery(function ($) {
 //Кошик, виклик POST на перерахунку кількості---------------
 function recalc(Id) {
     $("#CartLineForm" + Id).submit();
-}
+};
 //Кошик, виклик POST на перерахунку кількості---------------
 
 //Google Maps-----------------------------------------------
@@ -58,5 +58,22 @@ function initMap() {
         position: uluru,
         map: map
     });
-}
+};
 //Google Maps-----------------------------------------------
+
+//Асинхронне оновлення товарів------------------------------
+$(function () {
+    $('#pager a').click(function () {
+        $.ajax({
+            url: this.href,
+            type: 'GET',
+            cache: false,
+            success: function (products) {
+                $('#AllProducts').html(products);
+            }
+        });
+        // prevent the default redirect
+        return false;
+    });
+});
+//Асинхронне оновлення товарів------------------------------

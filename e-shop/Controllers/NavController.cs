@@ -11,7 +11,7 @@ namespace e_shop.Controllers
     public class NavController : Controller
     {
         // GET: Nav
-        private EFProductRepository repository = new EFProductRepository();
+        //private EFProductRepository repository = new EFProductRepository();
 
         public PartialViewResult Menu(string category = null, bool horizontalLayout = false)
         {

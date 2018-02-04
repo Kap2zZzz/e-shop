@@ -2,33 +2,128 @@
 
 @if (Model.CurrentCategory == null)
 {
-    <div>
-        <p>Тут буде каталог з фото ...</p>
+    <div class="col-md-4 col-sm-6 col-xs-6">
+        <div class="panel panel-default">
+            <div class="panel-heading text-center">
+                <h4 class="panel-title text-primary">LED освітлення</h4>
+            </div>
+            <div class="panel-body">
+                <div style="margin-right:10px; text-align:center">
+                    <img class="img-thumbnail" width="170" height="170" src="~/Images/132.jpg" />
+                </div>
+            </div>
+            <div class="panel-footer">
+                <a href="#" class="btn btn-warning btn-block">Переглянути</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title text-center">Автоматика</h4>
+            </div>
+            <div class="panel-body">
+                <div style="margin-right:10px; text-align:center">
+                    <img class="img-thumbnail" width="170" height="170" src="~/Images/132.jpg" />
+                </div>
+            </div>
+            <div class="panel-footer">
+                <button class="btn btn-primary btn-block">Переглянути</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title text-center">Кабеленесучі системи</h4>
+            </div>
+            <div class="panel-body">
+                <div style="margin-right:10px; text-align:center">
+                    <img class="img-thumbnail" width="170" height="170" src="~/Images/132.jpg" />
+                </div>
+            </div>
+            <div class="panel-footer">
+                <button class="btn btn-primary btn-block">Переглянути</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title text-center">Кабель</h4>
+            </div>
+            <div class="panel-body">
+                <div style="margin-right:10px; text-align:center">
+                    <img class="img-thumbnail" width="170" height="170" src="~/Images/132.jpg" />
+                </div>
+            </div>
+            <div class="panel-footer">
+                <button class="btn btn-primary btn-block">Переглянути</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title text-center">Тепла підлога</h4>
+            </div>
+            <div class="panel-body">
+                <div style="margin-right:10px; text-align:center">
+                    <img class="img-thumbnail" width="170" height="170" src="~/Images/132.jpg" />
+                </div>
+            </div>
+            <div class="panel-footer">
+                <button class="btn btn-primary btn-block">Переглянути</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title text-center">Терморегулятори</h4>
+            </div>
+            <div class="panel-body">
+                <div style="margin-right:10px; text-align:center">
+                    <img class="img-thumbnail" width="170" height="170" src="~/Images/132.jpg" />
+                </div>
+            </div>
+            <div class="panel-footer">
+                <button class="btn btn-primary btn-block">Переглянути</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title text-center">Щитки, бокси</h4>
+            </div>
+            <div class="panel-body">
+                <div style="margin-right:10px; text-align:center">
+                    <img class="img-thumbnail" width="170" height="170" src="~/Images/132.jpg" />
+                </div>
+            </div>
+            <div class="panel-footer">
+                <button class="btn btn-primary btn-block">Переглянути</button>
+            </div>
+        </div>
     </div>
 }
 else
 {
     foreach (var p in Model.Products)
     {
-        @*if (counter != 0 && counter % 2 == 0)
-            {
-                @:
-                    </div>
-                @:<div class="row">
-                        }*@
         <div class="col-sm-12 col-md-6">
             @Html.Partial("ProductSummary", p)
         </div>
-        //counter++;
     }
+    <div class="col-sm-12" id="pager">
+        <div class="btn-group pull-right">
+            @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", "Product", new { page = x, category = Model.CurrentCategory, filter = Model.CurrentFilter }))
+        </div>
+    </div>
 }
 
 
-<div class="col-sm-12" id="pager">
-        <div class="btn-group pull-right">
-            @Html.PageLinks(Model.PagingInfo, x => Url. Action("List", "Product", new { page = x, category = Model.CurrentCategory, filter = Model.CurrentFilter }))
-        </div>
-    </div>
 
 
 

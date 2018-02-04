@@ -15,9 +15,9 @@ namespace e_shop.Controllers
     public class ProductController : Controller
     {
         private EFProductRepository repository = new EFProductRepository();
-        private EFOrderRepository repositoryOrder = new EFOrderRepository();
+        //private EFOrderRepository repositoryOrder = new EFOrderRepository();
 
-        public int PageSize = 6;
+        public int PageSize = 10;
 
         public ActionResult List(string filter, string category, int page = 1)
         {
@@ -32,8 +32,7 @@ namespace e_shop.Controllers
             //ViewBag.filter = filter;
             //ViewBag.page = page;
 
-            TempData["category"] = category == null ? "" : category;
-
+            TempData["category"] = category == null ? "" : category;         
 
             if (Request.IsAjaxRequest())
             {
@@ -77,7 +76,7 @@ namespace e_shop.Controllers
             ////ViewBag.IsActiveProduct = "active";
             //TempData["category"] = category == null ? "" : category;
 
-            PageSize = category == null ? 12 : 8;
+            PageSize = 12; //category == null ? 14 : 10;
 
             ProductsListView model = new ProductsListView();
             model.Products = new CachedProductsRepository().GetFiltersProducts(page, PageSize, category, filter);
