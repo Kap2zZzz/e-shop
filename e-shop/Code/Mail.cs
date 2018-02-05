@@ -22,7 +22,9 @@ namespace e_shop.Code
             var smtp = new SmtpClient
             {
                 Host = "smtp-5.1gb.ua",
-                Credentials = new NetworkCredential(Login, Password)
+                Credentials = new NetworkCredential(Login, Password),
+                //UseDefaultCredentials = true,
+                //EnableSsl = true
             };
 
             var message = new MailMessage(fromAddress, toAddress);

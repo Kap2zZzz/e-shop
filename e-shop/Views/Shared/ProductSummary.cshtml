@@ -3,9 +3,7 @@
     <div class="panel-heading">
         <h3 class="panel-title">
             @Model.Name
-            @*<span class="pull-right label label-primary">@Model.Price.ToString("c")</span>*@
             <span class="pull-right badge"> @Model.Price.ToString("c").Replace("₴", " грн")</span>
-            @*<span class="pull-right">Ціна</span>*@
         </h3>
     </div>
     <div class="panel-body">
