@@ -1,5 +1,4 @@
 ﻿@model e_shop.Models.ProductsListView
-
 @if (Model.CurrentCategory == null)
 {
     <div class="col-md-4 col-sm-6 col-xs-6">
@@ -9,7 +8,7 @@
             </div>
             <div class="panel-body">
                 <div style="margin-right:10px; text-align:center">
-                    <img class="img-thumbnail" width="170" height="170" src="~/Images/132.jpg" />
+                    <img class="img-thumbnail" width="170" height="170" src="~/Images/Led.jpg" />
                 </div>
             </div>
             <div class="panel-footer">
@@ -24,7 +23,7 @@
             </div>
             <div class="panel-body">
                 <div style="margin-right:10px; text-align:center">
-                    <img class="img-thumbnail" width="170" height="170" src="~/Images/132.jpg" />
+                    <img class="img-thumbnail" width="170" height="170" src="~/Images/Avtomatyka.jpg" />
                 </div>
             </div>
             <div class="panel-footer">
@@ -39,7 +38,7 @@
             </div>
             <div class="panel-body">
                 <div style="margin-right:10px; text-align:center">
-                    <img class="img-thumbnail" width="170" height="170" src="~/Images/132.jpg" />
+                    <img class="img-thumbnail" width="170" height="170" src="~/Images/KabelSystem.jpg" />
                 </div>
             </div>
             <div class="panel-footer">
@@ -54,7 +53,7 @@
             </div>
             <div class="panel-body">
                 <div style="margin-right:10px; text-align:center">
-                    <img class="img-thumbnail" width="170" height="170" src="~/Images/132.jpg" />
+                    <img class="img-thumbnail" width="170" height="170" src="~/Images/Kabel.jpg" />
                 </div>
             </div>
             <div class="panel-footer">
@@ -69,7 +68,7 @@
             </div>
             <div class="panel-body">
                 <div style="margin-right:10px; text-align:center">
-                    <img class="img-thumbnail" width="170" height="170" src="~/Images/132.jpg" />
+                    <img class="img-thumbnail" width="170" height="170" src="~/Images/Pidloga.jpg" />
                 </div>
             </div>
             <div class="panel-footer">
@@ -99,7 +98,7 @@
             </div>
             <div class="panel-body">
                 <div style="margin-right:10px; text-align:center">
-                    <img class="img-thumbnail" width="170" height="170" src="~/Images/132.jpg" />
+                    <img class="img-thumbnail" width="170" height="170" src="~/Images/Boksy.jpg" />
                 </div>
             </div>
             <div class="panel-footer">
@@ -110,12 +109,17 @@
 }
 else
 {
-    foreach (var p in Model.Products)
-    {
-        <div class="col-sm-12 col-md-6">
-            @Html.Partial("ProductSummary", p)
-        </div>
-    }
+    <ol class="breadcrumb" style="margin-left:15px; margin-right:15px;">
+        <li><a href="#">@Model.CurrentCategory</a></li>
+        <li class="active">@Model.CurrentFilter</li>
+    </ol>
+    @*<h1 class="text-muted">@Model.CurrentFilter</h1>*@
+foreach (var p in Model.Products)
+{
+    <div class="col-sm-12 col-md-6">
+        @Html.Partial("ProductSummary", p)
+    </div>
+}
     <div class="col-sm-12" id="pager">
         <div class="btn-group pull-right">
             @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", "Product", new { page = x, category = Model.CurrentCategory, filter = Model.CurrentFilter }))
