@@ -7,11 +7,12 @@
         </h3>
     </div>
     <div class="panel-body">
-        @if (Model.ImageData != null)
+        @if (Model.ImageName != null)
         {
             <div class="pull-left" style="margin-right:10px">
                 <a href="#" class="pop">
-                    <img class="img-thumbnail" width="75" height="75" src="@Url.Action("GetImage", "Product", new { Model.ProductID })" />
+                    <img class="img-thumbnail" width="75" height="75" src="~/Images/Product/@Model.ImageName" />
+                    @*<img class="img-thumbnail" width="75" height="75" src="@Url.Action("GetImage", "Product", new { Model.ProductID })" />*@
                 </a>
             </div>
         }

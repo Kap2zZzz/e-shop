@@ -13,7 +13,7 @@
                     </div>
                 </div>
                 <div class="panel-footer">
-                    <a href="@Url.Action("List", "Product", new { category = "LED освітлення" })" class="btn btn-success btn-block">Переглянути</a>
+                    <a href="@Url.Action("Index", "Product", new { category = "LED освітлення" })" class="btn btn-success btn-block">Переглянути</a>
                 </div>
             </div>
         </div>
@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div class="panel-footer">
-                    <a href="@Url.Action("List", "Product", new { category = "Автоматика" })" class="btn btn-success btn-block">Переглянути</a>
+                    <a href="@Url.Action("Index", "Product", new { category = "Автоматика" })" class="btn btn-success btn-block">Переглянути</a>
                 </div>
             </div>
         </div>
@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <div class="panel-footer">
-                    <a href="@Url.Action("List", "Product", new { category = "Кабеленесучі системи" })" class="btn btn-success btn-block">Переглянути</a>
+                    <a href="@Url.Action("Index", "Product", new { category = "Кабеленесучі системи" })" class="btn btn-success btn-block">Переглянути</a>
                 </div>
             </div>
         </div>
@@ -58,7 +58,7 @@
                     </div>
                 </div>
                 <div class="panel-footer">
-                    <a href="@Url.Action("List", "Product", new { category = "Кабель" })" class="btn btn-success btn-block">Переглянути</a>
+                    <a href="@Url.Action("Index", "Product", new { category = "Кабель" })" class="btn btn-success btn-block">Переглянути</a>
                 </div>
             </div>
         </div>
@@ -74,7 +74,7 @@
                     </div>
                 </div>
                 <div class="panel-footer">
-                    <a href="@Url.Action("List", "Product", new { category = "Тепла підлога" })" class="btn btn-success btn-block">Переглянути</a>
+                    <a href="@Url.Action("Index", "Product", new { category = "Тепла підлога" })" class="btn btn-success btn-block">Переглянути</a>
                 </div>
             </div>
         </div>
@@ -89,7 +89,7 @@
                     </div>
                 </div>
                 <div class="panel-footer">
-                    <a href="@Url.Action("List", "Product", new { category = "Терморегулятори" })" class="btn btn-success btn-block">Переглянути</a>
+                    <a href="@Url.Action("Index", "Product", new { category = "Терморегулятори" })" class="btn btn-success btn-block">Переглянути</a>
                 </div>
             </div>
         </div>
@@ -104,7 +104,7 @@
                     </div>
                 </div>
                 <div class="panel-footer">
-                    <a href="@Url.Action("List", "Product", new { category = "Щитки, бокси (метал, пластик)" })" class="btn btn-success btn-block">Переглянути</a>
+                    <a href="@Url.Action("Index", "Product", new { category = "Щитки, бокси (метал, пластик)" })" class="btn btn-success btn-block">Переглянути</a>
                 </div>
             </div>
         </div>
@@ -122,9 +122,9 @@ else
             @Html.Partial("ProductSummary", p)
         </div>
     }
-    <div class="col-sm-12" id="pager">
+    <div class="col-sm-12">
         <div class="btn-group pull-right">
-            @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", "Product", new { page = x, category = Model.CurrentCategory, filter = Model.CurrentFilter }))
+            @Html.PageLinks(Model.PagingInfo, x => Url.Action("Index", "Product", new { category = Model.CurrentCategory, filter = Model.CurrentFilter, page = x }))
         </div>
     </div>
 }

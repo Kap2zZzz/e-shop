@@ -8,8 +8,8 @@
             <h4 class="panel-title">
                 <a data-toggle="collapse" data-parent="#accordion" href="#">
                     <span class="glyphicon glyphicon-folder-close">
-                    </span>@*@Html.ActionLink("Усі товари", "List", "Product")*@
-                    @Ajax.ActionLink("Усі товари", "AllProductSummary", "Product", new AjaxOptions { UpdateTargetId = "AllProducts" })
+                    </span>@Html.ActionLink("Усі товари", "Index", "Product")
+                    @*@Ajax.ActionLink("Усі товари", "AllProductSummary", "Product", new AjaxOptions { UpdateTargetId = "AllProducts" })*@
                 </a>
             </h4>
         </div>
@@ -33,7 +33,7 @@
                         {
                             <tr>
                                 <td>
-                                    @Ajax.ActionLink(@p, "AllProductSummary", "Product", new { filter = @p, category = link.Category, page = 1 }, new AjaxOptions { UpdateTargetId = "AllProducts"@*, LoadingElementId = "loading", LoadingElementDuration = 500*@ } )
+                                    @Html.ActionLink(@p, "Index", "Product", new { category = link.Category, filter = @p, page = 1 }, null)
                                 </td>
                             </tr>
                         }

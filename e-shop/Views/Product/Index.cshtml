@@ -1,4 +1,4 @@
-﻿@model e_shop.Models.ListView
+﻿@model e_shop.Models.ProductsListView
 @{
     ViewBag.Title = "Електротовари, Кабель, Тепла підлога, іншше ... | Електро Коник";
 }
@@ -12,7 +12,7 @@
         @Html.Action("Menu", "Nav")
     </div>
     <div class="col-sm-8 col-md-9" id="AllProducts">
-            @Html.Action("AllProductSummary", new { category = Model.CurrentCategory, filter = Model.CurrentFilter, page = Model.Page})
+            @Html.Partial("AllProductSummary", Model)
     </div>
 </div>
 <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

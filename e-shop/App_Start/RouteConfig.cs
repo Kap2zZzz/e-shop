@@ -18,12 +18,18 @@ namespace e_shop
                 name: "",
                 url: "",
                 defaults: new { controller = "Home", action = "Index" }
-);
+            );
 
             routes.MapRoute(
                 name: "Admin",
                 url: "Admin",
                 defaults: new { controller = "Admin", action = "Index" }
+            );
+
+            routes.MapRoute(
+                name: "Product",
+                url: "Product",
+                defaults: new { controller = "Product", action = "Index" }
             );
 
             routes.MapRoute(
@@ -53,7 +59,7 @@ namespace e_shop
             routes.MapRoute(null, "{controller}/{action}/Page{page}", new
             {
                 controller = "Product",
-                action = "List",
+                action = "Index",
                 category = (string)null
             },
               new { page = @"\d+" }
@@ -62,14 +68,14 @@ namespace e_shop
             routes.MapRoute(null, "{controller}/{action}/{category}", new
             {
                 controller = "Product",
-                action = "List",
+                action = "Index",
                 page = 1
             });
 
             routes.MapRoute(null, "{controller}/{action}/{category}/Page{page}", new
             {
                 controller = "Product",
-                action = "List",
+                action = "Index",
             },
                 new { page = @"\d+" }
             );

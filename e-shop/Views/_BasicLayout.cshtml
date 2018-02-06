@@ -55,10 +55,10 @@
                                 e_shop.Concrete.EFProductRepository _contex = new e_shop.Concrete.EFProductRepository();
                                 var category = e_shop.Code.Helper.Category();
                             }
-                            <li>@Html.ActionLink("Усі товари", "List", "Product")</li>
+                            <li>@Html.ActionLink("Усі товари", "Index", "Product")</li>
                             @foreach (var m in category)
                             {
-                                <li>@Html.ActionLink(m, "List", "Product", new { category = m, page = 1 }, null)</li>
+                                <li>@Html.ActionLink(m, "Index", "Product", new { category = m, page = 1 }, null)</li>
                             }
                         </ul>
                     </li>
@@ -82,7 +82,7 @@
                 <div class="col-md-8 col-md-offset-2">
                     <p class="text-muted text-center">
                         <a href="@Url.Action("Index","Home")" style="padding: 20px;">Головна</a> |
-                        <a href="@Url.Action("List","Product")" style="padding: 20px;">Каталог</a> |
+                        <a href="@Url.Action("Index","Product")" style="padding: 20px;">Каталог</a> |
                         <a href="@Url.Action("About","About")" style="padding: 20px;">Про нас</a> |
                         <a href="@Url.Action("Delivery", "Delivery")" style="padding: 20px;">Доставка та оплата</a> |
                         <a href="@Url.Action("Contact","Contact")" style="padding: 20px;">Контакти</a>

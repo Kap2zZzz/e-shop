@@ -2,6 +2,7 @@
 using e_shop.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 
@@ -78,9 +79,23 @@ namespace e_shop.Code
                 new MenuView{Category = "Щитки, бокси (метал, пластик)", Brand = new List<string> {"Щитки Mutlusan пласт. зовн.", "Щитки Mutlusan пласт. внутр."}},
                 new MenuView{Category = "LED освітлення", Brand = new List<string> {"LED Original "}},
                 new MenuView{Category = "Автоматика", Brand = new List<string> {"Шнейдер Домовий автомати", "Шнейдер Домовий ПЗВ, диф.вимикачі"}},
-                new MenuView{Category = "Кабеленесучі системи", Brand = new List<string> {"Гофротрубка DКС ПВХ легка негорюча світло-сіра", "Гофра труба (ПВХ) чорна", "Металорукав", "Короб пластиковий(кабель канал)", "Труба ПВХ гладка" }},
+                new MenuView{Category = "Кабеленесучі системи", Brand = new List<string> {"Гофротрубка DКС ПВХ легка негорюча світло-сіра", "Гофра труба (ПВХ) чорна", "Металорукав", "Короб пластиковий (кабель канал)", "Труба ПВХ гладка" }},
             };
             return _menu.OrderBy(x => x.Category).ToList();
+        }
+
+        public static List<string> GetImages()
+        {
+            List<string> ImagesList = new List<string>();
+            //string path = HttpContext.Current.Server.MapPath(@"~/Images/Product");
+
+            foreach (var fullPath in Directory.EnumerateFiles(HttpContext.Current.Server.MapPath("~/Images/Product")))
+            {
+                var fileName = Path.GetFileName(fullPath);
+                ImagesList.Add(fileName);
+            }
+
+            return ImagesList;
         }
     }
 }

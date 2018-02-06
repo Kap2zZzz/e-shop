@@ -31,6 +31,7 @@ namespace e_shop.Concrete
                     dbProduct.Category = product.Category;
                     dbProduct.ImageData = product.ImageData;
                     dbProduct.ImageMimeType = product.ImageMimeType;
+                    dbProduct.ImageName = product.ImageName;
                 }
             }
             context.SaveChanges();

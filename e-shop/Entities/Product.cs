@@ -15,7 +15,7 @@ namespace e_shop.Entities
 
         [Display(Name = "Назва бренду")]
         [Required(ErrorMessage = "Увага!, поле [Бренд] не заповнено!")]
-        public string Brand {get; set;}
+        public string Brand { get; set; }
 
         [Display(Name = "Назва товару")]
         [Required(ErrorMessage = "Увага!, поле [Назва товару] не заповнено!")]
@@ -38,5 +38,8 @@ namespace e_shop.Entities
 
         public byte[] ImageData { get; set; }
         public string ImageMimeType { get; set; }
+
+        [Display(Name = "Зображення")]
+        public string ImageName { get; set; }
     }
 }

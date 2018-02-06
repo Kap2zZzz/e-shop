@@ -19,15 +19,28 @@ namespace e_shop.Controllers
 
         public int PageSize = 10;
 
-        public ActionResult List(string filter, string category, int page = 1)
+        public ActionResult Index(string filter, string category, int page = 1)
         {
+            PageSize = 12; //category == null ? 14 : 10;
             ViewBag.keywords = "Купити, Електротовари, Львів, Кабель, Тепла підлога, Терморегулятори, Щитки, Бокси, LED, Освітлення, Автоматика, Діодна, Стрічка, Відсікачі, Дешево, Ціна";
             ViewBag.description = "Електротовари для дому за найнижчими цінами. Реалізовуємо продукцію таких відомих брендів як: GRAYHOT, IN - TERM, LED Original, FENIX, Hemstedt, Mutlusan, VIP кабель, Schneider, HOROZ";
-
-            ListView model = new ListView { CurrentCategory = category, CurrentFilter = filter, Page = page };
             ViewBag.IsActiveProduct = "active";
             ViewBag.Category = category == null ? "Електротовари" : category;
             ViewBag.Filter = filter == null ? "Уся продукція" : filter;
+
+            ProductsListView model = new ProductsListView
+            {
+                Products = new CachedProductsRepository().GetFiltersProducts(page, PageSize, category, filter),
+                PagingInfo = new PagingInfo { CurrentPage = page, ItemsPerPage = PageSize, TotalItems = new CachedProductsRepository().GetTotalPages(category, filter) },
+                CurrentCategory = category,
+                CurrentFilter = filter
+            };
+
+            //model.Products = new CachedProductsRepository().GetFiltersProducts(page, PageSize, category, filter);
+            //model.PagingInfo = new PagingInfo { CurrentPage = page, ItemsPerPage = PageSize, TotalItems = new CachedProductsRepository().GetTotalPages(category, filter) };
+            //model.CurrentCategory = category;
+            //model.CurrentFilter = filter;
+
             //ProductsListView model = new ProductsListView { 
             //    Products = new CachedProductsRepository().GetFiltersProducts(page, PageSize, category, filter),
             //    CurrentCategory = category, 
@@ -39,10 +52,10 @@ namespace e_shop.Controllers
 
             TempData["category"] = category == null ? "" : category;
 
-            if (Request.IsAjaxRequest())
-            {
-                return RedirectToAction("AllProductSummary", new { category = model.CurrentCategory, filter = model.CurrentFilter, page = model.Page });
-            }
+            //if (Request.IsAjaxRequest())
+            //{
+            //    return RedirectToAction("AllProductSummary", new { category = model.CurrentCategory, filter = model.CurrentFilter, page = model.Page });
+            //}
 
             //PageSize = category == null ? 12 : 8;
 
@@ -72,29 +85,28 @@ namespace e_shop.Controllers
 
         }
 
-        public PartialViewResult AllProductSummary(string category, string filter, int page = 1)
-        {
-            ViewBag.Category = category == null ? "Електротовари" : category;
-            ViewBag.Filter = filter == null ? "Уся продукція" : filter;
-            //if (plv == null)
-            //{
-            //    plv = new ProductsListView();
-            //}
-            ////ViewBag.IsActiveProduct = "active";
-            //TempData["category"] = category == null ? "" : category;
+        //public PartialViewResult AllProductSummary(string category, string filter, int page = 1)
+        //{
+        //    //ViewBag.Category = category == null ? "Електротовари" : category;
+        //    //ViewBag.Filter = filter == null ? "Уся продукція" : filter;
+        //    ////if (plv == null)
+        //    ////{
+        //    ////    plv = new ProductsListView();
+        //    ////}
+        //    //////ViewBag.IsActiveProduct = "active";
+        //    ////TempData["category"] = category == null ? "" : category;
 
-            PageSize = 12; //category == null ? 14 : 10;
+        //    //PageSize = 12; //category == null ? 14 : 10;
 
-            ProductsListView model = new ProductsListView();
-            model.Products = new CachedProductsRepository().GetFiltersProducts(page, PageSize, category, filter);
-            model.PagingInfo = new PagingInfo { CurrentPage = page, ItemsPerPage = PageSize, TotalItems = new CachedProductsRepository().GetTotalPages(category, filter) };
-            model.CurrentCategory = category;
-            model.CurrentFilter = filter;
+        //    //ProductsListView model = new ProductsListView();
+        //    //model.Products = new CachedProductsRepository().GetFiltersProducts(page, PageSize, category, filter);
+        //    //model.PagingInfo = new PagingInfo { CurrentPage = page, ItemsPerPage = PageSize, TotalItems = new CachedProductsRepository().GetTotalPages(category, filter) };
+        //    //model.CurrentCategory = category;
+        //    //model.CurrentFilter = filter;
 
-            return PartialView(model);
+        //    //return PartialView(model);
 
-        }
-
+        //}
 
         [OutputCache(Duration = 1200, Location = System.Web.UI.OutputCacheLocation.Any)]
         public FileContentResult GetImage(int productId)
