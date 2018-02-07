@@ -1,6 +1,6 @@
 ﻿@model e_shop.Models.ProductsListView
 @{
-    ViewBag.Title = "Електротовари, Кабель, Тепла підлога, іншше ... | Електро Коник";
+    ViewBag.Title = (Model.CurrentCategory == null ? "Усі товари | LED освітлення, Автоматика, Кабеленесучі системи, Кабель, Тепла підлога, Терморегулятори, Щитки, Бокси" : Model.CurrentCategory) + (Model.CurrentFilter == null ? "" : " | " + Model.CurrentFilter) + " | Електро Коник";
 }
 <style>
     #menu .glyphicon {
@@ -12,7 +12,7 @@
         @Html.Action("Menu", "Nav")
     </div>
     <div class="col-sm-8 col-md-9" id="AllProducts">
-            @Html.Partial("AllProductSummary", Model)
+        @Html.Partial("AllProductSummary", Model)
     </div>
 </div>
 <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
