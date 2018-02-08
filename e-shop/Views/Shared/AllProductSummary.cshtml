@@ -2,6 +2,21 @@
 @if (Model.CurrentCategory == null)
 {
     <div class="row">
+
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center">
+                    <h3 class="panel-title">LED освітлення</h3>
+                </div>
+                <div class="panel-body">
+                    <img class="img-thumbnail" src="~/Images/Logo_catalog.jpg" />
+                    <h4><span class="label label-primary">лампочки</span> <span class="label label-primary">прожектори</span> <span class="label label-primary">діодні стрічки</span>, тощо</h4>
+                    <a href="@Url.Action("Index", "Product", new { category = "LED освітлення" })" class="btn btn-success btn-block">Переглянути</a>
+                </div>
+            </div>
+
+        </div>
+
         <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="panel panel-default">
                 <div class="panel-heading text-center">
@@ -112,21 +127,21 @@
 }
 else
 {
-    <ol class="breadcrumb">
+    <ol class="breadcrumb" style="margin-left:15px; margin-right:15px; margin-bottom:5px;">
         <li><a href="#">@Model.CurrentCategory</a></li>
         <li class="active">@Model.CurrentFilter</li>
     </ol>
-        foreach (var p in Model.Products)
-        {
-            <div class="col-sm-12 col-md-6">
-                @Html.Partial("ProductSummary", p)
-            </div>
-        }
-        <div class="col-sm-12">
-            <div class="btn-group pull-right">
-                @Html.PageLinks(Model.PagingInfo, x => Url.Action("Index", "Product", new { category = Model.CurrentCategory, filter = Model.CurrentFilter, page = x }))
-            </div>
+    foreach (var p in Model.Products)
+    {
+        <div class="col-sm-12 col-md-6">
+            @Html.Partial("ProductSummary", p)
         </div>
+    }
+    <div class="col-sm-12">
+        <div class="btn-group pull-right">
+            @Html.PageLinks(Model.PagingInfo, x => Url.Action("Index", "Product", new { category = Model.CurrentCategory, filter = Model.CurrentFilter, page = x }))
+        </div>
+    </div>
 }
 
 
