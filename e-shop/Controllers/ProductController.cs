@@ -21,9 +21,10 @@ namespace e_shop.Controllers
 
         public ActionResult Index(string filter, string category, int page = 1)
         {
+            string s1 = category == null ? "Електротовари (Кабель ВВГ-П, ШВВП, ПВС, Тепла підлога, Терморегулятори, Автоматика, Відсікачі, ПЗВ, LED Освітлення" : category;
             PageSize = 12; //category == null ? 14 : 10;
             ViewBag.keywords = "Купити, Електротовари, Львів, Кабель, Тепла підлога, Терморегулятори, Щитки, Бокси, LED, Освітлення, Автоматика, Діодна, Стрічка, Відсікачі, Дешево, Ціна, GRAYHOT, IN-TERM, LED Original, FENIX, Hemstedt, Mutlusan, VIP кабель, Schneider, HOROZ";
-            ViewBag.description = "Купити дешево " + category + " " + filter + " у Львові. Ціни від виробника! Доставка по Львову БЕЗКОШТОВНА!";
+            ViewBag.description = "Купити дешево " + s1 + " " + filter + "у Львові. Ціни від виробника! Доставка по Львову БЕЗКОШТОВНА!";
             ViewBag.IsActiveProduct = "active";
             ViewBag.Category = category == null ? "Електротовари" : category;
             ViewBag.Filter = filter == null ? "Уся продукція" : filter;
