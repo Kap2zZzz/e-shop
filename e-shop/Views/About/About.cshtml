@@ -1,33 +1,39 @@
 ﻿@{
     ViewBag.Title = "Про нас | Монтаж теплої підлоги, електропроводки, заміри, розрахунки, тощо | Електро Коник";
 }
+<style>
+    #markers a {
+        text-decoration: none;
+    }
+        #markers a:hover {
+            opacity: 0.9;
+        }
+</style>
 <div class="page-header jumbotron">
-    <h2><strong>Інтернет-магазин електротоварів "Електро Коник" </strong></h2><br />
-    <p class="lead">
+    <h2><strong>Інтернет-магазин електротоварів "Електро <span class="fa fa-bolt"></span> Коник" </strong></h2><br />
+    <p class="lead" id="markers">
         Реалізовує оптовому та роздрібному торгівлю електротоварами у Львові та по всій Україні за вигідними цінами.
         У нас Ви зможете придбати усі необхідні електротовари з доставкою на об'єкт:<br />
-        <span class="label label-warning">Теплу підлогу</span>
-        <span class="label label-info">Терморегулятори</span>
-        <span class="label label-success">Кабель</span>
-        <span class="label label-danger">Електричні щитки</span>
-        <span class="label label-primary">Бокси</span>
-        <span class="label label-default">Реле напруги (відсікач)</span>
+        <a href="@Url.Action("Index", "Product", new { category = "Тепла підлога" })"><span class="label label-warning">Теплу підлогу</span></a>
+        <a href="@Url.Action("Index", "Product", new { category = "Терморегулятори" })"><span class="label label-info">Терморегулятори</span></a>
+        <a href="@Url.Action("Index", "Product", new { category = "Кабель" })"><span class="label label-success">Кабель</span></a>
+        <a href="@Url.Action("Index", "Product", new { category = "Щитки, бокси (метал, пластик)" })"><span class="label label-danger">Електричні щитки</span></a>
+        <a href="@Url.Action("Index", "Product", new { category = "Щитки, бокси (метал, пластик)" })"><span class="label label-primary">Бокси</span></a>
+        <a href="@Url.Action("Index", "Product", new { category = "Автоматика" })"><span class="label label-default">Реле напруги (відсікач)</span></a>
         <span class="label label-warning">Розетки</span>
         <span class="label label-info">Вимикачі</span>
-        <span class="label label-success">ПЗВ</span>
-        <span class="label label-danger">Автоматичні вимикачі</span>
-        <span class="label label-primary">LED освітлення</span>
-        <span class="label label-warning">Автоматика</span>
-        <span class="label label-success">Гофра</span>
-        <span class="label label-info">Металорукав</span>
-        <span class="label label-primary">Короб</span>
-        <span class="label label-danger">Труба</span>
-        <span class="label label-default">Бокси</span>
-        <span class="label label-warning">Діодні стрічки</span>
-        <span class="label label-info">Прожектори</span> 
+        <a href="@Url.Action("Index", "Product", new { category = "Автоматика", filter = "Шнейдер Домовий ПЗВ, диф.вимикачі" })"><span class="label label-success">ПЗВ</span></a>
+        <a href="@Url.Action("Index", "Product", new { category = "Автоматика" })"><span class="label label-danger">Автоматичні вимикачі</span></a>
+        <a href="@Url.Action("Index", "Product", new { category = "LED освітлення" })"><span class="label label-primary">LED освітлення</span></a>
+        <a href="@Url.Action("Index", "Product", new { category = "Автоматика" })"><span class="label label-warning">Автоматика</span></a>
+        <a href="@Url.Action("Index", "Product", new { category = "Кабеленесучі системи", filter = "Гофротрубка DКС ПВХ легка негорюча світло-сіра" })"><span class="label label-success">Гофра</span></a>
+        <a href="@Url.Action("Index", "Product", new { category = "Кабеленесучі системи", filter = "Металорукав" })"><span class="label label-info">Металорукав</span></a>
+        <a href="@Url.Action("Index", "Product", new { category = "Кабеленесучі системи", filter = "Короб пластиковий (кабель канал)" })"><span class="label label-primary">Короб</span></a>
+        <a href="@Url.Action("Index", "Product", new { category = "Кабеленесучі системи", filter = "Труба ПВХ гладка" })"><span class="label label-danger">Труба</span></a>
+        <span class="label label-success">Діодні стрічки</span>
+        <a href="@Url.Action("Index", "Product", new { category = "LED освітлення", page = 3 })"><span class="label label-info">Прожектори</span></a>
     </p>
 </div>
-
 <div class="page-header">
     <h4>В інтернет-магазині "Електро Коник" представлено продукцію таких провідних світових та українських брендів як:</h4>
     <div class="row">
@@ -59,7 +65,6 @@
         </div>
     </div>
 </div>
-
 <div class="page-header">
     <h2>Також ми надаємо наступні послуги:</h2>
     <div class="row">
@@ -104,4 +109,3 @@
         </div>
     </div>
 </div>
-

@@ -2,7 +2,6 @@
 <html>
 <head>
     <title>@ViewBag.Title</title>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="keywords" content="@ViewBag.keywords" />
@@ -13,7 +12,6 @@
             margin-right: 15px;
             margin-left: 15px;
         }
-
         #div_footer a {
             color: #9d9d9d;
         }
@@ -33,7 +31,6 @@
     @Styles.Render("~/Content/css")
 </head>
 <body>
-    <!-- Фіксована навігаційна панель -->
     <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -58,7 +55,7 @@
                             <li>@Html.ActionLink("Усі товари", "Index", "Product")</li>
                             @foreach (var m in category)
                             {
-                                <li>@Html.ActionLink(m, "Index", "Product", new { category = m, page = 1 }, null)</li>
+                                <li>@Html.ActionLink(m, "Index", "Product", new { category = m}, null)</li>
                             }
                         </ul>
                     </li>

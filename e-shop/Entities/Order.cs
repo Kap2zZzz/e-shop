@@ -23,6 +23,10 @@ namespace e_shop.Entities
 
         public decimal Suma { get; set; }
 
+        public string City { get; set; }
+
+        public string DeliveryAddress { get; set; }
+
         public virtual List<OrderLine> OrderLines { get; set; }
 
     }

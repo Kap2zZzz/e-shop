@@ -1,17 +1,14 @@
 ﻿@model e_shop.Entities.Order
-
 @{
     ViewBag.Title = "Адміністратор: Замовлення: " + @Model.OrderID;
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
-
 <div class="container">
     <div class="page-header">
         <ol class="breadcrumb">
             <li><a href="#">Адміністратор</a></li>
             <li><a href="#">Замовлення</a></li>
-            <li class="active"><a href="#">30</a></li>
+            <li>@Model.OrderID</li>
         </ol>
     </div>
     <div class="panel panel-default">
@@ -23,6 +20,8 @@
             <div class="panel-body">
                 <h3>Клієнт: <span class="label label-primary">@Model.UserName</span></h3>
                 <h3>Телефон: <span class="label label-success">@Model.UserPhone</span></h3>
+                <h3>Місто: <span class="label label-default">@Model.City</span></h3>
+                <h4>Адреса доставки: <span class="label label-default">@Model.DeliveryAddress</span></h4>
                 <table class="table table-striped table-condensed table-bordered">
                     <thead>
                         <tr>
@@ -62,5 +61,4 @@
             </div>
         }
     </div>
-
 </div>

@@ -27,6 +27,12 @@ namespace e_shop
             );
 
             routes.MapRoute(
+                name: "Cart",
+                url: "Cart",
+                defaults: new { controller = "Cart", action = "Index" }
+            );
+
+            routes.MapRoute(
                 name: "Product",
                 url: "Product",
                 defaults: new { controller = "Product", action = "Index" }

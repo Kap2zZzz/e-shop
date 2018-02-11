@@ -60,20 +60,3 @@ function initMap() {
     });
 };
 //Google Maps-----------------------------------------------
-
-//Асинхронне оновлення товарів------------------------------
-//$(function () {
-//    $('#pager a').click(function () {
-//        $.ajax({
-//            url: this.href,
-//            type: 'GET',
-//            cache: false,
-//            success: function (products) {
-//                $('#AllProducts').html(products);
-//            }
-//        });
-//        // prevent the default redirect
-//        return false;
-//    });
-//});
-//Асинхронне оновлення товарів------------------------------

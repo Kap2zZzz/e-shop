@@ -99,6 +99,8 @@ namespace e_shop.Controllers
                 order.OrderLines = new List<OrderLine>();
                 order.UserName = shippingDetails.Name;
                 order.UserPhone = shippingDetails.Phone;
+                order.City = shippingDetails.City;
+                order.DeliveryAddress = shippingDetails.Address;
                 order.Status = Helper.StatusOrder()[0].ToString();
                 foreach (var c in cart.Lines)
                 {

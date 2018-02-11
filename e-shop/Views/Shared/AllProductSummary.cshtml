@@ -1,15 +1,19 @@
 ﻿@model e_shop.Models.ProductsListView
+<style>
+    .breadcrumb {
+        background-color: transparent;
+    }
+</style>
 @if (Model.CurrentCategory == null)
 {
     <div class="row">
-
         <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading text-center">
                     <h3 class="panel-title">LED освітлення</h3>
                 </div>
                 <div class="panel-body">
-                    <img class="img-thumbnail" src="~/Images/Led2.jpg" />
+                    <img class="img-thumbnail" src="~/Images/Led.jpg" />
                     <h5>Лампочки, Прожектори, Діодні стрічки, Даунлайт, Панель вбуд., тощо. Виробник: LED Original, HOROZ</h5>
                     <a href="@Url.Action("Index", "Product", new { category = "LED освітлення" })" class="btn btn-primary btn-block">Переглянути</a>
                 </div>
@@ -21,19 +25,20 @@
                     <h3 class="panel-title">Автоматика</h3>
                 </div>
                 <div class="panel-body">
-                    <img class="img-thumbnail" src="~/Images/Avtomatyka1.jpg" />
+                    <img class="img-thumbnail" src="~/Images/Avtomatyka.jpg" />
                     <h5>Автомати для дому, Диф Автомат, ПЗВ, відсікачі, тощо. Виробник: Schneider</h5>
                     <a href="@Url.Action("Index", "Product", new { category = "Автоматика" })" class="btn btn-primary btn-block">Переглянути</a>
                 </div>
             </div>
         </div>
+        <div class="clearfix"></div>
         <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading text-center">
                     <h3 class="panel-title">Кабеленесучі системи</h3>
                 </div>
                 <div class="panel-body">
-                    <img class="img-thumbnail" src="~/Images/KabelSystem1.jpg" />
+                    <img class="img-thumbnail" src="~/Images/KabelSystem.jpg" />
                     <h5>Гофротруба, Гофра пластикова, Металорукав, Кабель-канал, Труба ПВХ, тощо. Виробник: DKC</h5>
                     <a href="@Url.Action("Index", "Product", new { category = "Кабеленесучі системи" })" class="btn btn-primary btn-block">Переглянути</a>
                 </div>
@@ -45,20 +50,19 @@
                     <h3 class="panel-title">Кабель</h3>
                 </div>
                 <div class="panel-body">
-                    <img class="img-thumbnail" src="~/Images/Kabel1.jpg" />
+                    <img class="img-thumbnail" src="~/Images/Kabel.jpg" />
                     <h5>ВВГ-П, ШВВП, ПВС, Алюмінєвий, Відеонагляд, ТВ, тощо. Виробник: VIP Кабель, Одеса Кабель ГОСТ </h5>
                     <a href="@Url.Action("Index", "Product", new { category = "Кабель" })" class="btn btn-primary btn-block">Переглянути</a>
                 </div>
             </div>
-        </div>             
-        @*<div class="clearfix visible-xs visible-sm"></div>*@
+        </div>
         <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading text-center">
                     <h3 class="panel-title">Тепла підлога</h3>
                 </div>
                 <div class="panel-body">
-                    <img class="img-thumbnail" src="~/Images/Pidloga1.jpg" />
+                    <img class="img-thumbnail" src="~/Images/Pidloga.jpg" />
                     <h5>Нагрівальний кабель, Мат, Плівка. Виробник: IN-TERM, GRAYHOT, FENIX</h5>
                     <a href="@Url.Action("Index", "Product", new { category = "Тепла підлога" })" class="btn btn-primary btn-block">Переглянути</a>
                 </div>
@@ -70,7 +74,7 @@
                     <h3 class="panel-title">Терморегулятори</h3>
                 </div>
                 <div class="panel-body">
-                    <img class="img-thumbnail" src="~/Images/Termolegulator1.jpg" />
+                    <img class="img-thumbnail" src="~/Images/Termolegulator.jpg" />
                     <h5>Програмовані терморегулятори. Виробники: IN-TERM, TERNEO</h5>
                     <a href="@Url.Action("Index", "Product", new { category = "Терморегулятори" })" class="btn btn-primary btn-block">Переглянути</a>
                 </div>
@@ -82,21 +86,18 @@
                     <h3 class="panel-title">Щитки, бокси (метал, пластик)</h3>
                 </div>
                 <div class="panel-body">
-                    <img class="img-thumbnail" src="~/Images/Boksy1.jpg" />
+                    <img class="img-thumbnail" src="~/Images/Boksy.jpg" />
                     <h5>Коробки під автомат (Метал, Пластик, Внутрішні, Зовнішні), тощо. Виробники: Mutlusan</h5>
                     <a href="@Url.Action("Index", "Product", new { category = "Щитки, бокси (метал, пластик)" })" class="btn btn-primary btn-block">Переглянути</a>
                 </div>
             </div>
         </div>
-        
-        
-        
     </div>
 }
 else
 {
     <ol class="breadcrumb" style="margin-left:15px; margin-right:15px; margin-bottom:5px;">
-        <li><a href="#">@Model.CurrentCategory</a></li>
+        <li>@Html.ActionLink(@Model.CurrentCategory, "Index", "Product", new { category = @Model.CurrentCategory }, null)</li>
         <li class="active">@Model.CurrentFilter</li>
     </ol>
     foreach (var p in Model.Products)
@@ -111,8 +112,3 @@ else
         </div>
     </div>
 }
-
-
-
-
-

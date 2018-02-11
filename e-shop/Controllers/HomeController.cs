@@ -10,7 +10,7 @@ namespace e_shop.Controllers
     {
         //
         // GET: /Home/
-        [OutputCache(Duration = 86400, Location = System.Web.UI.OutputCacheLocation.Any)]
+        //[OutputCache(Duration = 86400, Location = System.Web.UI.OutputCacheLocation.Any)]
         public ActionResult Index()
         {
             ViewBag.IsActiveHome = "active";

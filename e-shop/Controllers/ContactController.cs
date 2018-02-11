@@ -1,4 +1,5 @@
-﻿using e_shop.Concrete;
+﻿using e_shop.Code;
+using e_shop.Concrete;
 using e_shop.Entities;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace e_shop.Controllers
         private EFAskClientRepository repositoryAsk = new EFAskClientRepository();
 
         // GET: Contact
-        [OutputCache(Duration = 86400, Location = System.Web.UI.OutputCacheLocation.Any)]
+        //[OutputCache(Duration = 86400, Location = System.Web.UI.OutputCacheLocation.Any)]
         public ActionResult Contact()
         {
             ViewBag.IsActiveContact = "active";
@@ -30,6 +31,7 @@ namespace e_shop.Controllers
                 repositoryAsk.SaveAsk(askClient);
                 TempData["valid"] = "1";
                 TempData["message"] = "Ваше повідомлення успішно відправлено. Очікуйте на дзвінок менеджера. Дякуюємо що скористались нашим магазином.";
+                Mail.Send(askClient);
                 return RedirectToAction("Contact");
             }
             else
