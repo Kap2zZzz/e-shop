@@ -78,7 +78,7 @@ namespace e_shop.Code
                 new MenuView{Category = "Кабель", Brand = new List<string> {"VIP Кабель (ВВГ-П)", "Кабель телевізійний+відеонагляд", "VIP Кабель (ШВВП)", "VIP Кабель (ПВС)", "Одеса кабель ГОСТ (ШВВП)", "Одеса кабель ГОСТ (ПВС)", "Кабель алюмінієвий"}},
                 new MenuView{Category = "Щитки, бокси (метал, пластик)", Brand = new List<string> {"Щитки Mutlusan пласт. зовн.", "Щитки Mutlusan пласт. внутр."}},
                 new MenuView{Category = "LED освітлення", Brand = new List<string> {"LED Original "}},
-                new MenuView{Category = "Автоматика", Brand = new List<string> {"Шнейдер Домовий автомати", "Шнейдер Домовий ПЗВ, диф.вимикачі"}},
+                new MenuView{Category = "Автоматика", Brand = new List<string> {"Шнейдер Домовий автомати", "Шнейдер Домовий ПЗВ, диф.вимикачі", "Schrack Technik", "Schrack Technik ПЗВ"}},
                 new MenuView{Category = "Кабеленесучі системи", Brand = new List<string> {"Гофротрубка DКС ПВХ легка негорюча світло-сіра", "Гофра труба (ПВХ) чорна", "Металорукав", "Короб пластиковий (кабель канал)", "Труба ПВХ гладка" }},
             };
             return _menu.OrderBy(x => x.Category).ToList();
@@ -96,6 +96,34 @@ namespace e_shop.Code
             }
 
             return ImagesList;
+        }
+
+        public static string GetKeywords(string category)
+        {
+            string keyWords = string.Empty;
+
+            switch (category)
+            {
+                case "LED освітлення": keyWords = "Купити дешево Лампочки, Діодні, ЛЕД, LED, Даунлайт, Прожектори, Панелі, LED Original, G45, A60, MR16, C37, R39, R50, T8";
+                    break;
+                case "Автоматика": keyWords = "Купити дешево Диф. автомат, Автоматичний вимикач, ПЗВ, Пристрій захисного відключення, Відсікач, Schrack, Schneider";
+                    break;
+                case "Кабеленесучі системи": keyWords = "Купити дешево Металорукав, Короб пластиковий, Кабель канал, Гофра, Труба, Гофротрубка, DКС, ПВХ, чорна, сіра, гладка";
+                    break;
+                case "Кабель": keyWords = "Купити дешево силовий кабель, ВВГ, ВВГП, ШВВП, ПВС, ГОСТ Одеса, Львів, Алюмінєвий, Мідний, Телевізійний, для відеонагляду";
+                    break;
+                case "Тепла підлога": keyWords = "Купити дешево теплу підлогу, нагрівальний кабель, мат, плівка, під ламінат, плитку, IN-TERM, GRAYHOT, FENIX";
+                    break;
+                case "Терморегулятори": keyWords = "Купити дешево терморегулятор для теплої підлоги, програмовані, Wi-Fi, сенсорні, IN-TERM, TERNEO";
+                    break;
+                case "Щитки, бокси (метал, пластик)": keyWords = "Купити дешево електричні розподільні щити, щитки, бокси, коробки, металічні, пластикові, зовнішні, внутрішні, Mutlusan";
+                    break;
+                default: keyWords = "Купити дешево Кабель, Теплу підлогу, Терморегулятори, Щитки, Бокси, LED Освітлення, Диф. автомати, Відсікачі, Кабеленесучі системи у Львові";
+                    break;
+            }
+
+            return keyWords;
+
         }
     }
 }
