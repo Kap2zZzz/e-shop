@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>@ViewBag.Title</title>
+    <link rel="icon" href="~/Images/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="keywords" content="@ViewBag.keywords" />
@@ -35,7 +36,7 @@
     @Styles.Render("~/Content/css")
 </head>
 <body>
-    <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+    <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation" style="border:0px">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -44,7 +45,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <img class="navbar-brand" src="~/Images/Logo1.png" style="padding: 0px; padding-left: 20px;     padding-right: 5px;" />
+                <a href="@Url.Action("Index","Home")"><img class="navbar-brand" src="~/Images/Logo.png" style="padding: 1px; padding-right: 3px;" /></a>
                 @*<img class="navbar-brand" src="~/Images/Logo10.png" /> <a class="navbar-brand" style="color:white" href="@Url.Action("Index","Home")">Електро <span class="fa fa-bolt"></span> Коник</a>*@
             </div>
             <div id="navbar" class="collapse navbar-collapse">
@@ -78,12 +79,9 @@
     <footer class="footer">
         <div class="container">
             <div id="div_footer">
-                <div class="col-md-8 col-md-offset-2" style="border-bottom: 1px solid #eee;">
-                    @*<p class="text-muted text-center">Інтернет-магазин <a href="@Url.Action("Index","Home")"><strong style="color:white;">Електро <span class="fa fa-bolt"></span> Коник</strong></a> © 2018</p>*@
-                    @*<p class="text-muted text-center">Інтернет-магазин <a href="@Url.Action("Index","Home")"><img class="navbar-brand" src="~/Images/Logo12.png" style="padding: 0px; padding-left: 20px;     padding-right: 5px;" /></a> © 2018</p>*@
-                    <p class="text-muted text-center hidden-xs" style="font-size: 18px; margin-top: 10px; margin-bottom: 10px;">Інтернет-магазин <a href="@Url.Action("Index","Home")"><img src="~/Images/Logo1.png" height="40"/></a> © 2018</p>
-                    <p class="text-muted text-center visible-xs" style="margin-top: 10px; margin-bottom: 10px;">Інтернет-магазин <a href="@Url.Action("Index","Home")"><img src="~/Images/Logo1.png" height="40" /></a> © 2018</p>
-
+                <div class="col-md-8 col-md-offset-2" style="border-bottom: 1px solid #eee; padding: 0;">
+                    <p class="text-muted text-center hidden-xs" style="font-size: 18px; margin-top: 10px; margin-bottom: 10px;">Інтернет-магазин <a href="@Url.Action("Index","Home")"><img src="~/Images/Logo.png" height="40"/></a> © 2018</p>
+                    <p class="text-muted text-center visible-xs" style="margin-top: 10px; margin-bottom: 10px;">Інтернет-магазин <a href="@Url.Action("Index","Home")"><img src="~/Images/Logo.png" height="40" /></a> © 2018</p>
                 </div>
                 <div class="col-md-8 col-md-offset-2">
                     <p class="text-muted text-center">
