@@ -12,16 +12,20 @@
             margin-right: 15px;
             margin-left: 15px;
         }
+
         #div_footer a {
             color: #9d9d9d;
         }
+
             #div_footer a:hover {
                 color: white;
                 text-decoration: none;
             }
+
         body {
             padding-top: 70px;
         }
+
         .modal-open[style="padding-right: 17px;"] .navbar-fixed-top,
         .modal-open[style="padding-right: 17px;"] .navbar-fixed-bottom {
             padding-right: 17px;
@@ -40,8 +44,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @*<img src="~/Images/Logo4.png" />*@
-                <img class="navbar-brand" src="~/Images/Logo7.png" /> <a class="navbar-brand" style="color:white" href="@Url.Action("Index","Home")">Електро <span class="fa fa-bolt"></span> Коник</a>
+                <img class="navbar-brand" src="~/Images/Logo1.png" style="padding: 0px; padding-left: 20px;     padding-right: 5px;" />
+                @*<img class="navbar-brand" src="~/Images/Logo10.png" /> <a class="navbar-brand" style="color:white" href="@Url.Action("Index","Home")">Електро <span class="fa fa-bolt"></span> Коник</a>*@
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
@@ -56,7 +60,7 @@
                             <li>@Html.ActionLink("Усі товари", "Index", "Product")</li>
                             @foreach (var m in category)
                             {
-                                <li>@Html.ActionLink(m, "Index", "Product", new { category = m}, null)</li>
+                                <li>@Html.ActionLink(m, "Index", "Product", new { category = m }, null)</li>
                             }
                         </ul>
                     </li>
@@ -75,7 +79,11 @@
         <div class="container">
             <div id="div_footer">
                 <div class="col-md-8 col-md-offset-2" style="border-bottom: 1px solid #eee;">
-                    <p class="text-muted text-center">Інтернет-магазин <a href="@Url.Action("Index","Home")"><strong style="color:white;">Електро <span class="fa fa-bolt"></span> Коник</strong></a> © 2018</p>
+                    @*<p class="text-muted text-center">Інтернет-магазин <a href="@Url.Action("Index","Home")"><strong style="color:white;">Електро <span class="fa fa-bolt"></span> Коник</strong></a> © 2018</p>*@
+                    @*<p class="text-muted text-center">Інтернет-магазин <a href="@Url.Action("Index","Home")"><img class="navbar-brand" src="~/Images/Logo12.png" style="padding: 0px; padding-left: 20px;     padding-right: 5px;" /></a> © 2018</p>*@
+                    <p class="text-muted text-center hidden-xs" style="font-size: 18px; margin-top: 10px; margin-bottom: 10px;">Інтернет-магазин <a href="@Url.Action("Index","Home")"><img src="~/Images/Logo1.png" height="40"/></a> © 2018</p>
+                    <p class="text-muted text-center visible-xs" style="margin-top: 10px; margin-bottom: 10px;">Інтернет-магазин <a href="@Url.Action("Index","Home")"><img src="~/Images/Logo1.png" height="40" /></a> © 2018</p>
+
                 </div>
                 <div class="col-md-8 col-md-offset-2">
                     <p class="text-muted text-center">
