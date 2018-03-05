@@ -73,7 +73,7 @@ namespace e_shop.Code
         public static List<MenuView> GetMenu()
         {
             List<MenuView> _menu = new List<MenuView> { 
-                new MenuView{Category = "Тепла підлога", Brand = new List<string> {"IN-TERM (Нагрівальний кабель)", "IN-TERM (Нагрівальний мат)", "GRAYHOT двожильний мат", "GRAYHOT двожильний кабель"}},
+                new MenuView{Category = "Тепла підлога", Brand = new List<string> {"IN-TERM (Нагрівальний кабель)", "IN-TERM (Нагрівальний мат)", "GRAYHOT (двожильний мат)", "GRAYHOT (двожильний кабель)", "Hi Heat (Інфрачервона плівка)"}},
                 new MenuView{Category = "Терморегулятори", Brand = new List<string> {"IN-TERM", "TERNEO"}},
                 new MenuView{Category = "Кабель", Brand = new List<string> {"VIP Кабель (ВВГ-П)", "Кабель телевізійний+відеонагляд", "VIP Кабель (ШВВП)", "VIP Кабель (ПВС)", "Одеса кабель ГОСТ (ШВВП)", "Одеса кабель ГОСТ (ПВС)", "Кабель алюмінієвий"}},
                 new MenuView{Category = "Щитки, бокси (метал, пластик)", Brand = new List<string> {"Щитки Mutlusan пласт. зовн.", "Щитки Mutlusan пласт. внутр."}},

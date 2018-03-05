@@ -8,26 +8,57 @@
     <div class="panel-heading">
         <h3 class="panel-title">
             @Model.Name
-            <span class="pull-right badge"> @Model.Price.ToString("c").Replace("₴", " грн")</span>
         </h3>
     </div>
     <div class="panel-body">
         @if (Model.ImageName != null)
         {
-            <div class="pull-left" style="margin-right:10px">
-                <a href="#" class="pop">
-                    <img class="img-thumbnail" width="75" height="75" src="~/Images/Product/@Model.ImageName" />
-                </a>
+            <div class="row">
+                <div class="col-xs-4 col-sm-3 col-md-6">
+                    <a href="#" class="pop">
+                        <img class="img-thumbnail" width="100" src="~/Images/Product/@Model.ImageName" />
+                    </a>
+                </div>
+                <div class="col-xs-4 col-sm-6 visible-xs visible-sm" style="padding-left: 0;">
+                    <h5 class="pull-left hidden-xs">@Model.Description</h5>
+                    @*<p>
+                        <span style="background: #673AB7; padding: 5px; color: white; font-size: 16px; ">@Model.Price.ToString("c").Replace("₴", " грн")</span>
+                    </p>
+                    <div class="col-xs-12" style="text-align:right">
+                        @using (Html.BeginForm("AddToCart", "Cart"))
+                        {
+                            <div class="">
+
+                                @Html.HiddenFor(x => x.ProductID)
+                                @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                                <input type="submit" class="btn btn-success" value="В кошик" />
+                            </div>
+                        }
+                    </div>*@
+                </div>
+                <div class="col-xs-4 col-sm-3 col-md-6" style="padding-left: 0; text-align: right;">
+                    <p class="visible-xs">
+                        <span style="background: #673AB7; padding: 5px; color: white; font-size: 13px; ">@Model.Price.ToString("c").Replace("₴", " грн")</span>
+                    </p>
+                    <p class="visible-sm">
+                        <span style="background: #673AB7; padding: 5px; color: white; font-size: 14px; ">@Model.Price.ToString("c").Replace("₴", " грн")</span>
+                    </p>
+                    <p class="visible-md visible-lg">
+                        <span style="background: #673AB7; padding: 5px; color: white; font-size: 16px; ">@Model.Price.ToString("c").Replace("₴", " грн")</span>
+                    </p>
+                    @using (Html.BeginForm("AddToCart", "Cart"))
+                    {
+                        <div>
+                            @Html.HiddenFor(x => x.ProductID)
+                            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                            <input type="submit" class="btn btn-success" value="В кошик" />
+                        </div>
+                    }
+                </div>
             </div>
         }
-        <h5>@Model.Description</h5>
-        @using (Html.BeginForm("AddToCart", "Cart"))
-        {
-            <div class="text-right">
-                @Html.HiddenFor(x => x.ProductID)
-                @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-                <input type="submit" class="btn btn-success" value="В кошик" />
-            </div>
-        }
+
+        <h5 class="pull-left hidden-sm vs-xs">@Model.Description</h5>
+
     </div>
 </div>
