@@ -75,10 +75,10 @@ namespace e_shop.Code
             List<MenuView> _menu = new List<MenuView> { 
                 new MenuView{Category = "Тепла підлога", Brand = new List<string> {"IN-TERM (Нагрівальний кабель)", "IN-TERM (Нагрівальний мат)", "GRAYHOT (Двожильний кабель)", "GRAYHOT (Двожильний мат)", "Hi Heat (Інфрачервона плівка)"}},
                 new MenuView{Category = "Терморегулятори", Brand = new List<string> {"IN-TERM", "TERNEO"}},
-                new MenuView{Category = "Кабель", Brand = new List<string> {"VIP Кабель (ВВГ-П)", "Кабель телевізійний+відеонагляд", "VIP Кабель (ШВВП)", "VIP Кабель (ПВС)", "Одеса кабель ГОСТ (ШВВП)", "Одеса кабель ГОСТ (ПВС)", "Кабель алюмінієвий"}},
+                new MenuView{Category = "Кабель", Brand = new List<string> {"VIP Кабель (ВВГ-П)", "VIP Кабель (ПВС)", "VIP Кабель (ШВВП)", "Одеса кабель ГОСТ (ПВС)", "Одеса кабель ГОСТ (ШВВП)", "Кабель алюмінієвий", "Кабель телевізійний+відеонагляд"}},
                 new MenuView{Category = "Щитки, бокси (метал, пластик)", Brand = new List<string> {"Щитки Mutlusan пласт. зовн.", "Щитки Mutlusan пласт. внутр.", "Бокси монтажні герметичні з ПМ", "Щитки внутрішні (ЩО, ЯУР)", "Щитки зовнішні (ЩО, ЯУР)"}},
-                new MenuView{Category = "LED освітлення", Brand = new List<string> {"LED Original "}},
-                new MenuView{Category = "Автоматика", Brand = new List<string> {"Шнейдер Домовий автомати", "Шнейдер Домовий ПЗВ, диф.вимикачі", "Schrack Technik", "Schrack Technik ПЗВ"}},
+                new MenuView{Category = "LED освітлення", Brand = new List<string> {"LED Original"}},
+                new MenuView{Category = "Автоматика", Brand = new List<string> {"Schneider Electric (Автомати)", "Schneider Electric (ПЗВ, Диф. автомати)", "Schrack Technik (Автомати)", "Schrack Technik (ПЗВ)"}},
                 new MenuView{Category = "Кабеленесучі системи", Brand = new List<string> {"Гофротрубка DКС ПВХ легка негорюча світло-сіра", "Гофра труба (ПВХ) чорна", "Металорукав", "Короб пластиковий (кабель канал)", "Труба ПВХ гладка" }},
             };
             return _menu.OrderBy(x => x.Category).ToList();
