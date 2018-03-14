@@ -24,7 +24,7 @@
             }
 
         body {
-            padding-top: 70px;
+            padding-top: 85px;
         }
 
         .modal-open[style="padding-right: 17px;"] .navbar-fixed-top,
@@ -36,7 +36,15 @@
     @Styles.Render("~/Content/css")
 </head>
 <body>
+
     <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation" style="border:0px">
+        <div style="background: #e88b00; background: #292929;">
+            <div class="container text-right">
+                <div style="margin-right: 20px;">
+                    <a href="#">UA</a> | <a href="#">RU</a>
+                </div>
+            </div>
+        </div>
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -80,7 +88,7 @@
         <div class="container">
             <div id="div_footer">
                 <div class="col-md-8 col-md-offset-2" style="border-bottom: 1px solid #eee; padding: 0;">
-                    <p class="text-muted text-center hidden-xs" style="font-size: 18px; margin-top: 10px; margin-bottom: 10px;">Інтернет-магазин <a href="@Url.Action("Index","Home")"><img src="~/Images/Logo.png" height="40"/></a> © 2018</p>
+                    <p class="text-muted text-center hidden-xs" style="font-size: 18px; margin-top: 10px; margin-bottom: 10px;">Інтернет-магазин <a href="@Url.Action("Index","Home")"><img src="~/Images/Logo.png" height="40" /></a> © 2018</p>
                     <p class="text-muted text-center visible-xs" style="margin-top: 10px; margin-bottom: 10px;">Інтернет-магазин <a href="@Url.Action("Index","Home")"><img src="~/Images/Logo.png" height="40" /></a> © 2018</p>
                 </div>
                 <div class="col-md-8 col-md-offset-2">
