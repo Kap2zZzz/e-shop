@@ -22,9 +22,14 @@ namespace e_shop.Entities
         public string Name { get; set; }
 
         [DataType(DataType.MultilineText)]
-        [Display(Name = "Опис товару")]
-        [Required(ErrorMessage = "Увага!, поле [Опис товару] не заповнено!")]
+        [Display(Name = "Короткий опис товару")]
+        [Required(ErrorMessage = "Увага!, поле [Короткий опис товару] не заповнено!")]
         public string Description { get; set; }
+
+        [DataType(DataType.MultilineText)]
+        [Display(Name = "Детальний опис товару")]
+        [Required(ErrorMessage = "Увага!, поле [Детальний опис товару] не заповнено!")]
+        public string DescriptionDetails { get; set; }
 
         [Display(Name = "Ціна")]
         [Required(ErrorMessage = "Увага!, поле [Ціна] не заповнено!")]

@@ -34,9 +34,14 @@
                         @Html.ValidationMessage("Name")
                     </div>
                     <div class="form-group">
-                        <label>Опис товару</label>
-                        @Html.TextArea("Description", null, new { @class = "form-control", rows = 4 })
+                        <label>Короткий опис товару</label>
+                        @Html.TextArea("Description", null, new { @class = "form-control", rows = 2 })
                         @Html.ValidationMessage("Description")
+                    </div>
+                    <div class="form-group">
+                        <label>Детальний опис товару</label>
+                        @Html.TextArea("DescriptionDetails", null, new { @class = "form-control", rows = 6 })
+                        @Html.ValidationMessage("DescriptionDetails")
                     </div>
                     <div class="form-group">
                         <label>Ціна</label>

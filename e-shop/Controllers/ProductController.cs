@@ -25,8 +25,8 @@ namespace e_shop.Controllers
             PageSize = 12; //category == null ? 14 : 10;
             //ViewBag.keywords = "Купити, Електротовари, Львів, Кабель, Тепла підлога, Терморегулятори, Щитки, Бокси, LED, Освітлення, Автоматика, Діодна, Стрічка, Відсікачі, Дешево, Ціна, GRAYHOT, IN-TERM, LED Original, FENIX, Hemstedt, Mutlusan, VIP кабель, Schneider, HOROZ";
             //ViewBag.description = "Купити дешево " + s1 + " " + filter + " у Львові. Ціни від виробника! Доставка по Львову БЕЗКОШТОВНА!";
-            ViewBag.keywords = Helper.GetKeywords(category);
-            ViewBag.description = Helper.GetKeywords(category);
+            ViewBag.keywords = string.Format(Helper.GetKeywords(category), string.Empty);
+            ViewBag.description = string.Format(Helper.GetKeywords(category), string.Empty);
 
             ViewBag.IsActiveProduct = "active";
             ViewBag.Category = category == null ? "Електротовари" : category;
@@ -121,6 +121,16 @@ namespace e_shop.Controllers
                 return File(product.ImageData, product.ImageMimeType);
             }
             else return null;
+        }
+
+        public ActionResult Details(int id)
+        {
+            ViewBag.IsActiveProduct = "active";
+            var model = repository.Products.FirstOrDefault(p => p.ProductID == id);
+            ViewBag.keywords = string.Format(Helper.GetKeywords(model.Category), " " + model.Name + ",");
+            ViewBag.description = string.Format(Helper.GetKeywords(model.Category), " " + model.Name + ",");
+            TempData["category"] = model.Category == null ? "" : model.Category;
+            return View(model);
         }
     }
 }

@@ -4,6 +4,7 @@
         background-color: #c74a00;
     }
 </style>
+
 <div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title">
@@ -20,21 +21,21 @@
                     </a>
                 </div>
                 <div class="col-xs-4 col-sm-6 visible-xs visible-sm" style="padding-left: 0;">
-                    <h5 class="pull-left hidden-xs">@Model.Description</h5>
+                    <h5 class="pull-left hidden-xs"><a href="@Url.Action("Details", "Product", new {id = Model.ProductID })">@Model.Description</a></h5>
                     @*<p>
-                        <span style="background: #673AB7; padding: 5px; color: white; font-size: 16px; ">@Model.Price.ToString("c").Replace("₴", " грн")</span>
-                    </p>
-                    <div class="col-xs-12" style="text-align:right">
-                        @using (Html.BeginForm("AddToCart", "Cart"))
-                        {
-                            <div class="">
+                            <span style="background: #673AB7; padding: 5px; color: white; font-size: 16px; ">@Model.Price.ToString("c").Replace("₴", " грн")</span>
+                        </p>
+                        <div class="col-xs-12" style="text-align:right">
+                            @using (Html.BeginForm("AddToCart", "Cart"))
+                            {
+                                <div class="">
 
-                                @Html.HiddenFor(x => x.ProductID)
-                                @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-                                <input type="submit" class="btn btn-success" value="В кошик" />
-                            </div>
-                        }
-                    </div>*@
+                                    @Html.HiddenFor(x => x.ProductID)
+                                    @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                                    <input type="submit" class="btn btn-success" value="В кошик" />
+                                </div>
+                            }
+                        </div>*@
                 </div>
                 <div class="col-xs-4 col-sm-3 col-md-6" style="padding-left: 0; text-align: right;">
                     <p class="visible-xs">
@@ -58,7 +59,7 @@
             </div>
         }
 
-        <h5 class="pull-left hidden-sm vs-xs">@Model.Description</h5>
+        <h5 class="pull-left hidden-sm"><a href="@Url.Action("Details", "Product", new {id = Model.ProductID })">@Model.Description</a></h5>
 
     </div>
 </div>

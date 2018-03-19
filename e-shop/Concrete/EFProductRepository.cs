@@ -27,6 +27,7 @@ namespace e_shop.Concrete
                     dbProduct.Brand = product.Brand;
                     dbProduct.Name = product.Name;
                     dbProduct.Description = product.Description;
+                    dbProduct.DescriptionDetails = product.DescriptionDetails;
                     dbProduct.Price = product.Price;
                     dbProduct.Category = product.Category;
                     dbProduct.ImageData = product.ImageData;

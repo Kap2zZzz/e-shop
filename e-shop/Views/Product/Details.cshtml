@@ -1,0 +1,86 @@
+﻿@model e_shop.Entities.Product
+
+@{
+    ViewBag.Title = (Model.Category == null ? "Усі товари | LED освітлення, Автоматика, Кабеленесучі системи, Кабель, Тепла підлога, Терморегулятори, Щитки, Бокси" : Model.Category) + (Model.Name == null ? "" : " | " + Model.Name) + " | Електро Коник";
+}
+
+<style>
+    #menu .glyphicon {
+        margin-right: 10px;
+    }
+
+    .breadcrumb {
+        background-color: transparent;
+    }
+</style>
+<div class="row" style="margin-bottom: 20px;">
+    <div class="col-sm-4 col-md-3" id="menu">
+        @Html.Action("Menu", "Nav")
+    </div>
+
+    <div class="col-sm-8 col-md-9">
+        <ol class="breadcrumb" style="margin-left:15px; margin-right:15px; margin-bottom:5px;">
+            <li>@Html.ActionLink(@Model.Category, "Index", "Product", new { category = @Model.Category }, null)</li>
+            <li class="">@Html.ActionLink(@Model.Brand, "Index", "Product", new { category = @Model.Category, filter = @Model.Brand }, null)</li>
+            <li class="active">@Model.Name</li>
+        </ol>
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        @Model.Name
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    @if (Model.ImageName != null)
+                    {
+                        <div class="row">
+                            <div class="col-xs-4 col-sm-3 col-md-3">
+                                <img class="img-thumbnail" width="200" src="~/Images/Product/@Model.ImageName" />
+                            </div>
+                            <div class="col-xs-4 col-sm-6 col-md-7" style="padding-left: 0;">
+                                <b>Категорія товару:</b> @Html.DisplayFor(model => model.Brand)
+                                <hr />
+                                <div class="hidden-xs hidden-sm">
+                                    <b>Характеристика:</b>
+                                    @Model.DescriptionDetails
+                                    @*(In-Term) E-60 – електронний терморегулятор з великим рідкокристалічним дисплеєм. Який має температурний діапазон від +5 до +40С, для керування електричними системами обігріву «тепла підлога», а також опалювальними приладами (настінні конвектори, інфрачервоні стельові панелі). На лицьовій частині термостата крім великого рідкокристалічного дисплея є чотири круглих кнопки, для зручного використання та налаштування бажаної температури. Графічний дисплей має синє підсвічування, і відображає всю необхідну для нашої зручності інформацію: поточний час, режим роботи та температуру в заданому приміщенні.*@
+                                    @*Лампа A60 - безперечний лідер серед ламп загального призначення, час експлуатації LED лампи A60 8W становить понад 50 000 годин, а використання всього 10% електроенергії в порівнянні зі звичайними лампами розжарювання, дозволить заощадити Ваші гроші. Потужність LED/лампа рожзарювання (Вт) 8/80. ЦокольE27. Температура (К) 3000 (тепле світло). Світловий потік(Лм)	720.Ресурс (год) 50 000. Розміри (мм)	109x 60.Кут розсіювання (град)270. Матеріал цоколь - нікельована мідь, корпус - алюміній вкритий пластиком. Гарантія 3 роки*@
+                                </div>
+                            </div>
+                            <div class="col-xs-4 col-sm-3 col-md-2" style="padding-left: 0; text-align: right;">
+                                <p class="visible-xs">
+                                    <span style="background: #673AB7; padding: 5px; color: white; font-size: 13px; ">@Model.Price.ToString("c").Replace("₴", " грн")</span>
+                                </p>
+                                <p class="visible-sm">
+                                    <span style="background: #673AB7; padding: 5px; color: white; font-size: 14px; ">@Model.Price.ToString("c").Replace("₴", " грн")</span>
+                                </p>
+                                <p class="visible-md visible-lg">
+                                    <span style="background: #673AB7; padding: 5px; color: white; font-size: 16px; ">@Model.Price.ToString("c").Replace("₴", " грн")</span>
+                                </p>
+                                @using (Html.BeginForm("AddToCart", "Cart"))
+                                {
+                                <div>
+                                    @Html.HiddenFor(x => x.ProductID)
+                                    @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                                    <input type="submit" class="btn btn-success" value="В кошик" />
+                                </div>
+                                }
+                            </div>
+                        </div>
+                    }
+                    <div class="hidden-md hidden-lg">
+                        <b>Характеристика:</b>
+                        (In-Term) E-60 – електронний терморегулятор з великим рідкокристалічним дисплеєм. Який має температурний діапазон від +5 до +40С, для керування електричними системами обігріву «тепла підлога», а також опалювальними приладами (настінні конвектори, інфрачервоні стельові панелі). На лицьовій частині термостата крім великого рідкокристалічного дисплея є чотири круглих кнопки, для зручного використання та налаштування бажаної температури. Графічний дисплей має синє підсвічування, і відображає всю необхідну для нашої зручності інформацію: поточний час, режим роботи та температуру в заданому приміщенні.
+                    </div>
+                </div>
+            </div>
+
+            <p style="text-align:right">
+                <a href="@Url.Action("Index", new { category = @Model.Category, filter = @Model.Brand })" class="btn btn-warning">Назад</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+
