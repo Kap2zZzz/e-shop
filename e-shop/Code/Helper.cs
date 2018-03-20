@@ -29,46 +29,7 @@ namespace e_shop.Code
         {
             List<string> so = new List<string> { "Нове замовлення", "В роботі", "Виконано", "Відмовлено" };
             return so;
-        }
-
-        //public static int getTotalItems(string category, string filter, IEnumerable<Product> products)
-        //{
-        //    int k = 0;
-
-        //    if (category == null || category == string.Empty)
-        //    {
-        //        k = products.Count();
-        //    }
-        //    else if (filter == null || filter == string.Empty)
-        //    {
-        //        k = products.Where(p => p.Category == category).Count();
-        //    }
-        //    else
-        //    {
-        //        k = products.Where(p => p.Category == category && p.Brand == filter).Count();
-        //    }
-        //    //        TotalItems = category == null ? repository.Products.Count() : repository.Products.Where(p => p.Category == category).Where(p => filter == null ? p.Brand != null : p.Brand == filter).Count()
-        //    return k;
-        //}
-
-        //public static IEnumerable<Product> getTotalProducts(int page, int pageSize, string category, string filter, IEnumerable<Product> products)
-        //{
-        //    IEnumerable<Product> countProduct;
-
-        //    if (category == null || category == string.Empty)
-        //    {
-        //        countProduct = products.Skip((page - 1) * pageSize).Take(pageSize);
-        //    }
-        //    else if (filter == null || filter == string.Empty)
-        //    {
-        //        countProduct = products.Where(p => p.Category == category).Skip((page - 1) * pageSize).Take(pageSize);
-        //    }
-        //    else
-        //    {
-        //        countProduct = products.Where(p => p.Category == category && p.Brand == filter).Skip((page - 1) * pageSize).Take(pageSize);
-        //    }
-        //    return countProduct;
-        //}
+        }      
 
         public static List<MenuView> GetMenu()
         {
@@ -87,7 +48,6 @@ namespace e_shop.Code
         public static List<string> GetImages()
         {
             List<string> ImagesList = new List<string>();
-            //string path = HttpContext.Current.Server.MapPath(@"~/Images/Product");
 
             foreach (var fullPath in Directory.EnumerateFiles(HttpContext.Current.Server.MapPath("~/Images/Product")))
             {
@@ -102,25 +62,21 @@ namespace e_shop.Code
         {
             string keyWords = string.Empty;
 
-//            string template = "Hi We have these flights for you: {0}. Which one do you want";
-//string data = "A, B, C, D"
-//string message = string.Format(template, data);
-
             switch (category)
             {
-                case "LED освітлення": keyWords = "Купити дешево Діодні лампочки, ЛЕД, LED, Даунлайт, Прожектори, Панелі, LED Original, G45, A60, MR16, C37, R39, R50, T8 у Львові та по всій Україні. Діють знижки до -10%!. Доставка по Львову БЕЗКОШТОВНА!";
+                case "LED освітлення": keyWords = "Купити дешево:{0} Діодні лампочки, ЛЕД, LED, Даунлайт, Прожектори, Панелі, LED Original, G45, A60, MR16, C37, R39, R50, T8 у Львові та по всій Україні. Діють знижки до -10%!. Доставка по Львову БЕЗКОШТОВНА!";
                     break;
-                case "Автоматика": keyWords = "Купити дешево Диф. автомат, Автоматичний вимикач, ПЗВ, Пристрій захисного відключення, Відсікач, Schrack, Schneider у Львові та по всій Україні. Діють знижки до -10%!. Доставка по Львову БЕЗКОШТОВНА!";
+                case "Автоматика": keyWords = "Купити дешево:{0} Диф. автомат, Автоматичний вимикач, ПЗВ, Пристрій захисного відключення, Відсікач, Schrack, Schneider у Львові та по всій Україні. Діють знижки до -10%!. Доставка по Львову БЕЗКОШТОВНА!";
                     break;
-                case "Кабеленесучі системи": keyWords = "Купити дешево Металорукав, Короб пластиковий, Кабель канал, Гофра, Труба, Гофротрубка, DКС, ПВХ, чорна, сіра, гладка у Львові та по всій Україні. Діють знижки до -10%!. Доставка по Львову БЕЗКОШТОВНА!";
+                case "Кабеленесучі системи": keyWords = "Купити дешево:{0} Металорукав, Короб пластиковий, Кабель канал, Гофра, Труба, Гофротрубка, DКС, ПВХ, чорна, сіра, гладка у Львові та по всій Україні. Діють знижки до -10%!. Доставка по Львову БЕЗКОШТОВНА!";
                     break;
                 case "Кабель": keyWords = "Купити дешево:{0} силовий кабель, ВВГ, ВВГП, ШВВП, ПВС, ГОСТ Одеса, Львів, Алюмінєвий, Мідний, Телевізійний, для відеонагляду у Львові та по всій Україні. Діють знижки до -10%!. Доставка по Львову БЕЗКОШТОВНА!";
                     break;
-                case "Тепла підлога": keyWords = "Купити дешево теплу підлогу, нагрівальний кабель, мат, інфрачервона плівка, під ламінат, плитку, IN-TERM, GRAYHOT, FENIX, Hi Heat у Львові та по всій Україні. Діють знижки до -10%!. Доставка по Львову БЕЗКОШТОВНА!";
+                case "Тепла підлога": keyWords = "Купити дешево:{0} теплу підлогу, нагрівальний кабель, мат, інфрачервона плівка, під ламінат, плитку, IN-TERM, GRAYHOT, FENIX, Hi Heat у Львові та по всій Україні. Діють знижки до -10%!. Доставка по Львову БЕЗКОШТОВНА!";
                     break;
-                case "Терморегулятори": keyWords = "Купити дешево терморегулятор для теплої підлоги, програмовані, Wi-Fi, сенсорні, IN-TERM, TERNEO у Львові та по всій Україні. Діють знижки до -10%!. Доставка по Львову БЕЗКОШТОВНА!";
+                case "Терморегулятори": keyWords = "Купити дешево:{0} терморегулятор для теплої підлоги, програмовані, Wi-Fi, сенсорні, IN-TERM, TERNEO у Львові та по всій Україні. Діють знижки до -10%!. Доставка по Львову БЕЗКОШТОВНА!";
                     break;
-                case "Щитки, бокси (метал, пластик)": keyWords = "Купити дешево електричні розподільні щити, щитки, (ЩО, ЯУР), монтажні бокси, БМ, коробки, металічні, пластикові, зовнішні, внутрішні, Mutlusan (Мутлусан), Bilmax (Білмакс) у Львові та по всій Україні. Діють знижки до -10%!. Доставка по Львову БЕЗКОШТОВНА!";
+                case "Щитки, бокси (метал, пластик)": keyWords = "Купити дешево:{0} електричні розподільні щити, щитки, (ЩО, ЯУР), монтажні бокси, БМ, коробки, металічні, пластикові, зовнішні, внутрішні, Mutlusan (Мутлусан), Bilmax (Білмакс) у Львові та по всій Україні. Діють знижки до -10%!. Доставка по Львову БЕЗКОШТОВНА!";
                     break;
                 default: keyWords = "Купити дешево: Кабель (ВВГ, ВВГП, ШВВП, ПВС, ГОСТ Одеса), Теплу підлогу (IN-TERM, GRAYHOT, FENIX, Hi Heat), Терморегулятори, Щитки та Бокси (Mutlusan, Bilmax), LED Освітлення, Диф. автомати та ПЗВ (Schrack, Schneider), Кабеленесучі системи у Львові та по всій Україні. Діють знижки до -10%!. Доставка по Львову БЕЗКОШТОВНА!";
                     break;

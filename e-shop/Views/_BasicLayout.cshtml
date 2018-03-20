@@ -24,7 +24,7 @@
             }
 
         body {
-            padding-top: 85px;
+            padding-top: 70px; /*85*/
         }
 
         .modal-open[style="padding-right: 17px;"] .navbar-fixed-top,
@@ -38,13 +38,13 @@
 <body>
 
     <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation" style="border:0px">
-        <div style="background: #e88b00; background: #292929;">
+        @*<div style="background: #e88b00; background: #292929;">
             <div class="container text-right">
                 <div style="margin-right: 20px;">
                     <a href="#">UA</a> | <a href="#">RU</a>
                 </div>
             </div>
-        </div>
+        </div>*@
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -54,7 +54,6 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a href="@Url.Action("Index","Home")"><img class="navbar-brand" src="~/Images/Logo.png" style="padding: 1px; padding-right: 3px;" /></a>
-                @*<img class="navbar-brand" src="~/Images/Logo10.png" /> <a class="navbar-brand" style="color:white" href="@Url.Action("Index","Home")">Електро <span class="fa fa-bolt"></span> Коник</a>*@
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">

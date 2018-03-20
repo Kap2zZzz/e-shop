@@ -60,7 +60,7 @@ namespace e_shop
                 name: "Delivery",
                 url: "Delivery",
                 defaults: new { controller = "Delivery", action = "Delivery" }
-);
+            );
 
             routes.MapRoute(null, "{controller}/{action}/Page{page}", new
             {
@@ -69,6 +69,16 @@ namespace e_shop
                 category = (string)null
             },
               new { page = @"\d+" }
+            );
+
+            routes.MapRoute(
+            name: "edit",
+            url: "{controller}/{action}/Product/{productId}"
+            );
+
+            routes.MapRoute(
+            name: "details",
+            url: "{controller}/{action}/{category}/{id}"
             );
 
             routes.MapRoute(null, "{controller}/{action}/{category}", new
@@ -85,48 +95,11 @@ namespace e_shop
             },
                 new { page = @"\d+" }
             );
-
-            //        routes.MapRoute(
-            //name: "",
-            //url: "Admin/{action}"
-            //);
-
-            //        routes.MapRoute(
-            //            name: "AdminOrders",
-            //            url: "Admin/{category}",
-            //            defaults: new { controller = "Admin", action = "Index", category = UrlParameter.Optional }
-            //        );
-
-            //routes.MapRoute(null, "{controller}/{action}");
-
-            //routes.MapRoute(null, "{controller}/{action}/{category}", new
-            //{
-            //    controller = "Product",
-            //    action = "List",
-            //    category = (string)null,
-            //    page = 1
-            //});
-
-            //routes.MapRoute(
-            //    name: null,
-            //    url: "{controller}/Page{page}",
-            //    defaults: new { controller = "Product", action = "List" }
-            //);
-
-            //            routes.MapRoute(
-            //name: "About",
-            //url: "About",
-            //defaults: new { controller = "About", action = "About" }
-            //);
+           
             routes.MapRoute(
                 name: "order",
                 url: "{controller}/{action}/Order/{orderId}"
-            );
-
-            routes.MapRoute(
-                name: "edit",
-                url: "{controller}/{action}/Product/{productId}"
-                );
+            );         
 
             routes.MapRoute(null, "{controller}/{action}");
 

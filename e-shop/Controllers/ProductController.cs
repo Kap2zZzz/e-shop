@@ -11,20 +11,13 @@ using System.Web.Mvc;
 
 namespace e_shop.Controllers
 {
-    //[RoutePrefix("Catalog")]
     public class ProductController : Controller
     {
         private EFProductRepository repository = new EFProductRepository();
-        //private EFOrderRepository repositoryOrder = new EFOrderRepository();
-
-        public int PageSize = 10;
 
         public ActionResult Index(string filter, string category, int page = 1)
         {
-            string s1 = category == null ? "Електротовари (Кабель ВВГ-П, ШВВП, ПВС, Тепла підлога, Терморегулятори, Автоматика, Відсікачі, ПЗВ, LED Освітлення" : category;
-            PageSize = 12; //category == null ? 14 : 10;
-            //ViewBag.keywords = "Купити, Електротовари, Львів, Кабель, Тепла підлога, Терморегулятори, Щитки, Бокси, LED, Освітлення, Автоматика, Діодна, Стрічка, Відсікачі, Дешево, Ціна, GRAYHOT, IN-TERM, LED Original, FENIX, Hemstedt, Mutlusan, VIP кабель, Schneider, HOROZ";
-            //ViewBag.description = "Купити дешево " + s1 + " " + filter + " у Львові. Ціни від виробника! Доставка по Львову БЕЗКОШТОВНА!";
+            int PageSize = 12;
             ViewBag.keywords = string.Format(Helper.GetKeywords(category), string.Empty);
             ViewBag.description = string.Format(Helper.GetKeywords(category), string.Empty);
 
@@ -38,79 +31,12 @@ namespace e_shop.Controllers
                 PagingInfo = new PagingInfo { CurrentPage = page, ItemsPerPage = PageSize, TotalItems = new CachedProductsRepository().GetTotalPages(category, filter) },
                 CurrentCategory = category,
                 CurrentFilter = filter
-            };
-
-            //model.Products = new CachedProductsRepository().GetFiltersProducts(page, PageSize, category, filter);
-            //model.PagingInfo = new PagingInfo { CurrentPage = page, ItemsPerPage = PageSize, TotalItems = new CachedProductsRepository().GetTotalPages(category, filter) };
-            //model.CurrentCategory = category;
-            //model.CurrentFilter = filter;
-
-            //ProductsListView model = new ProductsListView { 
-            //    Products = new CachedProductsRepository().GetFiltersProducts(page, PageSize, category, filter),
-            //    CurrentCategory = category, 
-            //    CurrentFilter = filter, 
-            //    PagingInfo = new PagingInfo { CurrentPage = page, ItemsPerPage = PageSize, TotalItems = new CachedProductsRepository().GetTotalPages(category, filter) }};
-            //ViewBag.category = category;
-            //ViewBag.filter = filter;
-            //ViewBag.page = page;
+            };        
 
             TempData["category"] = category == null ? "" : category;
-
-            //if (Request.IsAjaxRequest())
-            //{
-            //    return RedirectToAction("AllProductSummary", new { category = model.CurrentCategory, filter = model.CurrentFilter, page = model.Page });
-            //}
-
-            //PageSize = category == null ? 12 : 8;
-
-            //ProductsListView model = new ProductsListView
-            //{
-            //    //Products = category == null ? repository.Products.OrderBy(p => p.ProductID).Skip((page - 1) * PageSize).Take(PageSize) : repository.Products.Where(p => p.Category == category).Where(p => filter == null ? p.Brand != null : p.Brand == filter).OrderBy(p => p.ProductID).Skip((page - 1) * PageSize).Take(PageSize),
-            //    //Products = category == null ? repository.Products.Skip((page - 1) * PageSize).Take(PageSize) : repository.Products.Where(p => p.Category == category).Where(p => filter == null ? p.Brand != null : p.Brand == filter).Skip((page - 1) * PageSize).Take(PageSize),
-            //    Products = new CachedProductsRepository().GetFiltersProducts(page, PageSize, category, filter),
-            //    PagingInfo = new PagingInfo
-            //    {
-            //        CurrentPage = page,
-            //        ItemsPerPage = PageSize,
-            //        TotalItems = new CachedProductsRepository().GetTotalPages(category, filter)
-            //        //TotalItems = category == null ? repository.Products.Count() : repository.Products.Where(p => p.Category == category).Where(p => filter == null ? p.Brand != null : p.Brand == filter).Count()
-            //    },
-            //    CurrentCategory = category,
-            //    CurrentFilter = filter
-            //};
-
-            //ProductsListView model = new ProductsListView();
-            //model.Products = new CachedProductsRepository().GetFiltersProducts(page, PageSize, category, filter);
-            //model.PagingInfo = new PagingInfo { CurrentPage = page, ItemsPerPage = PageSize, TotalItems = new CachedProductsRepository().GetTotalPages(category, filter) };
-            //model.CurrentCategory = category;
-            //model.CurrentFilter = filter;
-
+     
             return View(model);
-
-        }
-
-        //public PartialViewResult AllProductSummary(string category, string filter, int page = 1)
-        //{
-        //    //ViewBag.Category = category == null ? "Електротовари" : category;
-        //    //ViewBag.Filter = filter == null ? "Уся продукція" : filter;
-        //    ////if (plv == null)
-        //    ////{
-        //    ////    plv = new ProductsListView();
-        //    ////}
-        //    //////ViewBag.IsActiveProduct = "active";
-        //    ////TempData["category"] = category == null ? "" : category;
-
-        //    //PageSize = 12; //category == null ? 14 : 10;
-
-        //    //ProductsListView model = new ProductsListView();
-        //    //model.Products = new CachedProductsRepository().GetFiltersProducts(page, PageSize, category, filter);
-        //    //model.PagingInfo = new PagingInfo { CurrentPage = page, ItemsPerPage = PageSize, TotalItems = new CachedProductsRepository().GetTotalPages(category, filter) };
-        //    //model.CurrentCategory = category;
-        //    //model.CurrentFilter = filter;
-
-        //    //return PartialView(model);
-
-        //}
+        }     
 
         [OutputCache(Duration = 1200, Location = System.Web.UI.OutputCacheLocation.Any)]
         public FileContentResult GetImage(int productId)
@@ -123,7 +49,7 @@ namespace e_shop.Controllers
             else return null;
         }
 
-        public ActionResult Details(int id)
+        public ActionResult Details(string category, int id)
         {
             ViewBag.IsActiveProduct = "active";
             var model = repository.Products.FirstOrDefault(p => p.ProductID == id);
