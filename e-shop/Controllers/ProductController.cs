@@ -52,6 +52,7 @@ namespace e_shop.Controllers
         public ActionResult Details(string category, int id)
         {
             ViewBag.IsActiveProduct = "active";
+            //ViewBag.returnUrl = Request.Url.PathAndQuery;
             var model = repository.Products.FirstOrDefault(p => p.ProductID == id);
             ViewBag.keywords = string.Format(Helper.GetKeywords(model.Category), " " + model.Name + ",");
             ViewBag.description = string.Format(Helper.GetKeywords(model.Category), " " + model.Name + ",");

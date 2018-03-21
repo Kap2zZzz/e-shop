@@ -20,7 +20,7 @@
                     </a>
                 </div>
                 <div class="col-xs-4 col-sm-6 visible-xs visible-sm" style="padding-left: 0;">
-                    <h5 class="pull-left hidden-xs"><a href="@Url.Action("Details", "Product", new {category = Model.Category, id = Model.ProductID })">@Model.Description</a></h5>
+                    <h5 class="pull-left hidden-xs"><a href="@Url.Action("Details", "Product", new { category = Model.Category, id = Model.ProductID})">@Model.Description</a></h5>
                 </div>
                 <div class="col-xs-4 col-sm-3 col-md-6" style="padding-left: 0; text-align: right;">
                     <p class="visible-xs">
@@ -43,6 +43,6 @@
                 </div>
             </div>
         }
-        <h5 class="pull-left hidden-sm"><a href="@Url.Action("Details", "Product", new { category = Model.Category, id = Model.ProductID })">@Model.Description</a></h5>
+        <h5 class="pull-left hidden-sm"><a href="@Url.Action("Details", "Product", new { category = Model.Category, id = Model.ProductID})">@Model.Description</a></h5>
     </div>
 </div>

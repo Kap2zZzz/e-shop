@@ -38,11 +38,11 @@
                             </div>
                             <div class="col-xs-4 col-sm-6 col-md-7" style="padding-left: 0;">
                                 <b>Категорія товару:</b> @Html.DisplayFor(model => model.Brand)
-                                <hr />
+                                <hr style="margin-bottom: 10px; margin-top:10px;" />
                                 <div class="hidden-xs hidden-sm">
                                     <b>Характеристика:</b>
                                     <p class="text-justify">
-                                        @Model.DescriptionDetails
+                                        @Html.Raw(HttpUtility.HtmlEncode(Model.DescriptionDetails).Replace("\n", "<br/>"))
                                     </p>
                                 </div>
                             </div>
@@ -70,13 +70,14 @@
                     <div class="hidden-md hidden-lg">
                         <b>Характеристика:</b>
                         <p class="text-justify">
-                            @Model.DescriptionDetails
+                            @Html.Raw(HttpUtility.HtmlEncode(Model.DescriptionDetails).Replace("\n", "<br/>"))
                         </p>
                     </div>
                 </div>
             </div>
             <p style="text-align:right">
-                <a href="@Url.Action("Index", new { category = @Model.Category, filter = @Model.Brand })" class="btn btn-warning">Назад</a>
+                <a href="@Url.Action("Index", new { category = @Model.Category, filter = @Model.Brand})" class="btn btn-warning">Назад</a>
+                @*<a href="@ViewBag.returnUrl" class="btn btn-warning">Назад</a>*@        
             </p>
         </div>
     </div>
