@@ -72,6 +72,11 @@ namespace e_shop
             );
 
             routes.MapRoute(
+            name: "order",
+            url: "{controller}/{action}/Order/{orderId}"
+            );         
+
+            routes.MapRoute(
             name: "edit",
             url: "{controller}/{action}/Product/{productId}"
             );
@@ -96,10 +101,7 @@ namespace e_shop
                 new { page = @"\d+" }
             );
            
-            routes.MapRoute(
-                name: "order",
-                url: "{controller}/{action}/Order/{orderId}"
-            );         
+
 
             routes.MapRoute(null, "{controller}/{action}");
 

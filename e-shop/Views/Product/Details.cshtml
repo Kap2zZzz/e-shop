@@ -1,6 +1,6 @@
 ﻿@model e_shop.Entities.Product
 @{
-    ViewBag.Title = (Model.Category == null ? "Усі товари | LED освітлення, Автоматика, Кабеленесучі системи, Кабель, Тепла підлога, Терморегулятори, Щитки, Бокси" : Model.Category) + (Model.Name == null ? "" : " | " + Model.Name) + " | Електро Коник";
+    ViewBag.Title = (Model.Category == null ? "Усі товари | LED освітлення, Автоматика, Кабеленесучі системи, Кабель, Тепла підлога, Терморегулятори, Щитки, Бокси" : Model.Category) + (Model.Name == null ? "" : " | " + Model.Name) + " | " + Model.Brand;
 }
 <style>
     #menu .glyphicon {

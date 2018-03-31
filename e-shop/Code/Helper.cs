@@ -39,7 +39,7 @@ namespace e_shop.Code
                 new MenuView{Category = "Кабель", Brand = new List<string> {"VIP Кабель (ВВГ-П)", "VIP Кабель (ПВС)", "VIP Кабель (ШВВП)", "Одеса кабель ГОСТ (ПВС)", "Одеса кабель ГОСТ (ШВВП)", "Кабель алюмінієвий", "Кабель телевізійний+відеонагляд"}},
                 new MenuView{Category = "Щитки та бокси", Brand = new List<string> {"Щитки Mutlusan пласт. зовн.", "Щитки Mutlusan пласт. внутр.", "Бокси монтажні герметичні з ПМ", "Щитки внутрішні (ЩО, ЯУР)", "Щитки зовнішні (ЩО, ЯУР)"}},
                 new MenuView{Category = "LED освітлення", Brand = new List<string> {"LED Original"}},
-                new MenuView{Category = "Автоматика", Brand = new List<string> {"Schneider Electric (Автомати)", "Schneider Electric (ПЗВ, Диф. автомати)", "Schrack Technik (Автомати)", "Schrack Technik (ПЗВ)"}},
+                new MenuView{Category = "Автоматика", Brand = new List<string> {"Schneider Electric (Автомати)", "Schneider Electric (ПЗВ, Диф. автомати)", "Schrack Technik (Автомати)", "Schrack Technik (ПЗВ)", "Реле напруги (ZUBR)"}},
                 new MenuView{Category = "Кабеленесучі системи", Brand = new List<string> {"Гофротрубка DКС ПВХ легка негорюча світло-сіра", "Гофра труба (ПВХ) чорна", "Металорукав", "Короб пластиковий (кабель канал)", "Труба ПВХ гладка" }},
             };
             return _menu.OrderBy(x => x.Category).ToList();
